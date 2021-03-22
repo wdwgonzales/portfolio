@@ -2,7 +2,7 @@
 ---
 title: 'The lexical prosodic system of Lánnang-uè: An experimental account'
 author: "Wilkinson Daniel Wong Gonzales"
-date: "Final Paper: FA 2020, DSPA (HS 650)"
+date: "------"
 documentclass: article
 output:
   html_document:

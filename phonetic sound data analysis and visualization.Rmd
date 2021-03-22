@@ -1,0 +1,3293 @@
+
+---
+title: 'The lexical prosodic system of Lánnang-uè: An experimental account'
+author: "Wilkinson Daniel Wong Gonzales"
+date: "Final Paper: FA 2020, DSPA (HS 650)"
+documentclass: article
+output:
+  html_document:
+    self_contained: yes
+    #theme: spacelab
+    highlight: tango
+    toc: true
+    number_sections: true
+    toc_depth: 2
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+    code_folding: hide
+  pdf_document:
+    fig_caption: yes
+    keep_tex: yes
+  word_document: default
+header-includes:
+- \setlength{\parindent}{2em}
+- \usepackage{setspace}
+- \usepackage[normalem]{ulem}
+- \useunder{\uline}{\ul}{}
+- \usepackage{booktabs}
+- \usepackage{multicol}
+- \usepackage{amsmath}
+geometry: margin=1in
+always_allow_html: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+```
+
+\fontfamily{cmr}
+\fontsize{12}{5}
+\selectfont
+
+SID: ####-6096  
+UMich Email: wdwg@umich.edu  
+  
+I certify that the following paper represents my own independent work and conforms with the guidelines of academic honesty described in the UMich student handbook.  
+  
+  ______________
+  
+```{r packages and function, include = FALSE, warning = FALSE}
+require(pacman)
+pacman::p_load(dplyr, zoo, tidyr,FactoMineR, factoextra,
+               reshape2, imputeTS, lme4, doBy, sjPlot, sjmisc,
+               sjlabelled, psych, car, nnet,vip, Boruta, C50, rpart, rattle,
+               pdp, gsg, nbpMatching,viridis, scales)
+
+source('zscorefunction.R'); source('summarySE.R')
+
+```
+
+# Abstract
+How is the lexical prosodic system of Lánnang-uè characterized? Is it systematic or 'random'? What can account for the 'random' inter-speaker variation observed in the lexical prosody of the variety? In this paper, I explore the lexical prosody of Lánnang-uè, a linguistic variety spoken in the Philippines that has elements from Tagalog, English, Hokkien, and Mandarin. I also examine the variation observed in the prosodic system from a sociolinguistic perspective, hypothesizing that deviation from the prosodic system can be accounted for by looking at age, sex, and linguistic background. To achieve these goals, I conduct a reading experiment on 20 speakers of Lánnang-uè. A series of mixed-effects linear regression analyses and analyses using other techniques in predictive analytics (e.g. Boruta feature selection) show that Lánnang-uè incorporates elements from its source languages systematically. The 'random variation' observed in the lexical prosodic system of Lánnang-uè can be accounted for social factors mentioned earlier. That is, speakers with certain social backgrounds were observed to deviate from conventionalized practices in Lánnang-uè. Treating these deviant practices from the mainstream system as linguistic innovations, the findings on linguistic- and socially-conditioned variation not only indicate that Lánnang-uè is an independent linguistic system with rules and conventions, they also show that the variety evolves with its speakers. 
+
+# Introduction
+
+## Background
+Lánnang-uè  ‘our people speech’ or Philippine Hybrid Hokkien is a Sino-Philippine speech variety with Hokkien, English, and Philippine language elements. It is primarily used by an estimated 1.5 million Lannangs – individuals with a mixed Chinese and Filipino cultural heritage (Uytanlet 2014); it is generally perceived by its speakers as a dialect of Hokkien “adulterated” by words or phrases of non-Hokkien origin (Ang See 1990: 14). Sometimes analogized to hālō-hālô ‘mix-mix’ – a local dessert that consists of a heterogenous concoction of sweet ingredients, Lánnang-uè is often perceived by its speakers as unsystematic; many of its speakers claim that the mix is random (Gonzales’ field notes, summer 2019). Lánnang-uè also displays striking variation readily observable in speakers’ use and acceptability judgments of linguistic features. That is, not everyone uses or accepts the features of Lánnang-uè in the same way. Lánnang-uè speakers generally regard this inter-speaker variation as unstructured, using this as evidence that the admixture is a random, ad hoc construction.
+
+My initial investigations on the metropolitan Manila variety of Lánnang-uè (henceforth, Lánnang-uè, for convenience) show the speech variety is systematic. For one, I observed that the seemingly ‘free’ variation in the production and acceptability of certain Lánnang-uè features is, in fact, conditioned by similar factors (i.e. age, linguistic background) (Gonzales 2018; Gonzales & Starr 2020). Second, after accounting for the variation using these factors, I found that the mixing in Lánnang-uè may not be random after all, in contrast to what many Lánnang-uè speakers report. From my fieldwork and previous work, I observed that Lánnang-uè seems to incorporate elements from Tagalog,  English, and Hokkien systematically (Gonzales 2018), consistent with some descriptions of mixed languages (Matras & Bakker 2003: 1; Winford 2013; Gonzales & Starr 2020).
+
+But while there is some indication of Lánnang-uè having systematicity, there is still a need for a more comprehensive study. One or two linguistic features are not enough to generalize about the systematicity of the Lánnang-uè. Also, the social and linguistic factors in my preliminary investigations of Lánnang-uè may have accounted for the variation in the two features I selected in those preliminary studies, but it is possible that the same factors do not condition variation in other features of the speech variety. 
+
+## Focus, gap, and general hypotheses
+
+In this paper, I investigate a specific feature of Lánnang-uè that has, to my knowledge, not yet been investigated: the lexical prosody. Based on my preliminary observations, aspects of the lexical prosody of the variety exhibit conventionalization and systematicity. That is, the way words are 'mixed' in this variety is not random. Specifically, I observed that Lánnang-uè speakers tend to be very consistent on determining which words maintain their original prosody. And for words that have been modified prosodically, speakers consistently lengthen specific syllables. They also tend to use 'marked' pitch consistently for specific syllables. Another salient observation I made was for final syllables in these modified words: Lánnang-uè speakers, in general, tend to systematically assign high, level pitch for certain syllables and falling contour pitch for the others. 
+
+However, the systematicity I observed does not hold for all Lánnang-uè words; I would notice deviations from the said systematicity. These deviations, I hypothesize, can be accounted for by social factors such as age, gender, and linguistic proficiency in the source languages of Lánnang-uè, as well as their interactions with structural factors (e.g. syllable structure, language of the word, etc.). Within the larger goal of investigating the prosody of Lánnang-uè systematically, my goal is to analyze inter-speaker variation that may be conditioned by social factors. A secondary goal is to use the results of the variation analysis to discuss the development of the prosodic system in Lánnang-uè.
+
+The main questions that underlie this paper are as follows: How is the lexical prosodic system of Lánnang-uè characterized (prosodic maintenance, syllable duration, syllable pitch markedness, and final pitch contour)? Can the inter-speaker variation observed in the variety be accounted for by social and/or linguistic factors? What can the social factors tell us about the development of the features? 
+
+
+# Methodology
+## Design
+### Task Overview
+I adopt the experimental method to test my hypotheses. I asked my participants to participate in a reading task, conducted online. Participants, expected to be naïve to the research questions, were given the following instructions: identify the text/word from the list of words and, as quickly as possible, say the carrier sentence (*Hige si _ ba?* 'Is that ___?') followed by the word/text they identified. For instance, when shown the text 'hotdog' in the list, the participant was immediately expected to say *Hige si hotdog ba?* 'Is that a hotdog?'. Participants go through all the words in the list, after which the recorded session ends.
+
+### Stimuli
+There is just one block for this experiment, although participants were asked to practice going over the list to avoid reading errors. The block has 17 conditions, each of which has three to five items. These conditions involve the source language of the words, syllable structure, and word stress.  All words are disyllabic, as part of control measures. I lay out the trial distribution with regard to the conditions below. Note that all items are repeated three times for reliability and to reduce error rates. Overall, every participant goes through 165 trials, all of which were randomly ordered.
+
+``` {r stimuli}
+conditions <- as.data.frame(read.csv('stimuli conditions.csv'))
+
+DT::datatable(conditions, options = list(
+  pageLength=20, scrollX='400px'), filter = 'top')
+```
+
+### Participants
+I have 20 participants (11 female, 9 male; 14 young, 6 old), all of whom are born and raised in the Philippines, have undergone Lannang education, and have conversational knowledge in Lánnang-uè, Tagalog, English, and Hokkien. These participants were all recruited online. 
+
+## Data sources (import)
+I will be drawing on three sources of data: (1) social background of each participant, (2)  pitch and duration measurements upon exposure to stimuli, and (3) stimuli-specific information (e.g. whether the syllable was originally stressed, the linguistic origin of the word).
+
+### Social Background Data
+I first load the social background data. This includes information I collected from a survey right after the experiment. Information include `sex`, `age`, `profession`, linguistic `proficiency`, among other variables. Measures that involved the use of a Likert scale (e.g. `proficiency`, `frequency` of language use) were z-scored by participant. A table showing the data set for social background is shown below.
+
+``` {r social information}
+dat.social <- as.data.frame(read.csv('socialdata.csv'))
+start <- match('prof.t', names(dat.social))
+end <- match('ref.l', names(dat.social))
+dat.social.rate <- dat.social[c(2,start:end)]
+dat.social.rate.long <- melt(dat.social.rate,
+                                 # ID variables - all the variables to keep but not split apart on
+                                 id.vars=c("idno"),
+                                 variable.name="aspect",
+                                 value.name="rating"
+)
+splitasp <- data.frame(do.call('rbind', strsplit(as.character(dat.social.rate.long$aspect),'.',fixed=TRUE)))
+splitasp <- as.data.frame(splitasp)
+
+dat.social.rate.long$macro <- splitasp$X1
+dat.social.rate.long <- transform(dat.social.rate.long,id=as.numeric(factor(macro)))
+dat.social.rate.long_attitudeonly <- dat.social.rate.long[1:5040, ] 
+dat.social.rate.long_lannangattidonly <- dat.social.rate.long[5041:nrow(dat.social.rate.long), ] 
+dat_survey_attitude_z <- zscoreData(dat.social.rate.long_attitudeonly, 'rating', 'id', 7)
+dat_survey_lannangonly_z <- zscoreData(dat.social.rate.long_lannangattidonly,  'rating', 'id', 1)
+
+dat.social.attid.z <- rbind(dat_survey_attitude_z,dat_survey_lannangonly_z)
+dat.social.attid.z<- as.data.frame(na.omit(dat.social.attid.z))
+dat.social.attid.z <- dcast(dat.social.attid.z, idno ~ aspect, value.var="zscores")
+dat.social.attid.z <- dat.social.attid.z %>% dplyr::rename_all(paste0, ".z")
+colnames(dat.social.attid.z)[1] <- "idno"
+dat.social <- merge(dat.social, dat.social.attid.z, by= "idno", all = TRUE)
+
+dat.social <- dat.social[ , -which(names(dat.social) %in% c("surname","firstname"))]
+
+DT::datatable(dat.social, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+```
+
+### Stimuli information
+I then load the information linked to each stimuli. Variables in this data set include `word`, `language` of the word, `stress` information, `syllable structure`, and `trial number`. It also contains extracted features from the stimuli, such as whether the stimuli has a voiced consonant, a sibilant, etc. A table of the data set is shown here:
+
+``` {r stimuli raw}
+dat.stimuli<- as.data.frame(read.csv('stimuli_OCT1820.csv'))
+DT::datatable(dat.stimuli, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+```
+
+### Raw measurements
+I then load my measurements of pitch and duration, which were done using the acoustic annotation software `Praat`. Specifically, this data set includes the following variables: `duration` for the penultimate (pre-final) and ultimate syllables, the `pitch` track for syllables in both positions, as well the `mean F0` or pitch for these syllables. Duration is measured in seconds whereas pitch is measured in Hertz.
+
+``` {r measure raw}
+dat.raw <- as.data.frame(read.csv('raw_data_working_OCT1720.csv'))
+DT::datatable(head(dat.raw), options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+```
+
+## Data pre-processing
+
+### Merging, variable creation, type-casting
+
+I merge the three data sets into one data frame called `dat.main`, which I will use to test my hypotheses on prosody at the word-level. In this data frame, I created two new variables `sinitic` (whether the word has Sinitic origins), and `modified` (whether the word has undergone prosodic modification or adaptation in comparison to the original word in the source language). I also made sure that my numeric variables are cast as numbers in the data and not as characters by using the `as.numeric` function.
+
+``` {r preprocess main merge}
+dat.main <- merge(dat.raw, dat.stimuli, by = "stimno")
+dat.main <- merge(dat.main, dat.social, by = "pcid")
+dat.main$sinitic <- ifelse(dat.main$lg.word == 'Mandarin' | dat.main$lg.word == 'Hokkien', 1,-1 )
+dat.main$modified <- ifelse(dat.main$sinitic == 1 & dat.main$modification == 'x', 1,
+                          ifelse(dat.main$sinitic == 1 & dat.main$modification == '', -1,
+                                 ifelse(dat.main$sinitic == -1 & dat.main$modification == '', 1,-1)))
+dat.main$seqid <- seq.int(nrow(dat.main))
+cols <- c("p.1","p.2", "p.3", "p.4", "p.5", "p.6", "p.7","p.8","p.9","p.10",
+          "u.1","u.2", "u.3", "u.4", "u.5", "u.6", "u.7","u.8","u.9","u.10",
+          "pt.1","pt.2", "pt.3", "pt.4", "pt.5", "pt.6", "pt.7","pt.8","pt.9","pt.10",
+          "ut.1","ut.2", "ut.3", "ut.4", "ut.5", "ut.6", "ut.7","ut.8","ut.9","ut.10"
+)
+
+dat.main[cols] <- lapply(dat.main[cols], as.numeric)
+
+```
+
+### Imputation of data 
+From the raw measurements data, I observed that a lot of values in the pitch time series variables were missing. As such, I impute the missing values horizontally using the `Kalman` technique through the `na.kalman` function. Data for the penultimate syllable pitch track  measurement without imputation is shown first, followed by the imputed version. Data for the ultimate syllable pitch track  measurement without imputation is then shown, followed the data set with imputed values.
+
+``` {r imputation of time series, warning = FALSE}
+#Start with p.
+dat.main.ts.p <- dat.main %>%
+  select(p.1, p.2, p.3, p.4, p.5, p.6, p.7, p.8, p.9, p.10)
+dat.main.ts.p <- as.matrix(dat.main.ts.p)
+dat.main.ts.p <- t(zoo(dat.main.ts.p))
+df <- na_kalman(dat.main.ts.p)
+df <- as.data.frame(t(df))
+df$seqid <- dat.main$seqid
+df <- t(df)
+df <- df[, which(colMeans(!is.na(df)) > 0.18)]
+df <- as.data.frame(t(df))
+x <- df$seqid
+
+df <- df[1:(length(df)-1)]
+
+Slope = function(x) {
+  TempDF = data.frame(x, year=1:ncol(df))
+  lm(x ~ year, data=TempDF)$coefficients[2]
+}
+
+TData = as.data.frame(t(df))
+df$p.slope = sapply(TData, Slope)
+
+dat.main.ts.p.imputed <- df %>% dplyr::rename_all(paste0, ".i")
+dat.main.ts.p.imputed$seqid <- x
+
+
+#Next with u
+dat.main.ts.u <- dat.main %>%
+  select(u.1, u.2, u.3, u.4, u.5, u.6, u.7, u.8, u.9, u.10)
+dat.main.ts.u <- as.matrix(dat.main.ts.u)
+dat.main.ts.u <- t(zoo(dat.main.ts.u))
+df <- na_kalman(dat.main.ts.u)
+df <- as.data.frame(t(df))
+df$seqid <- dat.main$seqid
+df <- t(df)
+df <- df[, which(colMeans(!is.na(df)) > 0.18)]
+df <- as.data.frame(t(df))
+x <- df$seqid
+
+df <- df[1:(length(df)-1)]
+
+Slope = function(x) {
+  TempDF = data.frame(x, year=1:ncol(df))
+  lm(x ~ year, data=TempDF)$coefficients[2]
+}
+
+TData = as.data.frame(t(df))
+df$u.slope = sapply(TData, Slope)
+
+dat.main.ts.u.imputed <- df %>% dplyr::rename_all(paste0, ".i")
+dat.main.ts.u.imputed$seqid <- x
+
+
+#Next with pt
+dat.main.ts.pt <- dat.main %>%
+  select(pt.1, pt.2, pt.3, pt.4, pt.5, pt.6, pt.7, pt.8, pt.9, pt.10)
+
+DT::datatable(head(dat.main.ts.pt), options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+dat.main.ts.pt <- as.matrix(dat.main.ts.pt)
+dat.main.ts.pt <- t(zoo(dat.main.ts.pt))
+df <- na_kalman(dat.main.ts.pt)
+df <- as.data.frame(t(df))
+df$seqid <- dat.main$seqid
+df <- t(df)
+df <- df[, which(colMeans(!is.na(df)) > 0.18)]
+df <- as.data.frame(t(df))
+x <- df$seqid
+
+df <- df[1:(length(df)-1)]
+
+Slope = function(x) {
+  TempDF = data.frame(x, year=1:ncol(df))
+  lm(x ~ year, data=TempDF)$coefficients[2]
+}
+
+TData = as.data.frame(t(df))
+df$pt.slope = sapply(TData, Slope)
+
+dat.main.ts.pt.imputed <- df %>% dplyr::rename_all(paste0, ".i")
+dat.main.ts.pt.imputed$seqid <- x
+
+DT::datatable(head(dat.main.ts.pt.imputed), options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+
+#Next with ut
+dat.main.ts.ut <- dat.main %>%
+  select(ut.1, ut.2, ut.3, ut.4, ut.5, ut.6, ut.7, ut.8, ut.9, ut.10)
+
+DT::datatable(tail(dat.main.ts.ut), options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+dat.main.ts.ut <- as.matrix(dat.main.ts.ut)
+dat.main.ts.ut <- t(zoo(dat.main.ts.ut))
+df <- na_kalman(dat.main.ts.ut)
+df <- as.data.frame(t(df))
+df$seqid <- dat.main$seqid
+df <- t(df)
+df <- df[, which(colMeans(!is.na(df)) > 0.18)]
+df <- as.data.frame(t(df))
+x <- df$seqid
+
+df <- df[1:(length(df)-1)]
+
+Slope = function(x) {
+  TempDF = data.frame(x, year=1:ncol(df))
+  lm(x ~ year, data=TempDF)$coefficients[2]
+}
+
+TData = as.data.frame(t(df))
+df$ut.slope = sapply(TData, Slope)
+
+dat.main.ts.ut.imputed <- df %>% dplyr::rename_all(paste0, ".i")
+dat.main.ts.ut.imputed$seqid <- x
+
+DT::datatable(tail(dat.main.ts.ut.imputed), options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+#Merge files
+dat.main <- merge(dat.main, dat.main.ts.p.imputed, by = "seqid", all=T)
+dat.main <- merge(dat.main, dat.main.ts.u.imputed, by = "seqid",all=T)
+dat.main <- merge(dat.main, dat.main.ts.pt.imputed, by = "seqid",all=T)
+dat.main <- merge(dat.main, dat.main.ts.ut.imputed, by = "seqid",all=T)
+
+```
+
+### Slope extraction using linear regression
+
+From the imputed time series data, I want to get the slope, as this is something I plan to investigate in this paper. I use the slope acquired from the `lm` function in R to do this. I have already done this in the previous step (after the imputations) but I will present an example here (ultimate syllable pitch slope) again for reference. 
+
+``` {r slope variable}
+Slope = function(x) {
+  TempDF = data.frame(x, year=1:ncol(df))
+  lm(x ~ year, data=TempDF)$coefficients[2]
+}
+
+dat.main.ts.ut.imputed_slope <- dat.main.ts.ut.imputed %>%
+  select(ut.slope.i, everything())
+
+DT::datatable(tail(dat.main.ts.ut.imputed_slope), options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+```
+
+### Syllable-level data frame
+
+From the main data frame that focuses on the word level, I create another data frame that focuses on the syllable level. I recast part of the main data frame from wide format to long format so that I can test for the effect of position (i.e. `penultimate`, `ultimate`) later on. I show this below.
+
+``` {r recast}
+## Make the syllable level data frame
+dat.syl.level <- dat.main %>%
+  select(seqid, pcid, stimno, p.start, p.dur, u.dur, pt.dur, ut.dur, pt.truemean, ut.truemean, pt.slope, ut.slope, pt.1.i:ut.slope.i)
+
+#Regular duration
+dat.syl.level.dur <- dat.syl.level %>%
+  select(seqid, pcid, stimno, p.start, p.dur, u.dur)
+
+
+dat.syl.level.dur.long <- melt(dat.syl.level.dur,
+                             # ID variables - all the variables to keep but not split apart on
+                             id.vars= c("seqid", "pcid", "stimno", "p.start"),
+                             variable.name="position.dur",
+                             value.name="duration"
+)
+
+dat.syl.level.dur.long$syl.seqid <- seq.int(nrow(dat.syl.level.dur.long ))
+
+#Tone Duration
+dat.syl.level.durt <- dat.syl.level %>%
+  select(seqid, pcid, stimno, p.start, pt.dur, ut.dur)
+
+dat.syl.level.durt.long <- melt(dat.syl.level.durt,
+                               # ID variables - all the variables to keep but not split apart on
+                               id.vars= c("seqid", "pcid", "stimno", "p.start"),
+                               variable.name="position.durt",
+                               value.name="duration.tone"
+)
+dat.syl.level.durt.long$syl.seqid <- seq.int(nrow(dat.syl.level.durt.long ))
+dat.syl.level.durt.long <-dat.syl.level.durt.long[, -c(1:5)]
+
+
+#F0 mean
+dat.syl.level.f0 <- dat.syl.level %>%
+  select(seqid, pcid, stimno, p.start, pt.truemean, ut.truemean)
+
+dat.syl.level.f0.long <- melt(dat.syl.level.f0,
+                                # ID variables - all the variables to keep but not split apart on
+                                id.vars= c("seqid", "pcid", "stimno", "p.start"),
+                                variable.name="position.truemean",
+                                value.name="mean.f0"
+)
+dat.syl.level.f0.long$syl.seqid <- seq.int(nrow(dat.syl.level.f0.long ))
+dat.syl.level.f0.long <- dat.syl.level.f0.long[, -c(1:5)]
+
+
+#True Slope
+dat.syl.level.trueslope <- dat.syl.level %>%
+  select(seqid, pcid, stimno, p.start, pt.slope, ut.slope)
+
+dat.syl.level.trueslope.long <- melt(dat.syl.level.trueslope,
+                              # ID variables - all the variables to keep but not split apart on
+                              id.vars= c("seqid", "pcid", "stimno", "p.start"),
+                              variable.name="position.trueslope",
+                              value.name="slope.true"
+)
+dat.syl.level.trueslope.long$syl.seqid <- seq.int(nrow(dat.syl.level.trueslope.long))
+dat.syl.level.trueslope.long<- dat.syl.level.trueslope.long[, -c(1:5)]
+
+#Point 1
+dat.p1.i <- dat.syl.level %>%
+  select(seqid, pcid, stimno, p.start, pt.1.i, ut.1.i)
+
+dat.p1.i.long <- melt(dat.p1.i,
+                     # ID variables - all the variables to keep but not split apart on
+                     id.vars= c("seqid", "pcid", "stimno", "p.start"),
+                     value.name="point.1")
+dat.p1.i.long$syl.seqid <- seq.int(nrow(dat.p1.i.long))
+dat.p1 <- dat.p1.i.long[, -c(1:5)]
+
+
+#Point 2
+dat.p2.i <- dat.syl.level %>%
+  select(seqid, pcid, stimno, p.start, pt.2.i, ut.2.i)
+
+dat.p2.i.long <- melt(dat.p2.i,
+                      # ID variables - all the variables to keep but not split apart on
+                      id.vars= c("seqid", "pcid", "stimno", "p.start"),
+                      value.name="point.2")
+dat.p2.i.long$syl.seqid <- seq.int(nrow(dat.p2.i.long))
+dat.p2 <- dat.p2.i.long[, -c(1:5)]
+
+
+#Point 3
+dat.p3.i <- dat.syl.level %>%
+  select(seqid, pcid, stimno, p.start, pt.3.i, ut.3.i)
+
+dat.p3.i.long <- melt(dat.p3.i,
+                      # ID variables - all the variables to keep but not split apart on
+                      id.vars= c("seqid", "pcid", "stimno", "p.start"),
+                      value.name="point.3")
+dat.p3.i.long$syl.seqid <- seq.int(nrow(dat.p3.i.long))
+dat.p3 <- dat.p3.i.long[, -c(1:5)]
+
+
+#Point 4
+dat.p4.i <- dat.syl.level %>%
+  select(seqid, pcid, stimno, p.start, pt.4.i, ut.4.i)
+
+dat.p4.i.long <- melt(dat.p4.i,
+                      # ID variables - all the variables to keep but not split apart on
+                      id.vars= c("seqid", "pcid", "stimno", "p.start"),
+                      value.name="point.4")
+dat.p4.i.long$syl.seqid <- seq.int(nrow(dat.p4.i.long))
+dat.p4 <- dat.p4.i.long[, -c(1:5)]
+
+
+#Point 5
+dat.p5.i <- dat.syl.level %>%
+  select(seqid, pcid, stimno, p.start, pt.5.i, ut.5.i)
+
+dat.p5.i.long <- melt(dat.p5.i,
+                      # ID variables - all the variables to keep but not split apart on
+                      id.vars= c("seqid", "pcid", "stimno", "p.start"),
+                      value.name="point.5")
+dat.p5.i.long$syl.seqid <- seq.int(nrow(dat.p5.i.long))
+dat.p5 <- dat.p5.i.long[, -c(1:5)]
+
+
+#Point 6
+dat.p6.i <- dat.syl.level %>%
+  select(seqid, pcid, stimno, p.start, pt.6.i, ut.6.i)
+
+dat.p6.i.long <- melt(dat.p6.i,
+                      # ID variables - all the variables to keep but not split apart on
+                      id.vars= c("seqid", "pcid", "stimno", "p.start"),
+                      value.name="point.6")
+dat.p6.i.long$syl.seqid <- seq.int(nrow(dat.p6.i.long))
+dat.p6 <- dat.p6.i.long[, -c(1:5)]
+
+
+#Point 7
+dat.p7.i <- dat.syl.level %>%
+  select(seqid, pcid, stimno, p.start, pt.7.i, ut.7.i)
+
+dat.p7.i.long <- melt(dat.p7.i,
+                      # ID variables - all the variables to keep but not split apart on
+                      id.vars= c("seqid", "pcid", "stimno", "p.start"),
+                      value.name="point.7")
+dat.p7.i.long$syl.seqid <- seq.int(nrow(dat.p7.i.long))
+dat.p7 <- dat.p7.i.long[, -c(1:5)]
+
+
+#Point 8
+dat.p8.i <- dat.syl.level %>%
+  select(seqid, pcid, stimno, p.start, pt.8.i, ut.8.i)
+
+dat.p8.i.long <- melt(dat.p8.i,
+                      # ID variables - all the variables to keep but not split apart on
+                      id.vars= c("seqid", "pcid", "stimno", "p.start"),
+                      value.name="point.8")
+dat.p8.i.long$syl.seqid <- seq.int(nrow(dat.p8.i.long))
+dat.p8 <- dat.p8.i.long[, -c(1:5)]
+
+
+#Point 9
+dat.p9.i <- dat.syl.level %>%
+  select(seqid, pcid, stimno, p.start, pt.9.i, ut.9.i)
+
+dat.p9.i.long <- melt(dat.p9.i,
+                      # ID variables - all the variables to keep but not split apart on
+                      id.vars= c("seqid", "pcid", "stimno", "p.start"),
+                      value.name="point.9")
+dat.p9.i.long$syl.seqid <- seq.int(nrow(dat.p9.i.long))
+dat.p9 <- dat.p9.i.long[, -c(1:5)]
+
+#Point 10
+dat.p10.i <- dat.syl.level %>%
+  select(seqid, pcid, stimno, p.start, pt.10.i, ut.10.i)
+
+dat.p10.i.long <- melt(dat.p10.i,
+                      # ID variables - all the variables to keep but not split apart on
+                      id.vars= c("seqid", "pcid", "stimno", "p.start"),
+                      value.name="point.10")
+dat.p10.i.long$syl.seqid <- seq.int(nrow(dat.p10.i.long))
+dat.p10 <- dat.p10.i.long[, -c(1:5)]
+
+
+#Imputed slope
+dat.slope.i <- dat.syl.level %>%
+  select(seqid, pcid, stimno, p.start, pt.slope.i, ut.slope.i)
+
+dat.slope.i.long <- melt(dat.slope.i,
+                       # ID variables - all the variables to keep but not split apart on
+                       id.vars= c("seqid", "pcid", "stimno", "p.start"),
+                       value.name="slope.impute")
+dat.slope.i.long$syl.seqid <- seq.int(nrow(dat.slope.i.long))
+dat.slope.imp <- dat.slope.i.long[, -c(1:5)]
+
+## Multiple merge
+final <- Reduce(function(x,y) merge(x = x, y = y, by = "syl.seqid"), 
+                list(dat.syl.level.dur.long, dat.syl.level.durt.long, 
+                     dat.syl.level.f0.long, dat.syl.level.trueslope.long,
+                     dat.p1, dat.p2, dat.p3, dat.p4, dat.p5, dat.p6, 
+                     dat.p7, dat.p8, dat.p9, dat.p10, dat.slope.imp))
+
+final$position <- substring(final$position.dur, 1, 1)
+
+dat.syl.level <- final
+dat.syl.level$position <- ifelse(dat.syl.level$position == "p", "penultimate", "ultimate")
+
+dat.syl.level <-dat.syl.level[ , -which(names(dat.syl.level) %in% c("position.dur"))]
+
+dat.syl.level <- dat.syl.level %>%
+  select(position, everything())
+
+DT::datatable(tail(dat.syl.level), options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+```
+
+### PCA
+
+#### Distill `mean.f0`, `point.1`, and  `slope.nonzero` into `markedness`
+
+One variable that I want to test in this paper is `pitch markedness`. While it is impossible to directly measure this, one can use PCA to distill correlated factors. Correlates of pitch `markedness` include a high pitch slope (absolute value of slope) (i.e. `slope.nonzero`), high `F0` or pitch mean (i.e. `mean.f0`), as well as a high `intercept` or starting point (i.e. `point.1` in the time series).  I interpret the first principal component as `markedness`. A look at the factor loadings show that `mean.f0` and `point.1` contribute the most to this variable but that `slope.nonzero` also contributes to it: there is a significant correlation between the `point.1` variable and the new `markedness` variable ($\rho$ =  -0.31,$p$ < 0.001 ).
+
+``` {r pca markedness, warning = FALSE}
+dat.prom.pca <- dat.syl.level %>%
+  select(point.1, slope.impute, mean.f0)
+
+dat.prom.pca$mean.f0 <- as.numeric(dat.prom.pca$mean.f0)
+dat.prom.pca$point.1 <- as.numeric(dat.prom.pca$point.1)
+dat.prom.pca$slope.impute <- as.numeric(dat.prom.pca$slope.impute)
+dat.prom.pca$slope.nonzero <- abs(dat.prom.pca$slope.impute)
+dat.prom.pca$syl.seqid <- seq.int(nrow(dat.prom.pca))
+
+dat.prom.pca <- na.omit(dat.prom.pca)
+seq <- dat.prom.pca$syl.seqid
+dat.prom.pca <-dat.prom.pca[ , -which(names(dat.prom.pca) %in% c("syl.seqid","slope.impute"))]
+
+names(dat.prom.pca)[names(dat.prom.pca)=="point.1"] <- "dv1"
+names(dat.prom.pca)[names(dat.prom.pca)=="mean.f0"] <- "dv2"
+names(dat.prom.pca)[names(dat.prom.pca)=="slope.nonzero"] <- "dv3"
+
+out.pca <- FactoMineR::PCA(dat.prom.pca, scale.unit = T, ncp = 3, graph = FALSE)
+out.pca$eig
+
+vec <- out.pca$ind$coord
+#as.data.frame(vec)
+df <- data.frame(matrix(unlist(vec), nrow=length(vec), byrow=T))
+df <- df[1:6559,]
+names(df)[1] <- "markedness"
+df <- as.data.frame(df)
+names(df)[1] <- "markedness"
+
+dat.prom.pca$syl.seqid <- seq
+df$syl.seqid <- seq
+dat.prom.pca <- merge(dat.prom.pca, df, by = "syl.seqid", all = TRUE)
+
+names(dat.prom.pca)[2] <- "point.1"
+names(dat.prom.pca)[3] <- "slope.nonzero"
+
+dat.prom.pca <- dat.prom.pca %>%
+  select(syl.seqid, markedness)
+
+dat.syl.level <- merge(dat.syl.level, dat.prom.pca, by = "syl.seqid", all = TRUE)
+dat.syl.level <- merge(dat.syl.level, dat.stimuli, by = "stimno")
+dat.syl.level <- merge(dat.syl.level, dat.social, by = "pcid")
+dat.syl.level$sinitic <- ifelse(dat.syl.level$lg.word == 'Mandarin' | dat.syl.level$lg.word == 'Hokkien', 1,-1 )
+
+dat.syl.level$mean.f0 <- as.numeric(dat.syl.level$mean.f0)
+cor.test(dat.syl.level$markedness, dat.syl.level$slope.impute)
+cor.test(dat.syl.level$markedness, dat.syl.level$point.1)
+cor.test(dat.syl.level$markedness, dat.syl.level$mean.f0)
+
+summary(out.pca)
+
+dat.syl.level <- dat.syl.level %>%
+  select(markedness, mean.f0, slope.impute, point.1, everything())
+
+DT::datatable(tail(dat.syl.level), options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+```
+
+#### Distill `prof.m.z`, `prof.h.z` into `prof.sinitic.z`
+
+Another variable of interest is the proficiency of participants in Sinitic languages. In order to do this, I use PCA on `prof.h.z` (Hokkien) and `prof.m.z` (Mandarin) and extract the first two PCs. I use the coordinates of the second component of the PCA analysis because it is correlated in the same direction to both `prof.h.z` and `prof.m.z`). 
+
+``` {r pca sin, warning = FALSE}
+
+dat.sinitic.pca <- dat.main %>%
+  select(prof.m.z, prof.h.z)
+
+dat.sinitic.pca$syl.seqid <- seq.int(nrow(dat.sinitic.pca))
+dat.sinitic.pca <- na.omit(dat.sinitic.pca)
+
+seq <- dat.sinitic.pca$syl.seqid
+dat.sinitic.pca <-dat.sinitic.pca[ , -which(names(dat.sinitic.pca) %in% c("syl.seqid"))]
+
+prcomp.siniticprof <- prcomp(dat.sinitic.pca, scale = TRUE)
+
+eig.var <- get_pca_var(prcomp.siniticprof)
+eig.var$cor
+
+eig.ind <-get_pca_ind(prcomp.siniticprof)
+PC_sin <- as.data.frame(eig.ind$coord)
+
+dat.main$prof.sinitic.z  <- PC_sin$Dim.2*-1
+dat.syl.level$prof.sinitic.z  <- PC_sin$Dim.2*-1
+
+dat.main.sinitic.prof <- dat.main %>%
+  select(prof.sinitic.z, prof.m.z, prof.h.z)
+
+DT::datatable(unique(dat.main.sinitic.prof), options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+```
+
+#### Distill `prof.t.z`, `prof.e.z` into `prof.nonsinitic.z`
+I am also interested in the proficiency of participants in Non-Sinitic languages. In order to do this, I use PCA on `prof.t.z` (Tagalog) and `prof.e.z` (English) and extract the first two PCs. I use the coordinates of the first component of the PCA analysis because it is correlated in the same direction to both `prof.t.z` and `prof.e.z`). 
+
+``` {r pca nonsin, warning = FALSE}
+
+dat.nonsinitic.pca <- dat.main %>%
+  select(prof.t.z, prof.e.z)
+
+dat.nonsinitic.pca$syl.seqid <- seq.int(nrow(dat.nonsinitic.pca))
+dat.nonsinitic.pca <- na.omit(dat.nonsinitic.pca)
+
+seq <- dat.nonsinitic.pca$syl.seqid
+dat.nonsinitic.pca <-dat.nonsinitic.pca[ , -which(names(dat.nonsinitic.pca) %in% c("syl.seqid"))]
+
+prcomp.nonsiniticprof <- prcomp(dat.nonsinitic.pca, scale = TRUE)
+
+eig.var <- get_pca_var(prcomp.nonsiniticprof)
+eig.var$cor
+
+eig.ind <-get_pca_ind(prcomp.nonsiniticprof)
+PC_nonsin <- as.data.frame(eig.ind$coord)
+
+dat.main$prof.nonsinitic.z  <- PC_nonsin$Dim.1
+dat.syl.level$prof.nonsinitic.z  <- PC_nonsin$Dim.1
+
+dat.main.nonsinitic.prof <- dat.main %>%
+  select(prof.nonsinitic.z, prof.t.z, prof.e.z)
+
+DT::datatable(unique(dat.main.nonsinitic.prof), options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+```
+
+#### Distill `prof.t.z`, `prof.m.z`, `prof.e.z`,`prof.h.z` into `prof.nl.z`
+
+I might also be interested in looking at the effect of proficiency in non-Lánnang-uè languages in general, so I created a score `prof.nl.z` that is positively correlated with all four proficiency scores. 
+
+``` {r pca nonlan, warning = FALSE}
+
+dat.nonlan.pca <- dat.main %>%
+  select(prof.t.z, prof.e.z, prof.h.z, prof.m.z)
+
+dat.nonlan.pca$syl.seqid <- seq.int(nrow(dat.nonlan.pca))
+dat.nonlan.pca <- na.omit(dat.nonlan.pca)
+
+seq <- dat.nonlan.pca$syl.seqid
+dat.nonlan.pca <-dat.nonlan.pca[ , -which(names(dat.nonlan.pca) %in% c("syl.seqid"))]
+
+prcomp.nonlanprof <- prcomp(dat.nonlan.pca, scale = TRUE)
+
+eig.var <- get_pca_var(prcomp.nonlanprof)
+eig.var$cor
+
+eig.ind <-get_pca_ind(prcomp.nonlanprof)
+PC_nonlan <- as.data.frame(eig.ind$coord)
+
+dat.main$prof.nl.z  <- PC_nonlan$Dim.3
+dat.syl.level$prof.nl.z  <- PC_nonlan$Dim.3
+
+dat.main.nonlan.prof <- dat.main %>%
+  select(prof.nl.z, prof.t.z, prof.e.z, prof.h.z, prof.m.z)
+
+DT::datatable(unique(dat.main.nonlan.prof), options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+```
+
+
+### Split Training Testing
+I split my data into training and testing sets.
+``` {r traintest}
+## Main Data Frame (Word-level)
+## 90% of the sample size
+d.forsample <- dat.main
+smp_size <- floor(0.90 * nrow(d.forsample))
+## set the seed to make my partition reproducible
+set.seed(123)
+x <- sample(seq_len(nrow(d.forsample)), size = smp_size)
+dat.main.train <- d.forsample[x, ]
+dat.main.test <- d.forsample[-x, ]
+
+## Syllable Data Frame
+## 90% of the sample size
+d.forsample <- dat.syl.level
+smp_size <- floor(0.90 * nrow(d.forsample))
+## set the seed to make my partition reproducible
+set.seed(123)
+x <- sample(seq_len(nrow(d.forsample)), size = smp_size)
+dat.syl.level.train <- d.forsample[x, ]
+dat.syl.level.test <- d.forsample[-x, ]
+
+```
+
+# Results and Discussion
+
+## Prosodic Maintenance
+
+### Overview and specific hypotheses
+
+#### Word Origin
+In my fieldwork, I anecdotally observed from the audio files of the corpus that speakers of Lánnang-uè tend to retain the original prosody of the source language for Lánnang-uè words with Sinitic origin (i.e. Hokkien and Mandarin), but do not usually retain it for those with non-Sinitic origin (i.e. Tagalog and English). Systematically investigating a larger set of data, I hypothesize that this observation would hold. 
+
+#### Social factors
+I also hypothesize that deviations from the general pattern (i.e. modified words with Sinitic origin, non-modified words with non-Sinitic origin) would specifically be accounted for by social factors such as age and language proficiency in the non-Sinitic and Sinitic languages.
+
+##### Age
+
+Specifically, I posit that younger speakers would generally be more likely to modify words regardless of the origin whereas older speakers would be less likely to do so, mainly because of the correlations between Lánnang-uè innovations and the young Lannang identity. In my interviews with younger Lannangs in 2018-2019, many young Lannangs claimed that many of the (mixed) features of Lánnang-uè began with them, and that these features are part of their identity. They say that the mixing is not only much more 'natural', but that it also represents their generation (the youth). This is corroborated by Chuaunsu's (1989) findings that report the same thing. It is, as such, possible that younger speakers may deliberately innovate their language (e.g. change the prosody of the word) as a result of wanting to stress their Lannang identity (over their Chinese identity) (Gonzales in press). 
+
+The effect of age on the use of Lánnang-uè has been documented in my previous acoustic study of vowel monophthongs with Starr (Gonzales & Starr 2020). We found that the way younger speakers have innovated the vowel monophthong system of Lánnang-uè. Instead of adopting the conventionalized system where all vowels sound the same regardless of the language source, younger speakers modified this system by producing certain vowels differently depending on the language. For example, younger speakers tend to produce the vowel [ʊ] lower (higher F1 formant frequency) in Tagalog-sourced words compared to English- and Hokkien-sourced words. Contrast this with the finding that older speakers produce this vowel the same way regardless of the source language. Given this, it is reasonable to hypothesize that younger speakers would also be more likely to innovate in other features of Lánnang-uè , such as the current (hypothesized) prosodic system where Sinitic-origin words are not modified but words from Tagalog and English are. I expect that the 'deviant' presence of modified words with Sinitic roots in Lánnang-uè can be accounted for by young age (and the 'young Lannang' identity). 
+
+##### Language Proficiency
+
+I also hypothesize that there is a link between linguistic proficiency and prosodic modification in  Lánnang-uè. A speaker who has more knowledge of Tagalog, for example, would most likely be more knowledgeable of the prosody of Tagalog, which could impact or 'interfere' with the speaker's knowledge of the prosodic system of Lánnang-uè. Tagalog-sourced Lánnang-uè words that are generally modified may no longer be modified, as the speaker imposes their knowledge of Tagalog prosody on the Tagalog-sourced Lánnang-uè word. Likewise, Hokkien- and Mandarin-sourced words that are typically not modified may have an altered prosody due to the same 'interference' from the non-Sinitic languages. In other words, Sinitic-origin words may sound more 'non-Sinitic' due to the speakers' proficiency in non-Sinitic languages.
+
+Proficiency in the Sinitic languages could also affect one's likelihood to modify words in Lánnang-uè. A speaker who has lower proficiency in the Sinitic languages may (unconsciously) alter the prosody of the Sinitic-origin words due to their inability to recall how the words are produced in the original languages. 
+
+#### Summary
+
+Overall, I expect there to be an effect of source language on the likelihood of prosodic modification. That is, prosodic modification should be conditioned by the source language. Mainstream  Lánnang-uè speakers should modify the prosody of words with non-Sinitic roots and retain the prosody of words with Sinitic roots, just like how they are produced in the source languages. I also expect there to be a main effect of age and proficiency in non-Sinitic languages. In other words, speakers who are younger and more proficient in Tagalog and English should be more likely to modify the prosody of the word regardless of the source language. Finally, I also hypothesize interaction effects between all the social factors of interest in this section (i.e. age, proficiency) and source language. Speakers proficient in Tagalog and English should be less inclined to modify Tagalog and English words and be more inclined to modify the prosody of words with Mandarin and Hokkien roots. Those not as proficient in Hokkien and Mandarin should also be more likely to modify these Sinitic-origin words for reasons mentioned earlier.
+
+### Frequency distribution
+
+A general look at the data (frequency count) confirms my observation that Lánnang-uè words with Sinitic origins tend to share the same prosodic qualities as its counterpart in the source Sinitic languages. It shows that Tagalog- and English- origin words tend to be modified. The data also shows variation/devitions from the general pattern. 
+
+
+``` {r prosodic maintenance}
+dat.main.train$sinitic.label <- ifelse(dat.main.train$sinitic == 1, 'sinitic', 'non-sinitic')
+dat.main.train$modified.label <- ifelse(dat.main.train$modified == 1, 'modified', 'as-is')
+dat.main$sinitic.label <- ifelse(dat.main$sinitic == 1, 'sinitic', 'non-sinitic')
+dat.main$modified.label <- ifelse(dat.main$modified == 1, 'modified', 'as-is')
+
+
+df.prosmain <- as.data.frame(table(dat.main$sinitic.label,dat.main$modified.label))
+
+DT::datatable(df.prosmain, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+```
+
+### Create new factors and factorize other factors
+
+I created new factors like `sinitic` (words with Sinitic sources) and `era.forfil` (categorical age) and factorized them. 
+
+``` {r studio, warning = FALSE}
+
+dat.main.train$modified.bin <- ifelse(dat.main.train$modified == 1, 1, 0)
+dat.main.train$sinitic <- as.numeric(as.character(dat.main.train$sinitic))
+dat.main.train$sinitic_prof.nonsinitic.z <- dat.main.train$sinitic*dat.main.train$prof.nonsinitic.z
+
+#As factor
+dat.main.train$modified.bin <- as.numeric(dat.main.train$modified.bin)
+dat.main.train$age <- as.numeric(dat.main.train$age)
+dat.main.train$p.start <- as.numeric(dat.main.train$p.start)
+
+dat.main.train$idno <- as.factor(dat.main.train$idno)
+dat.main.train$item <- as.factor(dat.main.train$item)
+dat.main.train$stimno <- as.factor(dat.main.train$stimno)
+dat.main.train$sinitic <- as.factor(dat.main.train$sinitic)
+dat.main.train$sex.label <- ifelse(dat.main.train$sex == "F", "F", "M")
+dat.main.train$sex <- as.factor(ifelse(dat.main.train$sex.label == "F", 1, -1))
+dat.main.train.man <- subset(dat.main.train, dat.main.train$lg.word == "Mandarin")
+dat.main.train.hok <- subset(dat.main.train, dat.main.train$lg.word == "Hokkien")
+dat.main.train.tag <- subset(dat.main.train, dat.main.train$lg.word == "Tagalog")
+dat.main.train.eng <- subset(dat.main.train, dat.main.train$lg.word == "English")
+dat.main.train.sinitic <- subset(dat.main.train, dat.main.train$sinitic == 1)
+dat.main.train.nonsinitic <- subset(dat.main.train, dat.main.train$nonsinitic == -1)
+dat.main.train$era.forfil <- as.factor(ifelse(dat.main.train$age < 50, 1, -1))
+
+
+############# TEST
+
+dat.main.test$modified.bin <- ifelse(dat.main.test$modified == 1, 1, 0)
+dat.main.test$sinitic <- as.numeric(as.character(dat.main.test$sinitic))
+dat.main.test$sinitic_prof.nonsinitic.z <- dat.main.test$sinitic*dat.main.test$prof.nonsinitic.z
+
+#As factor
+dat.main.test$modified.bin <- as.numeric(dat.main.test$modified.bin)
+dat.main.test$age <- as.numeric(dat.main.test$age)
+dat.main.test$p.start <- as.numeric(dat.main.test$p.start)
+
+dat.main.test$idno <- as.factor(dat.main.test$idno)
+dat.main.test$item <- as.factor(dat.main.test$item)
+dat.main.test$stimno <- as.factor(dat.main.test$stimno)
+dat.main.test$sinitic <- as.factor(dat.main.test$sinitic)
+dat.main.test$sex.label <- ifelse(dat.main.test$sex == "F", "F", "M")
+dat.main.test$sex <- as.factor(ifelse(dat.main.test$sex.label == "F", 1, -1))
+dat.main.test.man <- subset(dat.main.test, dat.main.test$lg.word == "Mandarin")
+dat.main.test.hok <- subset(dat.main.test, dat.main.test$lg.word == "Hokkien")
+dat.main.test.tag <- subset(dat.main.test, dat.main.test$lg.word == "Tagalog")
+dat.main.test.eng <- subset(dat.main.test, dat.main.test$lg.word == "English")
+dat.main.test.sinitic <- subset(dat.main.test, dat.main.test$sinitic == 1)
+dat.main.test.nonsinitic <- subset(dat.main.test, dat.main.test$nonsinitic == -1)
+dat.main.test$era.forfil <- as.factor(ifelse(dat.main.test$age < 50, 1, -1))
+
+
+### FULL
+
+dat.main$modified.bin <- ifelse(dat.main$modified == 1, 1, 0)
+dat.main$sinitic <- as.numeric(as.character(dat.main$sinitic))
+dat.main$sinitic_prof.nonsinitic.z <- dat.main$sinitic*dat.main$prof.nonsinitic.z
+#As factor
+dat.main$modified.bin <- as.numeric(dat.main$modified.bin)
+dat.main$age <- as.numeric(dat.main$age)
+dat.main$p.start <- as.numeric(dat.main$p.start)
+
+dat.main$idno <- as.factor(dat.main$idno)
+dat.main$item <- as.factor(dat.main$item)
+dat.main$stimno <- as.factor(dat.main$stimno)
+dat.main$sinitic <- as.factor(dat.main$sinitic)
+dat.main$sex.label <- ifelse(dat.main$sex == "F", "F", "M")
+dat.main$sex <- as.factor(ifelse(dat.main$sex.label == "F", 1, -1))
+dat.main.man <- subset(dat.main, dat.main$lg.word == "Mandarin")
+dat.main.hok <- subset(dat.main, dat.main$lg.word == "Hokkien")
+dat.main.tag <- subset(dat.main, dat.main$lg.word == "Tagalog")
+dat.main.eng <- subset(dat.main, dat.main$lg.word == "English")
+dat.main.sinitic <- subset(dat.main, dat.main$sinitic == 1)
+dat.main.nonsinitic <- subset(dat.main, dat.main$nonsinitic == -1)
+dat.main$era.forfil <- as.factor(ifelse(dat.main$age < 50, 1, -1))
+```
+
+### Explorations using `pairs.panel`
+I do a preliminary exploration of the relationship between the factors and the likelihood to modify the prosody.
+
+``` {r preliminary plot prosmain}
+
+psych::pairs.panels(dat.main[,c("modified.bin","sinitic", "prof.nonsinitic.z", "prof.sinitic.z",
+                                            "era.forfil")])
+```
+
+
+### Boruta Algorithm using Random Forest
+
+Before putting the factors in the model, I wanted to make sure that these factors are relevant for analysis. As such, I use the Boruta Algorithm for selecting features based on their value and importance. The results show that age may or may not be a relevant factor for determining whether a word is modified or not. 
+
+#### Importance Table
+```{r randomfor prosmain}
+dat.main$sinitic.num <- as.numeric(dat.main$sinitic)
+dat.main$era.forfil.num <- as.numeric(dat.main$era.forfil)
+
+dat.main$sinitic_prof.nonsinitic.z <- dat.main$sinitic.num*dat.main$prof.nonsinitic.z
+dat.main$sinitic_prof.sinitic.z <- dat.main$sinitic.num*dat.main$prof.sinitic.z
+dat.main$sinitic_era.forfil <- dat.main$sinitic.num*dat.main$era.forfil.num
+
+set.seed(200)
+boruta.object <-Boruta::Boruta(as.formula(modified.bin ~  sinitic + prof.nonsinitic.z  + era.forfil + prof.sinitic.z + sinitic_prof.nonsinitic.z + sinitic_era.forfil + sinitic_prof.sinitic.z
+                                            ), data=dat.main, maxRuns = 27, ntree = 20) #doTrace=0
+
+#boruta.object<-Boruta::TentativeRoughFix(boruta.object)
+
+history<-as.data.frame((boruta.object$ImpHistory))
+
+#Store the Boruta decisions on variables
+decision <-factor(boruta.object$finalDecision,levels = c("Confirmed", "Rejected", "Tentative"))
+
+att <- Boruta::attStats(boruta.object)
+att <- cbind(Variable = rownames(att), att)
+#rownames(att) <- 1:nrow(att)
+
+att <- att %>% 
+ mutate_if(is.numeric, round, digits = 4)
+
+DT::datatable(att, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+``` 
+
+#### Importance Plot (Horizontal)
+``` {r boruta horiz prosmain, fig.show="hold", out.width="50%"}
+
+plot <-  history  %>%
+          #select(-shadowMean,-shadowMax,-shadowMin)%>%
+          gather(predictor,measurement)%>%
+          filter(measurement!=-Inf)%>%
+          ggplot()+
+            geom_boxplot(aes(x=reorder(predictor, measurement, mean),y=measurement,fill=decision[predictor]),outlier.shape = NA)+
+            #coord_flip()+
+            theme_light()+
+            theme(legend.position="None",axis.title.x= element_blank(),axis.title.y=element_text(face='bold'),axis.text.x=element_text(face='bold.italic',angle = 45, hjust = 1),axis.text.y=element_text(face='bold.italic'))+
+            xlab('Predictors')+
+            #labs(fill='Feature Selection Decision')+
+            ylab('Importance')+ 
+            scale_fill_manual(values=c("#33cc33", "#ff5050", "#ffcc66"))
+
+par(mar = c(4, 4, .1, .1))
+plot;Boruta::plotImpHistory(boruta.object)
+
+```
+
+#### Mean Decrease Accuracy estimates
+``` {r boruta orig prosmain}
+plot_vert <-history%>%
+          select( -shadowMean,-shadowMax,-shadowMin)%>%
+          gather(predictor,measurement)%>%
+          filter(measurement!=-Inf)%>%
+          ggplot()+
+            geom_boxplot(aes(x=reorder(predictor, measurement, mean),y=measurement,fill=decision[predictor]),outlier.shape = NA)+
+            coord_flip()+
+            theme_light()+
+            theme(legend.position="bottom",axis.title.x=element_text(face='bold'),axis.title.y=element_text(face='bold'),axis.text.x=element_text(face='bold.italic'),axis.text.y=element_text(face='bold.italic'))+
+            xlab('Predictors')+
+            labs(fill='Feature Selection Decision')+
+            ylab('Mean Decrease Accuracy estimates (Z-score)')+ 
+            scale_fill_manual(values=c("#33cc33", "#ff5050", "#ffcc66"))
+
+plot_vert
+
+
+```
+
+
+### Linear Regression using `glmer`
+#### Fitting
+
+I fit the data using a generalized linear mixed-effect model with the factors hypothesized earlier. The model includes random intercepts for participant. The results show the main effect of language source, proficiency in non-Sinitic languages, as well as the interaction effect of language source and proficiency in non-Sinitic languages. Age and proficiency in Sinitic languages, as well as their interactions with language source all do not have an effect on one's likelihood to modify the prosody of the word, partially confirming the Boruta Algorithm analysis. 
+
+``` {r model modifica}
+#General #Full
+mod.prosmain.lm <-glmer(modified.bin ~  sinitic*prof.nonsinitic.z  + prof.sinitic.z*era.forfil + prof.sinitic.z*sinitic + (1|idno), data=dat.main, family = binomial(link="logit"))
+#summary(mod.prosmain)
+
+sjPlot::tab_model(mod.prosmain.lm , show.se =TRUE, show.est = TRUE, transform = NULL)
+
+```
+
+#### Coefficient plot
+``` {r coeff plot modif}
+
+p <-  sjPlot::plot_model(mod.prosmain.lm,
+                        exponentiate = FALSE,
+                        
+                   vline = "black",
+                   sort.est = FALSE,
+                   transform = NULL,
+                   show.values = TRUE,
+                   value.offset = 0.5,
+                   dot.size = 2.5,
+                   value.size = 2.5)
+p #+ ylim(-.1, .1)
+
+```
+
+### Prediction Accuracy
+
+To see whether the significant factors alone are useful for predicting word modification, I ran four different algorithms - neural networks, decision trees (C5), regression trees (rPart), and random forest - on test data (10% of the whole data) using a model trained on 90% of the complete data. The results are promising. As shown below, all models have prediction accuracies higher than 95%. 
+
+#### Neural Network Model
+``` {r neural net prosmain, warning = FALSE}
+
+# Fit a neural network
+dat.main.train.selected <- dat.main.train %>%
+  select(modified.bin, sinitic, prof.nonsinitic.z)
+dat.main.test.selected <- dat.main.test %>%
+  select(modified.bin, sinitic, prof.nonsinitic.z)
+#dat.main.train.selected$religion <- as.factor(dat.main.train.selected$religion)
+
+mygrid <- expand.grid(.decay=c(0.5, 0.1), .size=c(4,5,6))
+nnetfit <- caret::train(modified.bin ~ . , data= dat.main.train.selected , method="nnet", maxit=1000, tuneGrid=mygrid, trace=F)
+nnetfit
+
+prosmain.nn.predict <- round(predict(nnetfit, newdata = dat.main.test.selected, re.form = NULL, type = "raw" ))
+prosmain.nn.predict <- as.factor(prosmain.nn.predict)
+dat.main.test.selected$modified.bin <- as.factor(dat.main.test.selected$modified.bin)
+caret::confusionMatrix(prosmain.nn.predict, dat.main.test.selected$modified.bin)
+
+```
+
+#### Decision Treesusing `C5.0`
+``` {r dt c5 prosmain, warning = FALSE}
+dat.main.train.selected.c5 <- dat.main.train %>%
+  select(sinitic, prof.nonsinitic.z)
+dat.main.test.selected.c5 <- dat.main.test %>%
+  select(sinitic, prof.nonsinitic.z)
+
+
+dtfit <- C50::C5.0(dat.main.train.selected.c5, as.factor(dat.main.train.selected$modified.bin), trials=100)  
+
+prosmain.dt.predict <- predict(dtfit, newdata = dat.main.test.selected.c5, re.form = NULL, type = "class" )
+prosmain.dt.predict <- as.factor(prosmain.dt.predict)
+
+dat.main.test.selected$modified.bin <- as.factor(dat.main.test.selected$modified.bin)
+caret::confusionMatrix(prosmain.dt.predict, dat.main.test.selected$modified.bin)
+
+
+```
+
+#### Regression Trees using `rpart`
+``` {r dt rpart prosmain, warning = FALSE}
+rpartfit <- rpart::rpart(modified.bin~., dat.main.train.selected, cp=0.01)
+rattle::fancyRpartPlot(rpartfit, cex = 0.7, caption = "rpart")
+prosmain.rpart.predict <- round(predict(rpartfit , newdata =dat.main.test.selected, re.form = NULL ))
+prosmain.rpart.predict  <- as.factor(prosmain.rpart.predict )
+dat.main.test.selected$modified.bin <- as.factor(dat.main.test.selected$modified.bin)
+caret::confusionMatrix(prosmain.rpart.predict, dat.main.test.selected$modified.bin)
+
+```
+
+#### Random Forest Model
+``` {r randomforest prosmain, warning = FALSE}
+
+# Fit a random forest model
+rffit <- caret::train(modified.bin ~ . , data= dat.main.train.selected , method="rf", trControl = trainControl(method = "cv", number = 5))
+
+prosmain.rf.predict <- round(predict(rffit, newdata =dat.main.test.selected, re.form = NULL, type = "raw" ))
+prosmain.rf.predict <- as.factor(prosmain.rf.predict)
+dat.main.test.selected$modified.bin <- as.factor(dat.main.test.selected$modified.bin)
+caret::confusionMatrix(prosmain.rf.predict, dat.main.test.selected$modified.bin)
+
+```
+
+### Findings (What conditions prosodic modification?)
+
+In line with my expectations, the results show that speakers are more likely to modify the prosody of the word when the word has a non-Sinitic source and retain the prosody when it has a Sinitic source. It supports my claim that Lánnang-uè exhibits systematicity in its prosody, at least in the context of prosodic modification.
+
+Mixed results were found in the analysis of variation in the recently confirmed prosodic modification system of Lánnang-uè. Contrary to expectations, I did not find the effect of age. Younger and older speakers all seem to behave similarly - they all follow the system. I also did not expect to find the absence of an interaction effect between language source and proficiency in the Sinitic languages. It seems that (the lack of) Hokkien proficiency plays a limited role in the modification of Sinitic-origin words. That is, the variation should be accounted for by factors other than age and Sinitic language proficiency.
+
+The results indicate that proficiency in Tagalog and English is one such conditioning factor. Speakers who are more proficient in Tagalog and English were found to be more likely to (1) modify words regardless of the source languages, (2) modify Sinitic words (in the direction of Tagalog- and/or English-like prosody) and (3) retain the prosody of words with Tagalog and English origins, such as in code-switching. As pointed out earlier, this pattern is understandable. Speakers who have knowledge of the prosody of English and Tagalog might be more likely to transfer their knowledge to Lánnang-uè words: given more knowledge of non-Sinitic languages, Sinitic-origin words can sound less 'Sinitic' whereas non-Sinitic words can sound more 'non-Sinitic'. 
+
+In summary, my findings support the idea that Lánnang-uè speakers do not just randomly mix elements from different source languages. What may seem random (i.e. the deviations/variation) can be accounted for by social factors such as age and proficiency.
+
+``` {r results modif}
+dat.main$prof.nonsinitic.z.cat <- ifelse(dat.main$prof.nonsinitic.z > 0, "proficient", "non-proficient")
+dat.main$modified.bin.log <- scale(dat.main$modified.bin, center = TRUE, scale = FALSE)
+
+ggplot(dat.main, aes(x=prof.nonsinitic.z, y=modified.bin, color=sinitic.label)) + geom_point(shape=1) +
+    scale_colour_hue() + # Use a slightly darker palette than normal
+    geom_smooth(method=lm,   # Add linear regression lines  # Don't add shaded confidence region
+                fullrange=TRUE) + 
+  facet_grid(.~ sinitic.label)+
+  xlab("z-scored Proficiency (Non-Sinitic)") + 
+  ylab("Likelihood to be modified (%)")# Extend regression lines
+
+sum.pros <- Rmisc::summarySE(dat.main, measurevar="modified.bin.log", groupvars=c("prof.nonsinitic.z.cat","sinitic.label"))
+DT::datatable(sum.pros, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+
+ggplot(data=sum.pros, aes(x=sinitic.label,y=modified.bin.log, fill=prof.nonsinitic.z.cat)) +
+  geom_bar(stat="identity", position=position_dodge())  + 
+  theme(plot.title = element_text(hjust=0.5, face= "bold", size= "12"))+
+  geom_errorbar(aes(ymin=modified.bin.log-se, ymax=modified.bin.log+se),
+                size=.3,    # Thinner lines
+                width=.2,
+                position=position_dodge(.9))+
+  xlab("Origin of word") + 
+  ylab("Likelihood to be modified (%), centered")+
+  scale_fill_hue(name="Proficiency (non-Sinitic)")
+
+
+```
+
+## Syllable Duration
+### Overview and specific hypotheses
+Syllables in Tagalog- and English-sourced Lánnang-uè words have varying lengths. Some syllables are longer than others. My anecdotal observations from the audio component of my corpus as well as my pilot acoustic investigation suggest that the duration of the syllable are conditioned by many factors. These may be purely structural/linguisitic or socio-structural/linguistic. Social factors, by themselves, do not seem to condition duration, at least based on my initial observations. For example, I have not observed a particular social group having longer syllables than other groups.
+
+#### Structural/Linguistic
+With regard to structural/linguistic conditions, the main factors I noticed were syllable position (i.e. whether the syllable is in the word-final position or not) and stress (i.e. whether the syllable was originally stressed in the source language). Word-final syllables and syllables originally stressed in the source language appear to be longer whereas syllables that are not in the final position and those that are unstressed seem to be shorter. These conditions, I hypothesize, are part of the grammar of Lánnang-uè: speakers should always lengthen their syllables when the syllable is at the final position. Also, if the syllable was originally stressed in the source language (e.g. [ba] in ['ba ka] 'cow'), that syllable should be longer in Lánnang-uè (e.g. [ba: ka], where the colon indicates a longer duration). 
+
+Other (secondary) factors that seem to affect duration include the type of segments or sounds as well as pitch (suprasegments) found in the syllable. In my preliminary acoustic analysis, I noticed that syllables with fricatives (e.g. /f/, /h/, /s/) tend to be longer. Syllables with a voiced coda (e.g. consonants like /b/, /g/, /z/ at the end of the syllable), syllables with sonorant codas (e.g. /m/, /w/),  and those with contour pitch (e.g. rising or falling pitch) tend to be longer as well. 
+
+#### Social and Structural/Linguistic
+Certain structural/linguistic factors seem to affect duration differently depending on the social group. On the voicing of codas, I hypothesize that speakers who are proficient in English would be more likely to lengthen the syllable if the coda of that syllable is voiced. I based my hypothesis on English-specific rule that vowel duration (and consequently, syllable duration) is "longer before a voiced than before a voiceless coda" (Choi, Kim, & Cho: 624). It is possible that one's knowledge of this English rule could be 'transferred' to Lánnang-uè, consequently increasing the duration of syllables with voiced codas. 
+
+On position, I have anecdotally observed that younger speakers would make a greater length contrast between the final and non-final syllables compared to older speakers. I am uncertain whether this applies to other younger speakers, but the younger speakers in my initial observations seem to follow the (hypothesized) final-syllable lengthening rule more than the older speakers. Similar to my hypotheses on prosodic maintenance in the earlier section, it is possible that this (hypothesized) length-position contrast is associated with the 'young Lannang' identity. Younger speakers may produce a greater length contrast to distinguish themselves from older speakers, for example (see earlier section for a more comprehensive discussion). 
+
+Speakers who are proficient in three of the source languages (i.e. Tagalog, English, Mandarin) should also be more likely to lengthen the final syllable more than those who are not. I have not directly observed this, but literature investigating duration and position in these languages generally converge on the finding that the phrase-final position is highly correlated with longer duration (Gonzalez 1970; Oller 1972; Anderson 2006, Chen 2006; Lesho 2018). I expect those with more knowledge of these languages to follow the final-syllable lengthening rule in Lánnang-uè more, if such a rule truly exists. I hypothesize that their knowledge of these languages' phrase/syllable-final lengthening rule would reinforce, if not boost their knowledge of Lánnang-uè final-syllable lengthening.
+
+On stress, I hypothesize that the speakers' knowledge of stress in the stress languages Tagalog and English would make it more likely for the speakers to lengthen syllables that are originally stressed. The speakers' knowledge of the stress language could reinforce or boost the (hypothesized) stress lengthening rule in Lánnang-uè.
+
+#### Summary
+In this analysis of syllable duration, with a considerably larger set of data, I hypothesize that the following factors will be correlated with an increased likelihood of a longer syllable: final position, stress, presence of fricatives, having a sonorant coda, and pitch contour. I hypothesize interaction effects between (1) coda voicing and English proficiency, (2) position and age, (3) position and source language proficiency (Tagalog, English, Mandarin), and finally (4) stress and proficiency in the stress languages (Tagalog and English).
+
+
+### Descriptive Summary
+
+A summary of the data seems to confirm what I found in my initial acoustic investigation: final or `ultimate` syllables tend to be longer than non-final `penultimate` syllables. Syllables that were originally stressed in the source language appear to be longer as well. For example, syllables originally stressed in penultimate syllables seem to be longer in penultimate syllables compared to ultimate syllabels in Lánnang-uè, as shown in the table below. To confirm the effect of position and stress (and also test for the effect of other variables), I conduct several statisical analyses below.
+
+``` {r descrip syll dur}
+
+dat.syl.level.train.nonsin <- subset(dat.syl.level.train, dat.syl.level.train$sinitic == -1)
+dat.syl.level.test.nonsin <- subset(dat.syl.level.test, dat.syl.level.test$sinitic == -1)
+dat.syl.level.nonsin <- subset(dat.syl.level, dat.syl.level$sinitic == -1)
+
+sum.pros <- Rmisc::summarySE(dat.syl.level.nonsin, measurevar="duration", groupvars=c("position", "originalwordstress"))
+
+sum.pros  <- dendroTools::round_df(as.data.frame(sum.pros) , 3)
+
+DT::datatable(sum.pros, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+```
+
+### Create new factors and factorize other factors
+
+I created new factors like `fricative` (syllables with fricatives) and `codavoice` (syllables with a voiced coda) and factorized them. 
+
+``` {r lmer dur factors model}
+
+## TRAIN
+dat.syl.level.train.nonsin$position.bin <- ifelse(dat.syl.level.train.nonsin$position == "penultimate", -1, 1)
+dat.syl.level.train.nonsin$position.bin <- as.factor(dat.syl.level.train.nonsin$position.bin)
+dat.syl.level.train.nonsin$orig.stress.bin <- ifelse(dat.syl.level.train.nonsin$originalwordstress == "penultimate", -1, 1)
+dat.syl.level.train.nonsin$orig.stress.bin <- as.factor(dat.syl.level.train.nonsin$orig.stress.bin)
+dat.syl.level.train.nonsin$p.start <- as.numeric(dat.syl.level.train.nonsin$p.start)
+
+dat.syl.level.train.nonsin$velar <- as.factor(ifelse(dat.syl.level.train.nonsin$position == "penultimate", dat.syl.level.train.nonsin$penult.velar, dat.syl.level.train.nonsin$ult.velar))
+
+dat.syl.level.train.nonsin$fricative <- as.factor(ifelse(dat.syl.level.train.nonsin$position == "penultimate", dat.syl.level.train.nonsin$penult.fricative, dat.syl.level.train.nonsin$ult.fricative))
+
+dat.syl.level.train.nonsin$onsetvoice <- as.factor(ifelse(dat.syl.level.train.nonsin$position == "penultimate", dat.syl.level.train.nonsin$penult.onsetvoice, dat.syl.level.train.nonsin$ult.onsetvoice))
+
+dat.syl.level.train.nonsin$codavoice <- as.numeric(ifelse(dat.syl.level.train.nonsin$position == "penultimate", dat.syl.level.train.nonsin$penult.codavoice, dat.syl.level.train.nonsin$ult.codavoice))
+
+dat.syl.level.train.nonsin$codavoice.fac <- as.factor(dat.syl.level.train.nonsin$codavoice)
+
+dat.syl.level.train.nonsin.codaonly <- subset(dat.syl.level.train.nonsin, dat.syl.level.train.nonsin$codavoice.fac != 0)
+
+dat.syl.level.train.nonsin$stress <- as.factor(ifelse(dat.syl.level.train.nonsin$position == "penultimate", dat.syl.level.train.nonsin$penult.stress, dat.syl.level.train.nonsin$ult.stress))
+
+dat.syl.level.train.nonsin$openclose <- as.factor(ifelse(dat.syl.level.train.nonsin$position == "penultimate", dat.syl.level.train.nonsin$penult.openclose, dat.syl.level.train.nonsin$ult.openclose))
+
+dat.syl.level.train.nonsin$structure <- as.factor(ifelse(dat.syl.level.train.nonsin$position == "penultimate", dat.syl.level.train.nonsin$penult.structure , dat.syl.level.train.nonsin$ult.structure ))
+
+dat.syl.level.train.nonsin$obstruent.coda <- as.factor(ifelse(dat.syl.level.train.nonsin$structure == "CVO", 1 , -1 ))
+dat.syl.level.train.nonsin$sonorant.coda <- as.factor(ifelse(dat.syl.level.train.nonsin$structure == "CVR", 1 , -1 ))
+dat.syl.level.train.nonsin$open <- as.factor(ifelse(dat.syl.level.train.nonsin$structure == "CV", 1 , -1 ))
+
+dat.syl.level.train.nonsin$era.forfil <- as.factor(ifelse(dat.syl.level.train.nonsin$age <50, 1,-1))
+dat.syl.level.train.nonsin$sex.bin <- as.factor(ifelse(dat.syl.level.train.nonsin$sex == "F", 1,-1))
+dat.syl.level.train.nonsin$stimno.fac <- as.factor(dat.syl.level.train.nonsin$stimno )
+dat.syl.level.train.nonsin$idno.fac <- as.factor(dat.syl.level.train.nonsin$idno )
+dat.syl.level.train.nonsin$item.fac <- as.factor(dat.syl.level.train.nonsin$item )
+dat.syl.level.train.nonsin$absslope <- abs(dat.syl.level.train.nonsin$slope.impute)
+
+dat.syl.level.train.nonsin_show <- dat.syl.level.train.nonsin %>%
+  select(era.forfil, absslope, obstruent.coda, sonorant.coda, structure, stress, everything())
+
+
+## TEST
+
+dat.syl.level.test.nonsin$position.bin <- ifelse(dat.syl.level.test.nonsin$position == "penultimate", -1, 1)
+dat.syl.level.test.nonsin$position.bin <- as.factor(dat.syl.level.test.nonsin$position.bin)
+dat.syl.level.test.nonsin$orig.stress.bin <- ifelse(dat.syl.level.test.nonsin$originalwordstress == "penultimate", -1, 1)
+dat.syl.level.test.nonsin$orig.stress.bin <- as.factor(dat.syl.level.test.nonsin$orig.stress.bin)
+dat.syl.level.test.nonsin$p.start <- as.numeric(dat.syl.level.test.nonsin$p.start)
+
+dat.syl.level.test.nonsin$velar <- as.factor(ifelse(dat.syl.level.test.nonsin$position == "penultimate", dat.syl.level.test.nonsin$penult.velar, dat.syl.level.test.nonsin$ult.velar))
+
+dat.syl.level.test.nonsin$fricative <- as.factor(ifelse(dat.syl.level.test.nonsin$position == "penultimate", dat.syl.level.test.nonsin$penult.fricative, dat.syl.level.test.nonsin$ult.fricative))
+
+dat.syl.level.test.nonsin$onsetvoice <- as.factor(ifelse(dat.syl.level.test.nonsin$position == "penultimate", dat.syl.level.test.nonsin$penult.onsetvoice, dat.syl.level.test.nonsin$ult.onsetvoice))
+
+dat.syl.level.test.nonsin$codavoice <- as.numeric(ifelse(dat.syl.level.test.nonsin$position == "penultimate", dat.syl.level.test.nonsin$penult.codavoice, dat.syl.level.test.nonsin$ult.codavoice))
+
+dat.syl.level.test.nonsin$codavoice.fac <- as.factor(dat.syl.level.test.nonsin$codavoice)
+
+dat.syl.level.test.nonsin.codaonly <- subset(dat.syl.level.test.nonsin, dat.syl.level.test.nonsin$codavoice.fac != 0)
+
+dat.syl.level.test.nonsin$stress <- as.factor(ifelse(dat.syl.level.test.nonsin$position == "penultimate", dat.syl.level.test.nonsin$penult.stress, dat.syl.level.test.nonsin$ult.stress))
+
+dat.syl.level.test.nonsin$openclose <- as.factor(ifelse(dat.syl.level.test.nonsin$position == "penultimate", dat.syl.level.test.nonsin$penult.openclose, dat.syl.level.test.nonsin$ult.openclose))
+
+dat.syl.level.test.nonsin$structure <- as.factor(ifelse(dat.syl.level.test.nonsin$position == "penultimate", dat.syl.level.test.nonsin$penult.structure , dat.syl.level.test.nonsin$ult.structure ))
+
+dat.syl.level.test.nonsin$obstruent.coda <- as.factor(ifelse(dat.syl.level.test.nonsin$structure == "CVO", 1 , -1 ))
+dat.syl.level.test.nonsin$sonorant.coda <- as.factor(ifelse(dat.syl.level.test.nonsin$structure == "CVR", 1 , -1 ))
+dat.syl.level.test.nonsin$open <- as.factor(ifelse(dat.syl.level.test.nonsin$structure == "CV", 1 , -1 ))
+
+dat.syl.level.test.nonsin$era.forfil <- as.factor(ifelse(dat.syl.level.test.nonsin$age <50, 1,-1))
+dat.syl.level.test.nonsin$sex.bin <- as.factor(ifelse(dat.syl.level.test.nonsin$sex == "F", 1,-1))
+dat.syl.level.test.nonsin$stimno.fac <- as.factor(dat.syl.level.test.nonsin$stimno )
+dat.syl.level.test.nonsin$idno.fac <- as.factor(dat.syl.level.test.nonsin$idno )
+dat.syl.level.test.nonsin$item.fac <- as.factor(dat.syl.level.test.nonsin$item )
+dat.syl.level.test.nonsin$absslope <- abs(dat.syl.level.test.nonsin$slope.impute)
+
+dat.syl.level.test.nonsin_show <- dat.syl.level.test.nonsin %>%
+  select(era.forfil, absslope, obstruent.coda, sonorant.coda, structure, stress, everything())
+
+
+## FULL
+
+dat.syl.level.nonsin$position.bin <- ifelse(dat.syl.level.nonsin$position == "penultimate", -1, 1)
+dat.syl.level.nonsin$position.bin <- as.factor(dat.syl.level.nonsin$position.bin)
+dat.syl.level.nonsin$orig.stress.bin <- ifelse(dat.syl.level.nonsin$originalwordstress == "penultimate", -1, 1)
+dat.syl.level.nonsin$orig.stress.bin <- as.factor(dat.syl.level.nonsin$orig.stress.bin)
+dat.syl.level.nonsin$p.start <- as.numeric(dat.syl.level.nonsin$p.start)
+
+dat.syl.level.nonsin$velar <- as.factor(ifelse(dat.syl.level.nonsin$position == "penultimate", dat.syl.level.nonsin$penult.velar, dat.syl.level.nonsin$ult.velar))
+
+dat.syl.level.nonsin$fricative <- as.factor(ifelse(dat.syl.level.nonsin$position == "penultimate", dat.syl.level.nonsin$penult.fricative, dat.syl.level.nonsin$ult.fricative))
+
+dat.syl.level.nonsin$onsetvoice <- as.factor(ifelse(dat.syl.level.nonsin$position == "penultimate", dat.syl.level.nonsin$penult.onsetvoice, dat.syl.level.nonsin$ult.onsetvoice))
+
+dat.syl.level.nonsin$codavoice <- as.numeric(ifelse(dat.syl.level.nonsin$position == "penultimate", dat.syl.level.nonsin$penult.codavoice, dat.syl.level.nonsin$ult.codavoice))
+
+dat.syl.level.nonsin$codavoice.fac <- as.factor(dat.syl.level.nonsin$codavoice)
+
+dat.syl.level.nonsin.codaonly <- subset(dat.syl.level.nonsin, dat.syl.level.nonsin$codavoice.fac != 0)
+
+dat.syl.level.nonsin$stress <- as.factor(ifelse(dat.syl.level.nonsin$position == "penultimate", dat.syl.level.nonsin$penult.stress, dat.syl.level.nonsin$ult.stress))
+
+dat.syl.level.nonsin$openclose <- as.factor(ifelse(dat.syl.level.nonsin$position == "penultimate", dat.syl.level.nonsin$penult.openclose, dat.syl.level.nonsin$ult.openclose))
+
+dat.syl.level.nonsin$structure <- as.factor(ifelse(dat.syl.level.nonsin$position == "penultimate", dat.syl.level.nonsin$penult.structure , dat.syl.level.nonsin$ult.structure ))
+
+dat.syl.level.nonsin$obstruent.coda <- as.factor(ifelse(dat.syl.level.nonsin$structure == "CVO", 1 , -1 ))
+dat.syl.level.nonsin$sonorant.coda <- as.factor(ifelse(dat.syl.level.nonsin$structure == "CVR", 1 , -1 ))
+dat.syl.level.nonsin$open <- as.factor(ifelse(dat.syl.level.nonsin$structure == "CV", 1 , -1 ))
+
+dat.syl.level.nonsin$era.forfil <- as.factor(ifelse(dat.syl.level.nonsin$age <50, 1,-1))
+dat.syl.level.nonsin$sex.bin <- as.factor(ifelse(dat.syl.level.nonsin$sex == "F", 1,-1))
+dat.syl.level.nonsin$stimno.fac <- as.factor(dat.syl.level.nonsin$stimno )
+dat.syl.level.nonsin$idno.fac <- as.factor(dat.syl.level.nonsin$idno )
+dat.syl.level.nonsin$item.fac <- as.factor(dat.syl.level.nonsin$item )
+dat.syl.level.nonsin$absslope <- abs(dat.syl.level.nonsin$slope.impute)
+
+dat.syl.level.nonsin_show <- dat.syl.level.nonsin %>%
+  select(era.forfil, absslope, obstruent.coda, sonorant.coda, structure, stress, everything())
+
+
+DT::datatable(head(dat.syl.level.nonsin_show), options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+```
+
+### Explorations using `pairs.panel`
+
+I do a preliminary exploration or visualization of the relationship between duration and the variables of interest. 
+
+``` {r preliminary plot dur}
+
+psych::pairs.panels(dat.syl.level.nonsin[,c("duration","position","stress","fricative","obstruent.coda",
+                                            "sonorant.coda")])
+
+psych::pairs.panels(dat.syl.level.nonsin[,c("duration","age", "sex.bin", "era.forfil", "prof.t.z", "prof.h.z", 
+                                            "prof.e.z", "prof.m.z")])
+
+```
+
+
+### Boruta Algorithm using Random Forest
+
+Again, before putting the factors in the linear model, I wanted to ensure that these factors are relevant for analysis. I also want to see if other factors such as age are relevant. I use the Boruta Algorithm again to select features based on their value and importance. The results show that all variables except sex `sex.bin` and age `era.forfil` are confirmed to be relevant.
+
+#### Importance Table
+```{r coding of interactions dur}
+cols <- c("stress","position.bin", "era.forfil", "fricative", "obstruent.coda", "sonorant.coda","codavoice",
+           "sex.bin")
+## FULL
+
+## TRAIN
+#asnumeric
+
+dat.syl.level.nonsin[cols] <- lapply(dat.syl.level.nonsin[cols], as.character)
+dat.syl.level.nonsin[cols] <- lapply(dat.syl.level.nonsin[cols], as.numeric)
+dat.syl.level.nonsin$position.code <- ifelse(dat.syl.level.nonsin$position.bin == 1, 1, -1)
+
+#Interaction Variables
+dat.syl.level.nonsin$pos_stress_era <- dat.syl.level.nonsin$position.code*dat.syl.level.nonsin$era.forfil*dat.syl.level.nonsin$stress
+dat.syl.level.nonsin$stress_era <- dat.syl.level.nonsin$era.forfil*dat.syl.level.nonsin$stress
+dat.syl.level.nonsin$pos_stress <- dat.syl.level.nonsin$position.code*dat.syl.level.nonsin$stress
+dat.syl.level.nonsin$pos_era <- dat.syl.level.nonsin$position.code*dat.syl.level.nonsin$era.forfil
+dat.syl.level.nonsin$codavoice_prof.e <- dat.syl.level.nonsin$codavoice*dat.syl.level.nonsin$prof.e.z
+dat.syl.level.nonsin$prof.sin_pos <- dat.syl.level.nonsin$prof.sinitic.z*dat.syl.level.nonsin$position.code
+dat.syl.level.nonsin$prof.nonsin_pos <- dat.syl.level.nonsin$prof.nonsinitic.z*dat.syl.level.nonsin$position.code
+dat.syl.level.nonsin$prof.e_pos <- dat.syl.level.nonsin$position.code*dat.syl.level.nonsin$prof.e.z
+dat.syl.level.nonsin$prof.t_pos <- dat.syl.level.nonsin$position.code*dat.syl.level.nonsin$prof.t.z
+dat.syl.level.nonsin$prof.m_pos <- dat.syl.level.nonsin$position.code*dat.syl.level.nonsin$prof.m.z
+dat.syl.level.nonsin$prof.h_pos <- dat.syl.level.nonsin$position.code*dat.syl.level.nonsin$prof.h.z
+dat.syl.level.nonsin$prof.nonsin_stress <- dat.syl.level.nonsin$prof.nonsinitic.z*dat.syl.level.nonsin$stress
+dat.syl.level.nonsin$prof.m_stress <- dat.syl.level.nonsin$stress*dat.syl.level.nonsin$prof.m.z
+dat.syl.level.nonsin$prof.h_stress <- dat.syl.level.nonsin$stress*dat.syl.level.nonsin$prof.h.z
+dat.syl.level.nonsin$sex_era_pos <- dat.syl.level.nonsin$sex.bin*dat.syl.level.nonsin$era.forfil* dat.syl.level.nonsin$position.code
+dat.syl.level.nonsin$sex_era <- dat.syl.level.nonsin$sex.bin*dat.syl.level.nonsin$era.forfil
+dat.syl.level.nonsin$sex_pos <- dat.syl.level.nonsin$sex.bin*dat.syl.level.nonsin$position.code
+dat.syl.level.nonsin$pos_era <- dat.syl.level.nonsin$position.code*dat.syl.level.nonsin$era.forfil
+dat.syl.level.nonsin$sex_era_stress <- dat.syl.level.nonsin$sex.bin*dat.syl.level.nonsin$era.forfil* dat.syl.level.nonsin$stress
+dat.syl.level.nonsin$sex_stress <- dat.syl.level.nonsin$sex.bin*dat.syl.level.nonsin$stress
+dat.syl.level.nonsin$stress_era <- dat.syl.level.nonsin$stress*dat.syl.level.nonsin$era.forfil
+
+dat.syl.level.nonsin$absslope <- ifelse(is.na(dat.syl.level.nonsin$absslope), 0, dat.syl.level.nonsin$absslope)
+dat.syl.level.nonsin$mean.f0 <- ifelse(is.na(dat.syl.level.nonsin$mean.f0), 0 , dat.syl.level.nonsin$mean.f0)
+
+dat.syl.level.nonsin$item <- as.factor(dat.syl.level.nonsin$item)
+dat.syl.level.nonsin$idno <- as.factor(dat.syl.level.nonsin$idno)
+
+
+
+## TRAIN
+#asnumeric
+
+dat.syl.level.train.nonsin[cols] <- lapply(dat.syl.level.train.nonsin[cols], as.character)
+dat.syl.level.train.nonsin[cols] <- lapply(dat.syl.level.train.nonsin[cols], as.numeric)
+dat.syl.level.train.nonsin$position.code <- ifelse(dat.syl.level.train.nonsin$position.bin == 1, 1, -1)
+
+#Interaction Variables
+dat.syl.level.train.nonsin$pos_stress_era <- dat.syl.level.train.nonsin$position.code*dat.syl.level.train.nonsin$era.forfil*dat.syl.level.train.nonsin$stress
+dat.syl.level.train.nonsin$stress_era <- dat.syl.level.train.nonsin$era.forfil*dat.syl.level.train.nonsin$stress
+dat.syl.level.train.nonsin$pos_stress <- dat.syl.level.train.nonsin$position.code*dat.syl.level.train.nonsin$stress
+dat.syl.level.train.nonsin$pos_era <- dat.syl.level.train.nonsin$position.code*dat.syl.level.train.nonsin$era.forfil
+dat.syl.level.train.nonsin$codavoice_prof.e <- dat.syl.level.train.nonsin$codavoice*dat.syl.level.train.nonsin$prof.e.z
+dat.syl.level.train.nonsin$prof.sin_pos <- dat.syl.level.train.nonsin$prof.sinitic.z*dat.syl.level.train.nonsin$position.code
+dat.syl.level.train.nonsin$prof.nonsin_pos <- dat.syl.level.train.nonsin$prof.nonsinitic.z*dat.syl.level.train.nonsin$position.code
+dat.syl.level.train.nonsin$prof.e_pos <- dat.syl.level.train.nonsin$position.code*dat.syl.level.train.nonsin$prof.e.z
+dat.syl.level.train.nonsin$prof.t_pos <- dat.syl.level.train.nonsin$position.code*dat.syl.level.train.nonsin$prof.t.z
+dat.syl.level.train.nonsin$prof.m_pos <- dat.syl.level.train.nonsin$position.code*dat.syl.level.train.nonsin$prof.m.z
+dat.syl.level.train.nonsin$prof.h_pos <- dat.syl.level.train.nonsin$position.code*dat.syl.level.train.nonsin$prof.h.z
+dat.syl.level.train.nonsin$prof.nonsin_stress <- dat.syl.level.train.nonsin$prof.nonsinitic.z*dat.syl.level.train.nonsin$stress
+dat.syl.level.train.nonsin$prof.m_stress <- dat.syl.level.train.nonsin$stress*dat.syl.level.train.nonsin$prof.m.z
+dat.syl.level.train.nonsin$prof.h_stress <- dat.syl.level.train.nonsin$stress*dat.syl.level.train.nonsin$prof.h.z
+dat.syl.level.train.nonsin$sex_era_pos <- dat.syl.level.train.nonsin$sex.bin*dat.syl.level.train.nonsin$era.forfil* dat.syl.level.train.nonsin$position.code
+dat.syl.level.train.nonsin$sex_era <- dat.syl.level.train.nonsin$sex.bin*dat.syl.level.train.nonsin$era.forfil
+dat.syl.level.train.nonsin$sex_pos <- dat.syl.level.train.nonsin$sex.bin*dat.syl.level.train.nonsin$position.code
+dat.syl.level.train.nonsin$pos_era <- dat.syl.level.train.nonsin$position.code*dat.syl.level.train.nonsin$era.forfil
+dat.syl.level.train.nonsin$sex_era_stress <- dat.syl.level.train.nonsin$sex.bin*dat.syl.level.train.nonsin$era.forfil* dat.syl.level.train.nonsin$stress
+dat.syl.level.train.nonsin$sex_stress <- dat.syl.level.train.nonsin$sex.bin*dat.syl.level.train.nonsin$stress
+dat.syl.level.train.nonsin$stress_era <- dat.syl.level.train.nonsin$stress*dat.syl.level.train.nonsin$era.forfil
+
+dat.syl.level.train.nonsin$absslope <- ifelse(is.na(dat.syl.level.train.nonsin$absslope), 0, dat.syl.level.train.nonsin$absslope)
+dat.syl.level.train.nonsin$mean.f0 <- ifelse(is.na(dat.syl.level.train.nonsin$mean.f0), 0 , dat.syl.level.train.nonsin$mean.f0)
+
+dat.syl.level.train.nonsin$item <- as.factor(dat.syl.level.train.nonsin$item)
+dat.syl.level.train.nonsin$idno <- as.factor(dat.syl.level.train.nonsin$idno)
+dat.syl.level.test.nonsin$item <- as.factor(dat.syl.level.test.nonsin$item)
+dat.syl.level.test.nonsin$idno <- as.factor(dat.syl.level.test.nonsin$idno)
+
+
+formul <- duration ~ position.code + stress + era.forfil + fricative + obstruent.coda+
+  sonorant.coda + codavoice + absslope + mean.f0 + prof.sinitic.z + prof.nonsinitic.z+
+  prof.t.z + prof.e.z + prof.m.z + prof.h.z + sex.bin +
+  pos_stress_era + stress_era + pos_stress + pos_era + codavoice_prof.e + 
+  prof.sin_pos + prof.nonsin_pos + prof.e_pos + prof.t_pos + prof.m_pos + prof.h_pos+
+  prof.nonsin_stress + prof.m_stress + prof.h_stress + sex_era_pos  + sex_era+
+  sex_pos + pos_era + sex_era_stress + sex_stress + stress_era
+
+```
+
+``` {r boruta proper dur }
+set.seed(10)
+boruta.object <-Boruta::Boruta(as.formula(formul), data=dat.syl.level.nonsin, ntree = 100, maxRuns = 15) #doTrace=0
+
+#boruta.object<-Boruta::TentativeRoughFix(boruta.object)
+
+history<-as.data.frame((boruta.object$ImpHistory))
+
+#Store the Boruta decisions on variables
+decision <-factor(boruta.object$finalDecision,levels = c("Confirmed", "Rejected", "Tentative"))
+
+att <- Boruta::attStats(boruta.object)
+att <- cbind(Variable = rownames(att), att)
+rownames(att) <- 1:nrow(att)
+
+att <- att %>% 
+ mutate_if(is.numeric, round, digits = 4)
+
+DT::datatable(att, options = list(
+  pageLength=100, scrollX='400px'), filter = 'top')
+
+``` 
+
+#### Importance Plot (Horizontal, with 50 iterations)
+
+``` {r boruta horiz dur , fig.show="hold", out.width="50%"}
+
+plot <-    history%>%
+          #select(-shadowMean,-shadowMax,-shadowMin)%>%
+          gather(predictor,measurement)%>%
+          filter(measurement!=-Inf)%>%
+          ggplot()+
+            geom_boxplot(aes(x=reorder(predictor, measurement, mean),y=measurement,fill=decision[predictor]),outlier.shape = NA)+
+            #coord_flip()+
+            theme_light()+
+            theme(legend.position="None",axis.title.x= element_blank(),axis.title.y=element_text(face='bold'),axis.text.x=element_text(face='bold.italic',angle = 45, hjust = 1),axis.text.y=element_text(face='bold.italic'))+
+            xlab('Predictors')+
+            #labs(fill='Feature Selection Decision')+
+            ylab('Importance')+ 
+            scale_fill_manual(values=c("#33cc33", "#ff5050", "#ffcc66"))
+
+par(mar = c(4, 4, .1, .1))
+plot;Boruta::plotImpHistory(boruta.object)
+
+```
+
+#### Mean Decrease Accuracy estimates
+
+``` {r boruta orig dur, fig.height = 8, fig.width = 5}
+plot_vert <-    history%>%
+          select(-shadowMean,-shadowMax,-shadowMin)%>%
+          gather(predictor,measurement)%>%
+          filter(measurement!=-Inf)%>%
+          ggplot()+
+            geom_boxplot(aes(x=reorder(predictor, measurement, mean),y=measurement,fill=decision[predictor]),outlier.shape = NA)+
+            coord_flip()+
+            theme_light()+
+            theme(legend.position="bottom",axis.title.x=element_text(face='bold'),axis.title.y=element_text(face='bold'),axis.text.x=element_text(face='bold.italic'),axis.text.y=element_text(face='bold.italic'))+
+            xlab('Predictors')+
+            labs(fill='Feature Selection Decision')+
+            ylab('Mean Decrease Accuracy estimates (Z-score)')+ 
+            scale_fill_manual(values=c("#33cc33", "#ff5050", "#ffcc66"))
+
+plot_vert
+
+
+```
+
+
+
+### Linear Regression using `lmer`
+#### Fitting
+
+A linear mixed-effect regression was conducted on the data (Kuznetsova et al. 2019). The dependent variable is duration (in seconds) while predictors that were included in the model include position, stress, age, presence of a fricative, coda voicing, presence of a sonorant coda, pitch contour `absslope`. Interactions between position, stress, and the social variables mentioned earlier were included in the model. Covariates - or variables that I am not interested in, but help in statistical control - were included. Examples include average pitch of the syllable `mean.f0`, and the presence of an obstruent coda `obstruent.coda`. The complete set of factors included in the model is shown in the results for the linear model below. Random intercepts for item, participant, and stimuli number were included in modeling.
+
+The results show the main effect of position, stress, presence of a fricative, presence of an obstruent coda, presence of a sonorant coda, presence of a voiced coda, pitch contour, and proficiency in a non-Sinitic language. They furthermore indicate interaction effects between (1) coda voicing and English proficiency, (2) position and stress, (3) position and age, (4), position and language proficiency in all source languages except Tagalog, (4) stress and age, (5) stress and proficiency in stress languages, (6) stress and proficiency in Hokkien, and (7) position, sex, and age. 
+
+``` {r model duration}
+mod.syldur <-lmer(duration ~ position.bin*stress*era.forfil +
+                             fricative + obstruent.coda + sonorant.coda + codavoice*prof.e.z + #structural
+                    codavoice*prof.t.z +
+                             absslope  + mean.f0 + #syllable internal
+                             ###Social variables affecting whether position,stress has an effect on duration
+                             ## Proficiency
+                             #prof.l.z +
+                             prof.sinitic.z*position.bin + prof.nonsinitic.z*position.bin + 
+                                            
+                             prof.e.z*position.bin + prof.t.z*position.bin + 
+                             prof.h.z*position.bin + prof.m.z*position.bin +
+                             prof.nonsinitic.z*stress+  #stress languages
+                             prof.m.z*stress +
+                             prof.h.z*stress+ #nonstress language
+                             ## Sex and Age
+                             sex.bin*era.forfil*position.bin +
+                             sex.bin*era.forfil*stress +
+                             (1|idno.fac) + (1|stimno.fac) + (1|item.fac), data=dat.syl.level.nonsin)
+
+plot(mod.syldur)
+qqnorm(resid(mod.syldur))
+
+sjPlot::tab_model(mod.syldur, show.se =TRUE, digits = 4)
+
+```
+
+#### Coefficient plot
+``` {r coeff dur, fig.height = 8, fig.width = 5}
+p <- sjPlot::plot_model(mod.syldur, 
+                   vline = "black",
+                   sort.est = FALSE,
+                   transform = NULL,
+                   show.values = TRUE,
+                   value.offset = 0.5,
+                   dot.size = 2.5,
+                   value.size = 2.5)
+p + ylim(-.1, .1)
+
+
+p <- sjPlot::plot_model(mod.syldur, 
+                   vline = "black",
+                   sort.est = TRUE,
+                   transform = NULL,
+                   show.values = TRUE,
+                   value.offset = 0.5,
+                   dot.size = 2.5,
+                   value.size = 2.5)
+p + ylim(-.1, .1)
+
+
+
+```
+
+
+### Prediction Accuracy
+
+To assess whether the significant factors alone are useful for predicting duration, I ran the four different algorithms again on test data (10% of the whole data) using a model trained on 90% of the complete data. The results show some promise. The models trained using neural network and random forest performed the best, with accuracies higher than 80%. The other two models have an accuracy of around 70%. 
+
+
+#### Neural Network Model
+``` {r neural net dur, cache = TRUE}
+# Fit a neural network
+dat.syl.level.train.nonsin.selected <- dat.syl.level.train.nonsin %>%
+  select(duration, position.bin, stress, era.forfil, fricative , obstruent.coda,
+         sonorant.coda , codavoice , absslope , prof.nonsinitic.z, prof.e.z, prof.h.z, prof.m.z,
+         prof.nonsinitic.z, sex.bin)
+
+cols <- c("stress","position.bin", "era.forfil", "fricative", "obstruent.coda", "sonorant.coda","codavoice",
+           "sex.bin")
+dat.syl.level.train.nonsin.selected[cols] <- lapply(dat.syl.level.train.nonsin.selected[cols], as.factor)
+
+
+dat.syl.level.test.nonsin.selected <- dat.syl.level.test.nonsin %>%
+  select(duration, position.bin, stress, era.forfil, fricative , obstruent.coda,
+         sonorant.coda , codavoice , absslope , prof.nonsinitic.z, prof.e.z, prof.h.z, prof.m.z,
+         prof.nonsinitic.z, sex.bin)
+dat.syl.level.test.nonsin.selected[cols] <- lapply(dat.syl.level.test.nonsin.selected[cols], as.factor)
+
+#dat.main.train.selected$religion <- as.factor(dat.main.train.selected$religion)
+
+mygrid <- expand.grid(.decay=c(0.5, 0.1), .size=c(4,5,6))
+nnetfit <- caret::train(duration ~ . , data= dat.syl.level.train.nonsin.selected , method="nnet", maxit=500, tuneGrid=mygrid, trace=F)
+
+```
+
+``` {r nn duo}
+
+dur.nn.predict <-  predict(nnetfit, newdata = dat.syl.level.test.nonsin.selected, re.form = NULL, na.action = na.pass )
+
+
+cor.test(dat.syl.level.test.nonsin.selected$duration,dur.nn.predict)
+plot(dat.syl.level.test.nonsin.selected$duration,dur.nn.predict)
+
+```
+
+#### Decision Trees using `C5.0`
+``` {r dt c5 dur, warning = FALSE}
+dat.syl.level.train.nonsin.selected.c5 <- dat.syl.level.train.nonsin %>%
+  select(position.bin, stress, era.forfil, fricative , obstruent.coda,
+         sonorant.coda , codavoice , absslope , prof.nonsinitic.z, prof.e.z, prof.h.z, prof.m.z,
+         prof.nonsinitic.z, sex.bin)
+
+dat.syl.level.test.nonsin.selected.c5 <- dat.syl.level.train.nonsin %>%
+  select(position.bin, stress, era.forfil, fricative , obstruent.coda,
+         sonorant.coda , codavoice , absslope , prof.nonsinitic.z, prof.e.z, prof.h.z, prof.m.z,
+         prof.nonsinitic.z, sex.bin)
+
+# Fit a decision tree 85.66%
+
+dtfit <- C50::C5.0(dat.syl.level.train.nonsin.selected.c5, as.factor(dat.syl.level.train.nonsin$duration), trials=100)  
+
+
+dur.dt.predict <- predict(dtfit, newdata =dat.syl.level.test.nonsin.selected, re.form = NULL )
+
+dur.dt.predict <- as.numeric(dur.dt.predict)
+cor.test(dur.dt.predict, dat.syl.level.test.nonsin$duration)
+plot(dat.syl.level.test.nonsin$duration,dur.dt.predict)
+```
+
+#### Regression Trees using `rpart`
+``` {r dt rpartdur, warning = FALSE}
+## 74%
+rpartfit <- rpart::rpart(duration ~., dat.syl.level.train.nonsin.selected, cp=0.01)
+rattle::fancyRpartPlot(rpartfit, cex = 0.7, caption = "rpart")
+
+dur.rpart.predict <- predict(rpartfit , newdata =dat.syl.level.test.nonsin.selected, re.form = NULL, type = "vector")
+
+cor.test(dur.rpart.predict, dat.syl.level.test.nonsin.selected$duration)
+dur.rpart.predict <- as.numeric(dur.rpart.predict)
+plot(dat.syl.level.test.nonsin.selected$duration,dur.rpart.predict)
+```
+
+
+
+#### Random Forest Model
+``` {r randomforest dur, warning = FALSE}
+# Fit a random forest model
+# Fit a neural network #82.59%
+dat.syl.level.train.nonsin.selected <- dat.syl.level.train.nonsin %>%
+  select(duration, position.bin, stress, era.forfil, fricative , obstruent.coda,
+         sonorant.coda , codavoice , absslope , prof.nonsinitic.z, prof.e.z, prof.h.z, prof.m.z,
+         prof.nonsinitic.z, sex.bin)
+
+cols <- c("stress","position.bin", "era.forfil", "fricative", "obstruent.coda", "sonorant.coda","codavoice",
+           "sex.bin")
+dat.syl.level.train.nonsin.selected[cols] <- lapply(dat.syl.level.train.nonsin.selected[cols], as.factor)
+
+
+
+
+rffit <- caret::train(duration ~ . , data=  dat.syl.level.train.nonsin.selected , method="rf", trControl = trainControl(method = "cv", number = 5))
+ 
+```
+
+```` {r rrrrr}
+#dat.syl.level.test.nonsin.selected[cols] <- lapply(dat.syl.level.test.nonsin.selected[cols], as.factor)
+
+
+dat.syl.level.test.nonsin.selected <-  dat.syl.level.test.nonsin %>%
+  select(duration, position.bin, stress, era.forfil, fricative , obstruent.coda,
+         sonorant.coda , codavoice , absslope , prof.nonsinitic.z, prof.e.z, prof.h.z, prof.m.z,
+         prof.nonsinitic.z, sex.bin)
+dat.syl.level.test.nonsin.selected[cols] <- lapply(dat.syl.level.test.nonsin.selected[cols], as.factor)
+
+dat.syl.level.test.nonsin.selected <- na.omit(dat.syl.level.test.nonsin.selected)
+
+dur.rf.predict <- predict(rffit, newdata = data.frame(dat.syl.level.test.nonsin.selected), re.form = NULL)
+
+cor.test(dat.syl.level.test.nonsin.selected$duration, dur.rf.predict)
+plot(dat.syl.level.test.nonsin.selected$duration, dur.rf.predict)
+ 
+```
+
+
+### Findings (What conditions duration?)
+#### Structural conditions
+##### Position and stress
+In line with my expectations, stress and position are significant predictors of duration. Accounting for all of the other variables in the model, syllables at the final position do indeed tend to be longer than those in the non-final position. Syllables that are stressed in the original language also tend to be longer. One result that I did not expect was the interaction effect between position and stress. It seems that syllables that are both unstressed and in the penultimate position are much more likely to be shorter. I show this in the table and figure below.
+
+The results for position and stress confirm my hypothesis that Lánnang-uè has rules for determining which syllables should be long and which should be short: syllables that were originally stressed and syllables in the final position should be long whereas syllables that were originally unstressed and syllables in the penultimate position should be short. The results also suggest another 'rule' in Lánnang-uè - make syllables that are both unstressed and in the penultimate position extra short. 
+
+``` {r dur struc pos and stress}
+dat.syl.level.nonsin$stress.cat <- ifelse(dat.syl.level.nonsin$stress == 1, "stressed", "unstressed")
+
+dur.pos_stress.summary <- Rmisc::summarySE(dat.syl.level.nonsin, measurevar="duration", groupvars=c("position", "stress.cat"))
+
+dur.pos_stress.summary  <- dendroTools::round_df(as.data.frame(dur.pos_stress.summary ) , 3)
+
+DT::datatable(dur.pos_stress.summary, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+ggplot(data=dur.pos_stress.summary, aes(x=stress.cat,y=duration, fill=position)) +
+  geom_bar(stat="identity", position=position_dodge()) + ggtitle(" ") + 
+  theme(plot.title = element_text(hjust=0.5, size= "12"))+ # Thinner lines
+  geom_errorbar(aes(ymin=duration-se, ymax=duration+se),
+                size=.3,    # Thinner lines
+                width=.2,
+                position=position_dodge(.9))+
+  xlab("____") + 
+  ylab("Duration (seconds)")+
+scale_fill_viridis(name="Position", discrete = TRUE)+
+  scale_x_discrete(name="Stress")
+```
+
+
+#### Syllable structure
+
+The results indicate the effect of syllable structure on syllable length, as expected. The presence of a fricative, sonorant coda, and pitch contour all increase the likelihood for a syllable to be longer. Interestingly, I also found an effect of the presence of obstruent codas - they also seem to be associated with longer syllable duration. Moreover, voicing of the coda also seems to increase the duration of the syllable, contrary to my expectations. Earlier, I hypothesized that coda voicing would only have an effect on duration for speakers who are proficient in English but it seems that the mainstream population is lengthening syllables with voiced codas after all.
+
+Altogether, the results suggest that Lánnang-uè also has the following rule(s) for lengthening syllables: lengthen the syllable if it includes a fricative, an obstruent or sonorant coda, a pitch contour, or a coda that is voiced. 
+
+##### Fricative
+``` {r dur fric   pos and stress}
+dat.syl.level.nonsin$fricative.cat <- ifelse(dat.syl.level.nonsin$fricative == 1, "fricative", "non-fricative")
+
+dur.fricative.summary <- Rmisc::summarySE(dat.syl.level.nonsin, measurevar="duration", groupvars=c("fricative.cat"))
+
+dur.fricative.summary  <- dendroTools::round_df(as.data.frame(dur.fricative.summary) , 3)
+
+DT::datatable(dur.fricative.summary, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+ggplot(data=dur.fricative.summary, aes(x=fricative.cat,y=duration, fill = fricative.cat)) +
+  geom_bar(stat="identity", position=position_dodge()) + ggtitle(" ") + 
+  theme(plot.title = element_text(hjust=0.5, size= "12"))+ # Thinner lines
+  geom_errorbar(aes(ymin=duration-se, ymax=duration+se),
+                size=.3,    # Thinner lines
+                width=.2,
+                position=position_dodge(.9))+
+  xlab("____") + 
+  ylab("Duration (seconds)")+
+scale_fill_viridis(name="Fricative", discrete = TRUE)
+```
+
+##### Obstruent
+
+``` {r dur obs  pos and stress}
+dat.syl.level.nonsin$obstruent.cat <- ifelse(dat.syl.level.nonsin$obstruent == 1, "obstruent", "non-obstruent")
+
+dur.obstruent.summary <- Rmisc::summarySE(dat.syl.level.nonsin, measurevar="duration", groupvars=c("obstruent.cat"))
+
+dur.obstruent.summary  <- dendroTools::round_df(as.data.frame(dur.obstruent.summary) , 3)
+
+DT::datatable(dur.obstruent.summary, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+ggplot(data=dur.obstruent.summary, aes(x=obstruent.cat,y=duration, fill = obstruent.cat)) +
+  geom_bar(stat="identity", position=position_dodge()) + ggtitle(" ") + 
+  theme(plot.title = element_text(hjust=0.5, size= "12"))+ # Thinner lines
+  geom_errorbar(aes(ymin=duration-se, ymax=duration+se),
+                size=.3,    # Thinner lines
+                width=.2,
+                position=position_dodge(.9))+
+  xlab("____") + 
+  ylab("Duration (seconds)")+
+scale_fill_viridis(name="Obstruent", discrete = TRUE)
+```
+
+##### Sonorant
+
+``` {r dur sonorant  pos and stress}
+dat.syl.level.nonsin$sonorant.cat <- ifelse(dat.syl.level.nonsin$sonorant == 1, "sonorant", "non-sonorant")
+
+dur.sonorant.summary <- Rmisc::summarySE(dat.syl.level.nonsin, measurevar="duration", groupvars=c("sonorant.cat"))
+
+dur.sonorant.summary  <- dendroTools::round_df(as.data.frame(dur.sonorant.summary) , 3)
+
+DT::datatable(dur.sonorant.summary, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+ggplot(data=dur.sonorant.summary, aes(x=sonorant.cat,y=duration, fill = sonorant.cat)) +
+  geom_bar(stat="identity", position=position_dodge()) + ggtitle(" ") + 
+  theme(plot.title = element_text(hjust=0.5, size= "12"))+ # Thinner lines
+  geom_errorbar(aes(ymin=duration-se, ymax=duration+se),
+                size=.3,    # Thinner lines
+                width=.2,
+                position=position_dodge(.9))+
+  xlab("____") + 
+  ylab("Duration (seconds)")+
+scale_fill_viridis(name="sonorant", discrete = TRUE)
+```
+
+##### Voiced
+
+``` {r dur codavoice strcutural}
+dat.syl.level.nonsin$codavoice.cat <- ifelse(dat.syl.level.nonsin$codavoice== 1, "voiced coda",
+                                             ifelse(dat.syl.level.nonsin$codavoice== -1, "voiceless coda", NA))
+dur.cv.summary <- Rmisc::summarySE(dat.syl.level.nonsin, measurevar="duration", groupvars=c("codavoice.cat"))
+
+dur.cv.summary <- dendroTools::round_df(as.data.frame(dur.cv.summary), 3)
+
+dur.cv.summary <- dur.cv.summary %>% drop_na(codavoice.cat)
+
+DT::datatable(dur.cv.summary, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+ggplot(data=dur.cv.summary, aes(x=codavoice.cat,y=duration, fill = codavoice.cat)) +
+  geom_bar(stat="identity", position=position_dodge()) + ggtitle(" ") + 
+  theme(plot.title = element_text(hjust=0.5, size= "12"))+ # Thinner lines
+  geom_errorbar(aes(ymin=duration-se, ymax=duration+se),
+                size=.3,    # Thinner lines
+                width=.2,
+                position=position_dodge(.9))+
+  xlab("____") + 
+  ylab("Duration (seconds)")+
+scale_fill_viridis(name="Coda", discrete = TRUE)
+```
+
+
+##### Pitch contour (Falling/Rising vs. Level)
+
+``` {r dur contour  pos and stress, warning = FALSE}
+
+ggplot(dat.syl.level.nonsin, aes(x= absslope, y=duration, hue = absslope )) + 
+  geom_point(alpha = 1/10)+
+  geom_smooth(method=lm) +
+  #facet_wrap(.~ty.whyvsE) +
+  #scale_color_hue(name="Legend", # Legend label, use darker colors
+                 #breaks=c("1", "-1"),
+                 #labels=c("why", "other adjuncts")) + 
+  ggtitle(" ")+
+  xlab("Pitch Contour (Absolute Slope)") + 
+  ylab("Duration (seconds)")+
+  xlim(c(0,5))
+
+
+ggplot(dat.syl.level.nonsin, aes(x= slope.impute, y=duration, hue = slope.impute )) + 
+  geom_point(alpha = 1/10)+
+  geom_smooth(method=loess) +
+  #facet_wrap(.~ty.whyvsE) +
+  #scale_color_hue(name="Legend", # Legend label, use darker colors
+                 #breaks=c("1", "-1"),
+                 #labels=c("why", "other adjuncts")) + 
+  ggtitle(" ")+
+  xlab("Pitch Slope") + 
+  ylab("Duration (seconds)")+
+  xlim(c(-5,2.7))
+
+
+
+```
+
+
+#### Social-structural Interactions
+##### Coda voicing and social variables
+###### Coda voicing and English Proficiency
+
+The results indicate a correlation between voicing in the coda and English proficiency. Speakers who are more proficient in English make the voicing length contrast. They have shorter syllables for syllables with a voiceless coda and longer syllables for those with a voiced coda. Speakers who are not proficient in English do not make this distinction. The results here suggest that the voicing length contrast observed in Lánnang-uè most likely came from English's voicing length contrast, in line with my hypothesis. However, the system was most likely not imported 'as-is' from English. If such were the case, the voicing length contrast feature would only be present in words that were sourced from English. The feature seems to be present for words that are sourced from Tagalog as well. This suggests that the feature has been derived from English rather than transplanted from English without modifications. It could not have been derived from Tagalog as the model results show a lack of an interaction effect between Tagalog proficiency and coda voicing. Speakers might have generalized the English-only rule to extend to Lánnang-uè words with Tagalog origins as well. 
+
+``` {r dur coda profe}
+
+dat.codaonly <- subset(dat.syl.level.nonsin, dat.syl.level.nonsin$codavoice != 0)
+dat.codaonly$codavoice.fac <- ifelse(dat.codaonly$codavoice == 1, "voiced", "voiceless")
+
+ggplot(dat.codaonly, aes(x=prof.e.z, y=duration, color = codavoice.fac)) + 
+  geom_point(alpha = 1/10)+
+  geom_smooth(method=lm) +
+  #facet_wrap(.~ty.whyvsE) +
+  #scale_color_hue(name="Legend", # Legend label, use darker colors
+                 #breaks=c("1", "-1"),
+                 #labels=c("why", "other adjuncts")) + 
+  ggtitle(" ")+
+  facet_grid(.~codavoice.fac)+
+  xlab("Proficiency (English, z-score)") + 
+  ylab("Duration (seconds)")+
+  scale_color_hue(name="Voicing")
+  #scale_x_discrete(name="Stress")
+
+
+```
+
+
+##### Position and social variables
+###### Position and Age
+
+As expected, the model shows that the position length contrast feature of Lánnang-uè is used differently depending on the speaker's age. Younger speakers tend to lengthen their final syllables more than older speakers. While I cannot pinpoint exactly what about their young age motivates this lengthening of the final syllable, my interviews with 77 Lannangs, complemented by Chuaunsu's (1989) survey findings, suggest that this youth-exclusive lengthening is due to identity-stressing measures. To distinguish themselves from the older speakers, the young Lannangs appear to be innovating the mainstream position-length contrast system in Lánnang-uè by lengthening the final syllable even further. 
+
+``` {r dur struc pos and prof}
+dat.syl.level.nonsin$age.cat <- ifelse(dat.syl.level.nonsin$era.forfil == 1, "49 below", "50+")
+
+dur.agepos.summary <- Rmisc::summarySE(dat.syl.level.nonsin, measurevar="duration", groupvars=c("position", "age.cat"))
+
+dur.agepos.summary  <- dendroTools::round_df(as.data.frame(dur.agepos.summary ) , 3)
+
+DT::datatable(dur.agepos.summary, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+ggplot(data=dur.agepos.summary, aes(x=age.cat,y=duration, fill=position)) +
+  geom_bar(stat="identity", position=position_dodge()) + ggtitle(" ") + 
+  theme(plot.title = element_text(hjust=0.5, size= "12"))+ # Thinner lines
+  geom_errorbar(aes(ymin=duration-se, ymax=duration+se),
+                size=.3,    # Thinner lines
+                width=.2,
+                position=position_dodge(.9))+
+  xlab("____") + 
+  ylab("Duration (seconds)")+
+scale_fill_hue(name="Position")+
+  scale_x_discrete(name="Age")
+```
+
+
+###### Position and Proficiency (English, Hokkien, Mandarin)
+The results for the interactions between position and proficiency did not fully meet my expectations. Earlier, I hypothesized that proficiency in three of the source languages —Tagalog, English, and Mandarin — would make a speaker more likely to make the duration-cued position contrast. The results show that proficiency in English, Hokkien, and Mandarin were significant predictors of one’s likelihood to make this contrast. That is, the more proficient speakers are in Hokkien, Mandarin, and English, the more likely they are to either increase the length of the ultimate syllable (Mandarin and Hokkien) or decrease the length of the penultimate syllable (English). In both cases, the duration ratio between the penultimate and ultimate syllable is increased. In other words, as proficiency in English, Mandarin, and Hokkien increases, the greater the duration contrast with regard to position. This is surprising, as proficiency in Hokkien — a language not documented to have a position contrast cued by duration — has an effect while Tagalog, a language that has this contrast, does not. While I do not have an explanation for these, the interaction between the other proficiencies and position can be accounted for, as English and Mandarin are documented to have word/phrase-final lengthening or a duration contrast.
+
+Overall, the results suggest that, apart from age-related factors (e.g.‘young Lannang’ identity), the ‘innovative’ increased duration-cued position contrast (in contrast to the ‘regular’ contrast) may have been (joint) influences of Mandarin and English, by the least. The speakers’ knowledge of duration-cued position contrast in English and Mandarin may have ‘transferred’ to Lánnang-uè’s existing system, making speakers proficient in these languages more likely to make a greater contrast.
+
+Because proficiency in these two languages is correlated with the position contrast, there is also a chance that the ‘regular’ Lánnang-uè position contrast feature itself originated from these languages. It may have been the result of a “congruence” process (Baptista 2020: 160) where speakers pick features from the source languages that they perceive to be similar. In this case, the duration-cued contrast between the final and non-final syllables is shared by the two languages, making it likely for this feature to be selected into and innovated in Lánnang-uè. An indication that this contrast feature is not simply transplanted or selected into the variety, but rather derived/innovated is the fact that this contrast is observed not only in English- and Mandarin-origin words, but also in Hokkien- and Tagalog-sourced words in Lánnang-uè.
+
+
+``` {r dur position profe}
+
+
+ggplot(dat.syl.level.nonsin, aes(x=prof.e.z, y=duration, color = position)) + 
+  geom_point(alpha = 1/10)+
+  geom_smooth(method=lm) +
+  ggtitle(" ")+
+  facet_grid(.~position)+
+  xlab("Proficiency (English, z-score)") + 
+  ylab("Duration (seconds)")+
+  scale_color_hue(name="Position")
+
+dat.syl.level.nonsin$prof.e.cat <- ifelse(dat.syl.level.nonsin$prof.e.z < mean(dat.syl.level.nonsin$prof.e.z), 
+                                          "Not Proficient","Proficient")
+
+dur.pos_profe.summary <- Rmisc::summarySE(dat.syl.level.nonsin, measurevar="duration", groupvars=c("position", "prof.e.cat"))
+
+dur.pos_profe.summary  <- dendroTools::round_df(as.data.frame(dur.pos_profe.summary ) , 5)
+#nonproficient = 8,448
+#proficient = 8,453
+
+DT::datatable(dur.pos_profe.summary, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+ggplot(data=dur.pos_profe.summary, aes(x=prof.e.cat,y=duration, fill=position)) +
+  geom_bar(stat="identity", position=position_dodge()) + ggtitle(" ") + 
+  theme(plot.title = element_text(hjust=0.5, size= "12"))+ # Thinner lines
+  geom_errorbar(aes(ymin=duration-se, ymax=duration+se),
+                size=.3,    # Thinner lines
+                width=.2,
+                position=position_dodge(.9))+
+  xlab("____") + 
+  ylab("Duration (seconds)")+
+scale_fill_hue(name="Position")+
+  scale_x_discrete(name="Proficiency (English)")
+
+```
+
+``` {r dur position profh}
+##IGNORE IN ACTUAL ANALYSIS
+dat.penult <- subset(dat.syl.level.nonsin, dat.syl.level.nonsin$position == "penultimate")
+dat.ultimate <- subset(dat.syl.level.nonsin, dat.syl.level.nonsin$position == "ultimate")
+
+cor.test(dat.penult$duration, dat.penult$prof.h.z)
+cor.test(dat.ultimate$duration, dat.ultimate$prof.h.z)
+
+ggplot(dat.syl.level.nonsin, aes(x=prof.h.z, y=duration, color = position)) + 
+  geom_point(alpha = 1/10)+
+  geom_smooth(method=lm) +
+  ggtitle(" ")+
+  facet_grid(.~position)+
+  xlab("Proficiency (Hokkien, z-score)") + 
+  ylab("Duration (seconds)")+
+  scale_color_hue(name="Position")
+
+
+dat.syl.level.nonsin$prof.h.cat <- ifelse(dat.syl.level.nonsin$prof.h.z < mean(dat.syl.level.nonsin$prof.h.z), 
+                                          "Not Proficient","Proficient")
+
+dur.pos_profh.summary <- Rmisc::summarySE(dat.syl.level.nonsin, measurevar="duration", groupvars=c("position", "prof.h.cat"))
+
+dur.pos_profh.summary  <- dendroTools::round_df(as.data.frame(dur.pos_profh.summary ) , 5)
+#not prof = 8,206
+#prof = 8,699
+
+
+
+DT::datatable( dur.pos_profh.summary, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+ggplot(data=dur.pos_profh.summary , aes(x=prof.h.cat,y=duration, fill=position)) +
+  geom_bar(stat="identity", position=position_dodge()) + ggtitle(" ") + 
+  theme(plot.title = element_text(hjust=0.5, size= "12"))+ # Thinner lines
+  geom_errorbar(aes(ymin=duration-se, ymax=duration+se),
+                size=.3,    # Thinner lines
+                width=.2,
+                position=position_dodge(.9))+
+  xlab("____") + 
+  ylab("Duration (seconds)")+
+scale_fill_hue(name="Position")+
+  scale_x_discrete(name="Proficiency (Hokkien)")
+
+
+```
+
+``` {r dur position profm}
+ggplot(dat.syl.level.nonsin, aes(x=prof.m.z, y=duration, color = position)) + 
+  geom_point(alpha = 1/10)+
+  geom_smooth(method=lm) +
+  ggtitle(" ")+
+  facet_grid(.~position)+
+  xlab("Proficiency (Mandarin, z-score)") + 
+  ylab("Duration (seconds)")+
+  scale_color_hue(name="Position")
+
+
+dat.syl.level.nonsin$prof.m.cat <- ifelse(dat.syl.level.nonsin$prof.m.z < mean(dat.syl.level.nonsin$prof.m.z), 
+                                          "Not Proficient","Proficient")
+
+dur.pos_profm.summary <- Rmisc::summarySE(dat.syl.level.nonsin, measurevar="duration", groupvars=c("position", "prof.m.cat"))
+
+dur.pos_profm.summary  <- dendroTools::round_df(as.data.frame(dur.pos_profm.summary ) , 5)
+#not prof = 8,206
+#prof = 8,699
+
+DT::datatable(dur.pos_profm.summary, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+ggplot(data=dur.pos_profm.summary, aes(x=prof.m.cat,y=duration, fill=position)) +
+  geom_bar(stat="identity", position=position_dodge()) + ggtitle(" ") + 
+  theme(plot.title = element_text(hjust=0.5, size= "12"))+ # Thinner lines
+  geom_errorbar(aes(ymin=duration-se, ymax=duration+se),
+                size=.3,    # Thinner lines
+                width=.2,
+                position=position_dodge(.9))+
+  xlab("____") + 
+  ylab("Duration (seconds)")+
+scale_fill_hue(name="Position")+
+  scale_x_discrete(name="Proficiency (Mandarin)")
+
+
+```
+
+``` {r duration across languages}
+  
+dur.poss.summary <- Rmisc::summarySE(dat.syl.level, measurevar="duration", groupvars=c("position", "lg.word"))
+
+DT::datatable(dur.poss.summary, options = list(
+  pageLength=15, scrollX='400px'), filter = 'top')
+
+ggplot(data=dur.poss.summary, aes(x=position,y=duration, fill=position)) +
+  geom_bar(stat="identity", position=position_dodge()) + ggtitle(" ") + 
+  theme(plot.title = element_text(hjust=0.5, size= "12"))+ # Thinner lines
+  geom_errorbar(aes(ymin=duration-se, ymax=duration+se),
+                size=.3,    # Thinner lines
+                width=.2,
+                position=position_dodge(.9))+
+  xlab("____") + 
+  ylab("Duration (seconds)")+
+scale_fill_hue(name="Position")+
+  scale_x_discrete(name="language")+
+  facet_wrap(lg.word~.)
+
+
+
+```
+
+###### Position and Age and Sex
+My model of duration only included sex as a covariate; however, the model results show that sex interacts with position and age. A closer look reveals that being a young male, as opposed to being just young, significantly increases one's chances of producing this duration-cued position contrast. That is, compared to the general population (e.g. older females,etc.), younger males tend to use a greater length contrast between the ultimate and penultimate syllable, a feature that is observed not to be stigmatized in the Lánnang-uè-speaking community. 
+
+This finding seems to contradict Labov's (1990, 1994) theory that young women tend to lead language change for variants that are not actively stigmatized (Maclagan et al. 1999). It, for example, is at odds with what Starr and I found for the vowel monophthong system of Lánnang-uè (Gonzales & Starr 2020), where younger females innovated an unstigmatized, already conventionalized vowel system that is independent of the source language of the word. That is, they seem to make certain vowels sound different depending on the source language of the word where the vowel is produced. 
+
+Although studies like contradict Labov's theory, other sociolinguistic studies such as Leimgruber et al.'s (in press) study of Colloquial Singapore English and the effect of gender on the use of discourse particles remind us that his theory is not infallible. Even Labov's own famous Martha Vineyard study (Labov 1972) shows that men are able to lead sound change, given the right motivations. Specifically, for the Vineyard study, Labov found that men (most of whom are fishermen) used more diphthongs as a sign of solidarity with each other in response to the influx of foreign visitors to the island. It is, thus, possible to posit that other processes (e.g. solidarity stressing) could account for the unexpected sex-age interaction effect on the duration-cued position contrast in Lánnang-uè.
+
+Regardless of the motivation, the results suggest that the ‘innovative’ increased duration-cued position contrast can also be attributed specifically to young males, apart from the youth in general and speakers proficient in Mandarin and English. 
+
+
+``` {r dur positionagesex profm}
+
+dat.syl.level.nonsin$sex.cat <-  ifelse(dat.syl.level.nonsin$sex == "F", "female", "male")
+dur.pos_age_sex.summary <- Rmisc::summarySE(dat.syl.level.nonsin, measurevar="duration", groupvars=c("position", "age.cat","sex.cat"))
+
+dur.pos_age_sex.summary  <- dendroTools::round_df(as.data.frame(dur.pos_age_sex.summary ) , 5)
+#not prof = 8,206
+#prof = 8,699
+
+DT::datatable(dur.pos_age_sex.summary, options = list(
+  pageLength=15, scrollX='400px'), filter = 'top')
+
+ggplot(data=dur.pos_age_sex.summary, aes(x=sex.cat,y=duration, fill=position)) +
+  geom_bar(stat="identity", position=position_dodge()) + ggtitle(" ") + 
+  theme(plot.title = element_text(hjust=0.5, size= "12"))+ # Thinner lines
+  geom_errorbar(aes(ymin=duration-se, ymax=duration+se),
+                size=.3,    # Thinner lines
+                width=.2,
+                position=position_dodge(.9))+
+  xlab("____") + 
+  ylab("Duration (seconds)")+
+scale_fill_hue(name="Position")+
+  scale_x_discrete(name="Sex")+
+  facet_grid(age.cat~.)
+
+#youngF= 8,385
+#youngM = 8,952
+#oldF = 8,246
+#oldM = 7,845
+
+ggplot(dat.syl.level.nonsin, aes(x=age, y=duration, color = sex.cat)) + 
+  geom_point(alpha = 1/10)+
+  geom_smooth(method=lm) +
+  ggtitle(" ")+
+  facet_grid(.~position)+
+  xlab("Age") + 
+  ylab("Duration (seconds)")+
+  scale_color_hue(name="Position")+
+  facet_grid(.~position)
+
+
+```
+
+##### Stress and social variables
+###### Stress and Age
+
+To reiterate, stress conditions duration in Lánnang-uè; it can be thought of as a rule: syllables that are originally stressed in the source languages should be stressed in Lánnang-uè as well. However, as the results in this section show, there are social factors that interact with this system. Age was not initially hypothesized, but the model results show that younger speakers also tend to make a greater duration-cued stress contrast on top of a duration-cued position contrast. In other words, younger speakers have more 'stress' in Lánnang-uè compared to older speakers. Although I did not initially hypothesize this and treated the interaction between age and sex as a covariate, the results make sense given what I have just observed about the effect of age on the position contrast feature of Lánnang-uè, discussed earlier. Younger speakers, wanting to distinguish themselves from the elders, may choose to make their language more distinct from the language of the elderly. In this case, the youth seems to be applying more stress to already stressed Lánnang-uè syllables by lengthening their duration. 
+
+
+``` {r dur stress age}
+
+dur.stress_age.summary <- Rmisc::summarySE(dat.syl.level.nonsin, measurevar="duration", groupvars=c("stress.cat", "age.cat"))
+
+dur.stress_age.summary   <- dendroTools::round_df(as.data.frame(dur.stress_age.summary  ) , 5)
+
+DT::datatable(dur.stress_age.summary , options = list(
+  pageLength=15, scrollX='400px'), filter = 'top')
+
+ggplot(data=dur.stress_age.summary , aes(x=stress.cat,y=duration, fill=stress.cat)) +
+  geom_bar(stat="identity", position=position_dodge()) + ggtitle(" ") + 
+  theme(plot.title = element_text(hjust=0.5, size= "12"))+ # Thinner lines
+  geom_errorbar(aes(ymin=duration-se, ymax=duration+se),
+                size=.3,    # Thinner lines
+                width=.2,
+                position=position_dodge(.9))+
+  xlab("____") + 
+  ylab("Duration (seconds)")+
+scale_fill_hue(name="Stress")+
+  facet_grid(.~age.cat)
+
+#young = 5,959
+#old  = 5,773
+
+ggplot(dat.syl.level.nonsin, aes(x=age, y=duration, color = sex.cat)) + 
+  geom_point(alpha = 1/10)+
+  geom_smooth(method=lm) +
+  ggtitle(" ")+
+  facet_grid(.~position)+
+  xlab("Age") + 
+  ylab("Duration (seconds)")+
+  scale_color_hue(name="Stress")+
+  facet_grid(.~stress.cat)
+
+
+```
+
+###### Stress and Proficiency (Hokkien, Non-Sinitic)
+
+On stress and linguistic proficiency, the results indicate an interction effect between stress and Hokkien proficiency. Proficiency in the stress languages Tagalog and English (languages that use stress primarily) also interact significantly with stress. While I did not expect the interaction effect involving Hokkien proficiency, the results confirmed my hypothesis that proficiency in the stress languages increase a speaker's likelihood to make a greater contrast between stressed and unstressed syllables. The more people know about the Tagalog and English, the more they shorten syllables that are not stressed in Lánnang-uè, and consequently, the more they increase the stress contrast. 
+
+It is very likely that their knowledge of Tagalog and English stress *boosted* the already existing duration-cued stress system in Lánnang-uè where speakers produce longer syllables for syllables that were originally stressed in the source languages. Speakers who are less proficient in the stress languages already, in general, distinguish between stressed and unstressed syllables using syllable duration. However, speakers who are more proficient in these languages tend to amplify this distinction by making unstressed syllables even shorter. 
+
+The fact that proficiency in the stress languages and duration-cued Lánnang-uè stress could also imply that Lánnang-uè might have acquired this system from English and Tagalog, languages that are explicitly taught in schools as languages that have stress. Mandarin may seem to be a contender, as it is considered by many scholars as a language that has stress (Jun 2007; Bian 2013). However, a case cannot be made for Mandarin influence on Lánnang-uè stress as the statistical model did not show an interaction effect between Mandarin and stress. This is not surprising given that stress is not explicitly taught in school for Mandarin. Tone is. Stress, however, is explicitly taught for English and Tagalog. As such, it is safe to assume that English and Tagalog are the primary sources for this stress system in Lánnang-uè. 
+
+Like my argument for the duration-cued position contrast, I argue that stress system of Lánnang-uè originated out of a congruence process where speakers select features that are similar in multiple languages (Baptista 2020). In this case, it would be the stress feature. However, I also argue that this system is not transplanted as is. If such were the case, one would expect Lánnang-uè words from Tagalog and English to sound exactly like how they would in the source languages - with stressed syllables not only being longer than usual, but also having different vowel and pitch qualities (Lesho 2018; Hwang et al. 2019). This is not the case. Instead, what we observe is partial system transfer, where speakers only seem to have selected parts of the stress system in Tagalog and English to put in Lánnang-uè. Speakers imported the notion of 'stress' into Lánnang-uè from Tagalog and English, but instead of use multiple dominant cues, they primarily use duration to cue stress. This is supported by the fact that stressed syllables in Lánnang-uè are generally longer, but not always higher in pitch, for example. 
+
+One important thing to note, however, is that linguistic constraints can apply even to innovative systems (e.g. Lánnang-uè's duration-cued stress system). Just because selected features of the source languages' stress system were transferred and adapted to the variety does not automatically mean that speakers will apply the innovative system to all Lánnang-uè words (e.g. Mandarin- and Hokkien-sourced words). It seems that the duration-cued stress system only applies to Lánnang-uè words with Tagalog and English origins. This is in contrast to the duration-cued position system that uniformly applies to all Lánnang-uè words regardless of the linguistic source. In other words, the stress system does not appear to apply to words that have Sinitic origins, based on my observations. 
+
+
+``` {r dur stress profnonsin bar}
+dat.syl.level.nonsin$prof.nonsinitic.cat <- ifelse(dat.syl.level.nonsin$prof.nonsinitic.z < mean(dat.syl.level.nonsin$prof.nonsinitic.z), 
+                                          "Not Proficient","Proficient")
+
+dur.stress_profns.summary <- Rmisc::summarySE(dat.syl.level.nonsin, measurevar="duration", groupvars=c("stress.cat", "prof.nonsinitic.cat"))
+
+dur.stress_profns.summary<- dendroTools::round_df(as.data.frame(dur.stress_profns.summary ) , 5)
+#not prof = 5,806
+#prof = 5,974
+
+DT::datatable(dur.stress_profns.summary, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+ggplot(data=dur.stress_profns.summary , aes(x=prof.nonsinitic.cat,y=duration, fill=stress.cat)) +
+  geom_bar(stat="identity", position=position_dodge()) + ggtitle(" ") + 
+  theme(plot.title = element_text(hjust=0.5, size= "12"))+ # Thinner lines
+  geom_errorbar(aes(ymin=duration-se, ymax=duration+se),
+                size=.3,    # Thinner lines
+                width=.2,
+                position=position_dodge(.9))+
+  xlab("____") + 
+  ylab("Duration (seconds)")+
+scale_fill_hue(name="Stress")+
+  scale_x_discrete(name="Proficiency (Stress Language)")
+
+
+```
+
+``` {r dur stress profnonsin, fig.height = 5, fig.width = 4}
+
+ggplot(dat.syl.level.nonsin, aes(x=prof.nonsinitic.z, y=duration, color = stress.cat)) + 
+  geom_point(alpha = 1/10)+
+  geom_smooth(method=lm) +
+  ggtitle(" ")+
+  #facet_grid(.~stress.cat)+
+  xlab("Proficiency (Stress Language, z-score)") + 
+  ylab("Duration (seconds)")+
+  scale_color_hue(name="Stress")
+
+compstress <- subset(dat.syl.level.nonsin,dat.syl.level.nonsin$stress.cat == "stressed")
+compnonstress <- subset(dat.syl.level.nonsin,dat.syl.level.nonsin$stress.cat == "unstressed")
+
+cor.test(compstress$duration, compstress$prof.nonsinitic.z)
+cor.test(compnonstress$duration, compnonstress$prof.nonsinitic.z)
+
+```
+
+
+``` {r dur stress profh, eval = FALSE}
+
+ggplot(dat.syl.level.nonsin, aes(x=prof.h.z, y=duration, color = stress.cat)) + 
+  geom_point(alpha = 1/10)+
+  geom_smooth(method=lm) +
+  ggtitle(" ")+
+  facet_grid(.~stress.cat)+
+  xlab("Proficiency (Hokkien, z-score)") + 
+  ylab("Duration (seconds)")+
+  scale_color_hue(name="Stress")
+
+
+dur.stress_profh.summary <- Rmisc::summarySE(dat.syl.level.nonsin, measurevar="duration", groupvars=c("stress.cat", "prof.h.cat"))
+
+dur.stress_profh.summary <- dendroTools::round_df(as.data.frame(dur.stress_profh.summary ) , 5)
+#not prof = 5,535
+#prof = 6,273
+
+DT::datatable(dur.stress_profh.summary, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+
+```
+
+
+
+
+
+
+
+
+## Syllable Pitch Markedness
+### Overview and specific hypotheses
+Apart from having varying lengths, syllables from Lánnang-uè words that have Tagalog and English origins vary in pitch `markedness`. For the purposes of this section, I follow Yip's (2002) definition of tone/pitch markedness. A syllable has a pitch that is `marked` if the speaker exerts more articulatory effort to produce that syllable relative to another `unmarked` syllable, such as having to maintain a high pitch compared to simply producing a low pitch. Another example is having to skillfully switch between high and low within a short time frame (e.g. falling tones) instead of just focusing on one pitch throughout (e.g. high tones).
+
+These are both mentioned in Yip's (2002) enumeration of 'universal' markedness constraints for tone. According to her, the two primary correlates of pitch markedness are high pitch/tone and pitch contour. From an Optimality Theory framework, Yip claims that contour tones are "more marked than level tones" and that high tones are more marked compared to low tones (Yip 2002: 190). Adopting this perspective of markedness, then, a syllable in a Lánnang-uè word has marked pitch if the pitch is high and if the pitch has a contour. 
+In my observations of the audio component of my corpus, I found that pitch markedness is conditioned by purely structural/linguistic and socio-structural/linguistic factors. Initial observations suggest that  social factors, by themselves, do not seem to markedness.
+
+#### Structural/Linguistic
+What are the structural conditions for pitch markedness? Based on my initial observations, I hypothesize that the primary predictor of markedness is position.  Speakers use a marked pitch if the syllable is at the final position and unmarked pitch everywhere else, as part of the conventions of Lánnang-uè. I refer to this convention as `markedness-cued position contrast` in this section.
+
+Covariates - factors that can influence the outcome of a given trial, but is not of direct interest - that seem to interfere with a speaker's decision to use a pitch-marked syllable include (1) the type of segments found in the syllable as well as (2) duration. While I was coding the data, I noticed that fricatives, voiceless onsets, sonorant codas, and obstruent codas tend to affect markedness. For example, syllables with a fricative onset tend to have a higher starting point for pitch than syllables without a fricative onset. In my pilot investigation, I also noticed that syllables that are marked tend to be longer too. I hypothesize that these factors will be significant in the statistical model alongside the effect of position.
+
+#### Social and Structural/Linguistic
+In my pilot study, I observed that not everyone uses the markedness-cued position contrast the exact same way. Speakers would distinguish between the ultimate and penultimate syllable using pitch marking, but the markedness distance between the syllable varies from person to person. Some speakers would have a super low penultimate syllable followed by a syllable with a high average pitch and a contour tone (greater contrast) whereas some speakers would have a penultimate syllable with an average pitch, following by a simple high tone (smaller contrast).
+
+I hypothesize that the degree of markedness contrast is conditioned by linguistic proficiency. Speakers who are proficient in Hokkien and Mandarin - languages that have tone sandhi - should be more inclined to increase the contrast between final and non-final syllables. Although it is a known fact that tone sandhi is not exclusively a dissimilatory process, due to an abundance of counterexamples (see Lee 1997), it may appear so on the surface (Lee 1997). Speakers might associate the tone sandhi feature with the process of dissimilation. Assuming that they do, speakers with more knowledge of Sinitic languages (or tone sandhi) may be more likely to increase the markedness contrast between the ultimate and penultimate syllable because of a potential mapping between the dissimilation process they perceive the Sinitic languages to have and the position contrast system in Lánnang-uè that relies on markedness - arguably the consequence of a dissimilatory process. I do not expect the degree of markedness to be condition by linguistic proficiency in Tagalog or English. 
+
+Apart from proficiency, sex and age could condition degree of contrast. I expect younger people, females, and younger females to innovate by widening the pitch contrasts between the penultimate and ultimate syllable - a feature that is not actively stigmatized, based on my field observations. As mentioned earlier, speakers from these social groups (i.e. young, female, young *and* female) have a history of innovating in Lánnang-uè (see Gonzales 2018; Gonzales & Starr 2020). This hypothesis is also theoretically grounded: according to Labov (1990, 1994), females - particularly younger females - tend to use innovative variants that are not actively stigmatized (Maclagan et al. 1999). Given this,  I expect sex, age, and the interaction of age and sex to interact with position in my model.  
+
+#### Summary
+I hypothesize that the following factors will be correlated with a greater pitch `markedness` score (see discussion earlier on how this score was derived): position, duration, and presence of certain sounds (i.e fricatives, voiceless onsets, sonorant codas, onset codas), although I am only genuinely interested in the main effect of position. I hypothesize interaction effects between (1) position and Hokkien proficiency, (2) position and sex, (3) position and age, and (4) position, sex, and age. 
+
+### Descriptive Summary
+
+A quick look at the data seems to confirm what I hypothesized. Ultimate syllables tend to be more marked compared to penultimate ones. To confirm the effect of position while accounting for the effect of other variables, I conduct several statistical analyses below.
+
+``` {r smark descrip}
+dat.syl.level.nonsin$markedness <- as.numeric(dat.syl.level.nonsin$markedness)
+dat.syl.level.nonsin$position <- as.factor(dat.syl.level.nonsin$position.bin)
+dat.syl.level.nonsin$position <- ifelse(dat.syl.level.nonsin$position == 1, "ultimate", "penultimate")
+sum.mark <- Rmisc::summarySE(dat.syl.level.nonsin, measurevar= "markedness", groupvars=c("position"), na.rm = TRUE)
+
+sum.mark  <- dendroTools::round_df(as.data.frame(sum.mark) , 3)
+DT::datatable(sum.mark, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+```
+
+### Explorations
+
+I do a preliminary exploration or visualization of the relationship between markedness and the variables of interest. 
+
+``` {r preliminary plot markedness}
+
+psych::pairs.panels(dat.syl.level.nonsin[,c("markedness","duration","fricative","velar","onsetvoice","stress",
+                                            "codavoice","sonorant.coda", "obstruent.coda","open")])
+
+psych::pairs.panels(dat.syl.level.nonsin[,c("markedness","age", "sex.bin", "era.forfil", "prof.t.z", "prof.h.z", 
+                                            "prof.e.z", "prof.m.z")])
+
+```
+
+### Boruta Algorithm using Random Forest
+
+Prior to putting the hypothesized factors in the linear model, I wanted to make sure that these factors are relevant for analysis. I also want to see if other factors such as age are relevant. I use the Boruta Algorithm again to select features based on their value and importance. The results show that all variables except the presence of voiced codas `codavoice` are confirmed to be relevant.
+
+#### Importance Table
+```{r formula marked}
+dat.syl.level.nonsin$prof.e_stress <- dat.syl.level.nonsin$stress*dat.syl.level.nonsin$prof.e.z
+dat.syl.level.nonsin$prof.t_stress <- dat.syl.level.nonsin$stress*dat.syl.level.nonsin$prof.t.z
+
+formul <- markedness ~ position + stress + duration + fricative + velar + onsetvoice + 
+  codavoice + sonorant.coda + obstruent.coda +
+  pos_stress + pos_era + sex_pos + prof.m_pos + prof.h_pos + prof.e_pos + prof.t_pos +
+  stress_era + sex_stress + prof.m_stress + prof.h_stress + prof.e_stress + prof.t_stress
+
+d.sylevel.mark <- dat.syl.level.nonsin %>% drop_na(markedness)
+d.sylevel.train.mark <- dat.syl.level.train.nonsin %>% drop_na(markedness)
+d.sylevel.test.mark <- dat.syl.level.test.nonsin %>% drop_na(markedness)
+```
+
+``` {r boruta proper marked }
+set.seed(10)
+boruta.object <-Boruta::Boruta(as.formula(formul), data=d.sylevel.mark , ntree = 100, maxRuns = 15) #doTrace=0
+
+#boruta.object<-Boruta::TentativeRoughFix(boruta.object)
+
+history<-as.data.frame((boruta.object$ImpHistory))
+
+#Store the Boruta decisions on variables
+decision <-factor(boruta.object$finalDecision,levels = c("Confirmed", "Rejected", "Tentative"))
+
+att <- Boruta::attStats(boruta.object)
+att <- cbind(Variable = rownames(att), att)
+rownames(att) <- 1:nrow(att)
+
+att <- att %>% 
+ mutate_if(is.numeric, round, digits = 4)
+
+DT::datatable(att, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+``` 
+
+#### Importance Plot (Horizontal)
+``` {r boruta horiz mark , fig.show="hold", out.width="50%"}
+
+plot <-    history%>%
+          #select(-shadowMean,-shadowMax,-shadowMin)%>%
+          gather(predictor,measurement)%>%
+          filter(measurement!=-Inf)%>%
+          ggplot()+
+            geom_boxplot(aes(x=reorder(predictor, measurement, mean),y=measurement,fill=decision[predictor]),outlier.shape = NA)+
+            #coord_flip()+
+            theme_light()+
+            theme(legend.position="None",axis.title.x= element_blank(),axis.title.y=element_text(face='bold'),axis.text.x=element_text(face='bold.italic',angle = 45, hjust = 1),axis.text.y=element_text(face='bold.italic'))+
+            xlab('Predictors')+
+            #labs(fill='Feature Selection Decision')+
+            ylab('Importance')+ 
+            scale_fill_manual(values=c("#33cc33", "#ff5050", "#ffcc66"))
+
+par(mar = c(4, 4, .1, .1))
+plot;Boruta::plotImpHistory(boruta.object)
+
+```
+
+#### Mean Decrease Accuracy estimates
+
+``` {r boruta orig mark, fig.height = 8, fig.width = 5}
+plot_vert <-    history%>%
+          select(-shadowMean,-shadowMax,-shadowMin)%>%
+          gather(predictor,measurement)%>%
+          filter(measurement!=-Inf)%>%
+          ggplot()+
+            geom_boxplot(aes(x=reorder(predictor, measurement, mean),y=measurement,fill=decision[predictor]),outlier.shape = NA)+
+            coord_flip()+
+            theme_light()+
+            theme(legend.position="bottom",axis.title.x=element_text(face='bold'),axis.title.y=element_text(face='bold'),axis.text.x=element_text(face='bold.italic'),axis.text.y=element_text(face='bold.italic'))+
+            xlab('Predictors')+
+            labs(fill='Feature Selection Decision')+
+            ylab('Mean Decrease Accuracy estimates (Z-score)')+ 
+            scale_fill_manual(values=c("#33cc33", "#ff5050", "#ffcc66"))
+
+plot_vert
+
+
+```
+
+
+### Linear Regression using `lmer`
+#### Fitting
+I conducted a linear mixed-effect regression on the data (Kuznetsova et al. 2019). Pitch markedness served as the dependent variable. Modelling predictors include position, stress, duration, presence of a certain consonants (i.e. fricative, velar, voiced codas, voiced onset), syllable structure (i.e. CVO, CVR), age, and sex. Out of these predictor variables, only position is not a covariate. Interactions between position and the social variables mentioned earlier were included in the model; interactions between stress and the social variables were also included as covariates. Random intercepts for item, participant, and stimuli number were included in modeling. I provide the complete set of factors in the model below.
+
+The results show the main effect of position, duration, presence of a fricative, presence of a voiced onset, presence of an obstruent coda, and presence of a sonorant coda. The following interaction effects were significant in the model: (1) position and sex,  position and language proficiency in all source languages except Mandarin, (2) stress and Tagalog proficiency, and (3) position, sex, and age. 
+
+``` {r model mark}
+#Model
+cols <- c("position.bin","stress","fricative", "velar","onsetvoice","sonorant.coda",
+          "obstruent.coda", "era.forfil","sex.bin")
+d.sylevel.mark[cols] <- lapply(d.sylevel.mark[cols], as.factor)
+
+
+mod.mark <- lmer(markedness ~ position.bin*stress + duration +
+                              fricative + velar + onsetvoice + codavoice + sonorant.coda + obstruent.coda +
+                              ##Position*Social
+                              era.forfil*sex.bin*position.bin + 
+                              prof.e.z*position.bin + prof.t.z*position.bin + 
+                              prof.h.z*position.bin + prof.m.z*position.bin + 
+                              ##Stress*Social
+                              era.forfil*sex.bin*stress + 
+                              prof.e.z*stress + prof.t.z*stress+ 
+                              prof.h.z*stress+ prof.m.z*stress +                                
+                             (1|idno.fac) + (1|stimno.fac) + (1|item.fac), data=d.sylevel.mark)                          
+plot(mod.mark)
+qqnorm(resid(mod.mark))
+
+sjPlot::tab_model(mod.mark, show.se = TRUE, digits = 2, wrap.labels = FALSE)
+
+```
+
+#### Coefficient plot
+``` {r coeff mark, fig.height = 8, fig.width = 5}
+p <- sjPlot::plot_model(mod.mark, 
+                   vline = "black",
+                   sort.est = FALSE,
+                   transform = NULL,
+                   show.values = TRUE,
+                   value.offset = 0.5,
+                   dot.size = 2.5,
+                   value.size = 2.5)
+p
+
+
+p <- sjPlot::plot_model(mod.mark, 
+                   vline = "black",
+                   sort.est = TRUE,
+                   transform = NULL,
+                   show.values = TRUE,
+                   value.offset = 0.5,
+                   dot.size = 2.5,
+                   value.size = 2.5)
+p 
+
+
+
+```
+
+### Prediction Accuracy
+
+I want to assess whether the significant factors alone are useful for predicting pitch markedness, I ran the four different algorithms on test data (10% of the whole data) using a model trained on 90% of the complete data. The models trained using trees and random forest performed the best, with accuracies higher than 90%. The other two models have an accuracy of around 80%. 
+
+#### Neural Network Model
+``` {r neural net mark, cache = TRUE}
+
+cols <- c("position.bin","stress","fricative", "velar","onsetvoice","sonorant.coda",
+          "obstruent.coda", "era.forfil","sex.bin")
+d.sylevel.train.mark[cols] <- lapply(d.sylevel.train.mark[cols], as.factor)
+d.sylevel.test.mark[cols] <- lapply(d.sylevel.test.mark[cols], as.factor)
+
+d.sylevel.train.mark.selected <- d.sylevel.train.mark %>%
+  select(markedness, position.bin, duration, fricative, onsetvoice, sonorant.coda, obstruent.coda, sex.bin,
+         prof.e.z, prof.t.z, prof.h.z, prof.m.z, stress, era.forfil)
+
+d.sylevel.test.mark.selected <- d.sylevel.test.mark %>%
+  select(markedness, position.bin, duration, fricative, onsetvoice, sonorant.coda, obstruent.coda, sex.bin,
+         prof.e.z, prof.t.z, prof.h.z, prof.m.z, stress, era.forfil)
+
+# Fit a neural network
+mygrid <- expand.grid(.decay=c(0.5, 0.1), .size=c(4,5,6))
+nnetfit <- caret::train(markedness ~ . , data= d.sylevel.train.mark.selected, method="nnet", maxit=500, tuneGrid=mygrid, trace=F)
+
+```
+
+``` {r nn duo mark}
+
+mark.nn.predict <-  predict(nnetfit, newdata = d.sylevel.test.mark.selected, re.form = NULL, na.action = na.pass, type = "raw" )
+
+
+range01 <- function(x){(x-min(x))/(max(x)-min(x))}
+
+rangedmarkedness <- range01(d.sylevel.test.mark.selected$markedness)
+
+
+cor.test(rangedmarkedness,mark.nn.predict)
+plot(rangedmarkedness,mark.nn.predict)
+
+```
+
+#### Decision Trees using `C5.0`
+``` {r dt c5 marked, warning = FALSE}
+## 87%
+d.sylevel.train.mark.selected.c5 <- d.sylevel.train.mark %>%
+  select(position.bin, duration, fricative, onsetvoice, sonorant.coda, obstruent.coda, sex.bin,
+         prof.e.z, prof.t.z, prof.h.z, prof.m.z, stress, era.forfil)
+
+d.sylevel.test.mark.selected.c5 <- d.sylevel.test.mark %>%
+  select(position.bin, duration, fricative, onsetvoice, sonorant.coda, obstruent.coda, sex.bin,
+         prof.e.z, prof.t.z, prof.h.z, prof.m.z, stress, era.forfil)
+
+# Fit a decision tree 
+
+dtfit <- C50::C5.0(d.sylevel.train.mark.selected.c5, as.factor(d.sylevel.train.mark$markedness), trials=100)  
+mark.dt.predict <- predict(dtfit, newdata = d.sylevel.test.mark.selected.c5, re.form = NULL )
+
+mark.dt.predict <- as.numeric(mark.dt.predict)
+
+cor.test(mark.dt.predict, d.sylevel.test.mark$markedness)
+plot(mark.dt.predict, d.sylevel.test.mark$markedness)
+```
+
+#### Regression Trees using `rpart`
+``` {r dt rpartmark, warning = FALSE}
+## 90%
+rpartfit <- rpart::rpart(markedness ~., d.sylevel.train.mark.selected, cp=0.01)
+rattle::fancyRpartPlot(rpartfit, cex = 0.7, caption = "rpart")
+
+mark.rpart.predict <- predict(rpartfit , newdata =d.sylevel.test.mark.selected, re.form = NULL, type = "vector")
+
+cor.test(mark.rpart.predict, d.sylevel.test.mark.selected$markedness)
+mark.rpart.predict <- as.numeric(mark.rpart.predict)
+plot(mark.rpart.predict, d.sylevel.test.mark.selected$markedness)
+```
+
+#### Random Forest Model
+``` {r randomforest mark, warning = FALSE}
+# Fit a random forest model
+
+rffit <- caret::train(markedness ~ . , data=  d.sylevel.train.mark.selected, method="rf", trControl = trainControl(method = "cv", number = 5))
+ 
+```
+
+```` {r rrrrr mark}
+
+mark.rf.predict <- predict(rffit, newdata = data.frame(d.sylevel.test.mark.selected), re.form = NULL)
+
+cor.test(d.sylevel.test.mark.selected$markedness, mark.rf.predict)
+plot(d.sylevel.test.mark.selected$markedness, mark.rf.predict)
+ 
+```
+
+
+
+### Findings (What conditions pitch markedness?)
+#### Structural conditions
+##### Position
+
+In line with my hypothesis, pitch markedness is conditioned by position. The figure below clearly illustrates the position contrast indicated by pitch markedness. Speakers use marked pitch in the final syllable and use an unmarked pitch in the non-final syllable. My findings overall suggest that Lánnang-uè has a pitch prominence rule: syllables in the final position must have a prominent pitch (i.e. high and/or contour ); those with in other positions get a non-prominent one.
+
+``` {r mark pos}
+
+m.pos.summary <- Rmisc::summarySE(d.sylevel.mark, measurevar="markedness", groupvars=c("position"))
+m.pos.summary <- dendroTools::round_df(as.data.frame(m.pos.summary) , 3)
+DT::datatable(m.pos.summary, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+ggplot(data=m.pos.summary, aes(x=position,y=markedness, fill = position)) +
+  geom_bar(stat="identity", position=position_dodge()) + ggtitle(" ") + 
+  theme(plot.title = element_text(hjust=0.5, size= "12"))+ # Thinner lines
+  geom_errorbar(aes(ymin=markedness-se, ymax=markedness+se),
+                size=.3,    # Thinner lines
+                width=.2,
+                position=position_dodge(.9))+
+  xlab("____") + 
+  ylab("Markedness")+
+scale_fill_hue(name="Position")
+```
+
+##### Duration
+Syllable duration seems to be correlated with pitch markedness, regardless of the position of the syllable. Many long syllables also happen to marked: as length increases, pitch markedness also increases.
+
+``` {r mark dur}
+ggplot(d.sylevel.mark, aes(x= duration, y=markedness, hue = duration )) + 
+  geom_point(alpha = 1/10)+
+  geom_smooth(method=lm) +
+  #facet_wrap(.~ty.whyvsE) +
+  #scale_color_hue(name="Legend", # Legend label, use darker colors
+                 #breaks=c("1", "-1"),
+                 #labels=c("why", "other adjuncts")) + 
+  ggtitle(" ")+
+  xlab("Duration") + 
+  ylab("Markedness")
+```
+
+##### Syllable Structure
+Apart from duration, the presence of fricatives, voiceless onsets, sonorant codas, and obstruent codas in the syllable increases the likelihood of that syllable being marked for pitch as well. 
+
+###### Fricative
+``` {r mark fricative}
+
+m.fric.summary <- Rmisc::summarySE(d.sylevel.mark, measurevar="markedness", groupvars=c("fricative.cat"))
+m.fric.summary <- dendroTools::round_df(as.data.frame(m.fric.summary) , 3)
+DT::datatable(m.fric.summary, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+ggplot(data=m.fric.summary, aes(x=fricative.cat,y=markedness, fill = fricative.cat)) +
+  geom_bar(stat="identity", position=position_dodge()) + ggtitle(" ") + 
+  theme(plot.title = element_text(hjust=0.5, size= "12"))+ # Thinner lines
+  geom_errorbar(aes(ymin=markedness-se, ymax=markedness+se),
+                size=.3,    # Thinner lines
+                width=.2,
+                position=position_dodge(.9))+
+  xlab("____") + 
+  ylab("Markedness")+
+scale_fill_hue(name="Fricative")
+```
+
+###### Onset Voice
+``` {r mark ovE}
+d.sylevel.mark$onsetvoice.cat <- ifelse(d.sylevel.mark$onsetvoice == 1, "voiced onset", "voiceless onset")
+m.ov.summary <- Rmisc::summarySE(d.sylevel.mark, measurevar="markedness", groupvars=c("onsetvoice.cat"))
+m.ov.summary<- dendroTools::round_df(as.data.frame(m.ov.summary) , 3)
+DT::datatable(m.ov.summary, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+ggplot(data=m.ov.summary, aes(x=onsetvoice.cat,y=markedness, fill = onsetvoice.cat)) +
+  geom_bar(stat="identity", position=position_dodge()) + ggtitle(" ") + 
+  theme(plot.title = element_text(hjust=0.5, size= "12"))+ # Thinner lines
+  geom_errorbar(aes(ymin=markedness-se, ymax=markedness+se),
+                size=.3,    # Thinner lines
+                width=.2,
+                position=position_dodge(.9))+
+  xlab("____") + 
+  ylab("Markedness")+
+scale_fill_hue(name="Voicing of onset")
+```
+
+###### Obstruent Coda
+
+``` {r mark obs}
+
+mark.obstruent.summary <- Rmisc::summarySE(d.sylevel.mark, measurevar="markedness", groupvars=c("obstruent.cat"))
+
+mark.obstruent.summary  <- dendroTools::round_df(as.data.frame(mark.obstruent.summary) , 3)
+
+DT::datatable(mark.obstruent.summary, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+mark.obstruent.summary$obstruent.cat.label <- ifelse(mark.obstruent.summary$obstruent.cat == 
+                                                       "obstruent","CVO","CV/CVR")
+
+ggplot(data=mark.obstruent.summary, aes(x=obstruent.cat.label,y=markedness, fill = obstruent.cat.label)) +
+  geom_bar(stat="identity", position=position_dodge()) + ggtitle(" ") + 
+  theme(plot.title = element_text(hjust=0.5, size= "12"))+ # Thinner lines
+  geom_errorbar(aes(ymin=markedness-se, ymax=markedness+se),
+                size=.3,    # Thinner lines
+                width=.2,
+                position=position_dodge(.9))+
+  xlab("____") + 
+  ylab("Markedness")+
+scale_fill_viridis(name="Syllable Structure", discrete = TRUE)
+```
+
+###### Sonorant Coda
+``` {r mark son}
+
+mark.son.summary <- Rmisc::summarySE(d.sylevel.mark, measurevar="markedness", groupvars=c("sonorant.cat"))
+
+mark.son.summary  <- dendroTools::round_df(as.data.frame(mark.son.summary) , 3)
+
+DT::datatable(mark.son.summary, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+mark.son.summary$sonorant.cat.label <- ifelse(mark.son.summary$sonorant.cat == 
+                                                       "sonorant","CVR","CV/CVO")
+
+
+
+ggplot(data=mark.son.summary, aes(x=sonorant.cat.label ,y=markedness, fill = sonorant.cat.label)) +
+  geom_bar(stat="identity", position=position_dodge()) + ggtitle(" ") + 
+  theme(plot.title = element_text(hjust=0.5, size= "12"))+ # Thinner lines
+  geom_errorbar(aes(ymin=markedness-se, ymax=markedness+se),
+                size=.3,    # Thinner lines
+                width=.2,
+                position=position_dodge(.9))+
+  xlab("____") + 
+  ylab("Markedness")+
+scale_fill_viridis(name="Syllable Structure", discrete = TRUE)
+```
+
+``` {r mark struc}
+
+mark.struc.summary <- Rmisc::summarySE(d.sylevel.mark, measurevar="markedness", groupvars=c("structure"))
+
+mark.struc.summary  <- dendroTools::round_df(as.data.frame(mark.struc.summary) , 3)
+
+DT::datatable(mark.struc.summary, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+
+ggplot(data=mark.struc.summary, aes(x=structure ,y=markedness, fill = structure)) +
+  geom_bar(stat="identity", position=position_dodge()) + ggtitle(" ") + 
+  theme(plot.title = element_text(hjust=0.5, size= "12"))+ # Thinner lines
+  geom_errorbar(aes(ymin=markedness-se, ymax=markedness+se),
+                size=.3,    # Thinner lines
+                width=.2,
+                position=position_dodge(.9))+
+  xlab("____") + 
+  ylab("Markedness")+
+scale_fill_viridis(name="Syllable Structure", discrete = TRUE)
+
+```
+
+
+#### Social-structural conditions
+
+##### Position and social variables
+###### Position and Sex
+
+The results show females tend to make a greater markedness contrast between the final syllable and penultimate syllable. Speakers of Lánnang-uè already make this contrast, but female speakers distinguish between syllables more compared to males. The findings suggest that increased pitch markedness is a gendered feature and that this innovation originated from them. 
+
+``` {r markpossex}
+mark.possex.summary <- Rmisc::summarySE(d.sylevel.mark, measurevar="markedness", groupvars=c("position", "sex.cat"))
+
+mark.possex.summary  <- dendroTools::round_df(as.data.frame(mark.possex.summary ) , 3)
+
+DT::datatable(mark.possex.summary, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top')
+
+ggplot(data=mark.possex.summary, aes(x=sex.cat,y=markedness, fill=position)) +
+  geom_bar(stat="identity", position=position_dodge()) + ggtitle(" ") + 
+  theme(plot.title = element_text(hjust=0.5, size= "12"))+ # Thinner lines
+  geom_errorbar(aes(ymin=markedness-se, ymax=markedness+se),
+                size=.3,    # Thinner lines
+                width=.2,
+                position=position_dodge(.9))+
+  xlab("____") + 
+  ylab("Markedness")+
+scale_fill_hue(name="Position")+
+  scale_x_discrete(name="Sex")
+```
+
+###### Position and Age*Sex
+
+A closer analysis of the data shows that age, by itself, does not condition the position contrast system - contrary to my hypothesis. However, the interaction of age and sex does. In comparison to other groups, older women tend to make the greatest position contrast, as the figure shows.
+
+Viewing this finding in light of the apparent time model (Sankoff 2006) where the data of the older speakers represent 'old' Lánnang-uè, the results do not support my hypothesis that younger women led the innovation of widening the position contrast. This is because 'old' Lánnang-uè already had many instances where the pitch distinction is maximized between the ultimate and penultimate syllables (mostly by females). If this hypothesis were to be supported by data,'old' Lánnang-uè should have had many words where the final syllable does not have a significantly higher pitch markedness score than the non-final syllable. But in this case, it is clearly does not: gender-sensitive position contrast is salient in 'old' Lánnang-uè. The contrast is particularly stark for older women, who could have led this innovation rather than younger women.
+
+Recall that older women were also once young women - young women who, at their time, might have led this innovation. In other words, the increased markedness contrast could have been an old innovation - not a new one, as I hypothesized. The new innovation here, then, is the stabilization of the position contrast. While gendered pitch-marking is salient in the older generation, the younger generation largely ignores the sex distinction in the position contrast system, observing a standardized position contrast system. This new innovation, as the figures suggest, is clearly led by the younger females, perhaps, in an effort to reduce the social variation in the variety. Overall, the findings support my hypotheses of an interaction effect between sex and age - just not in the direction I thought it would be. 
+
+
+``` {r mark position and age sex}
+
+ggplot(d.sylevel.mark, aes(x=age, y=markedness, color =position)) + 
+  geom_point(alpha = 1/10)+
+  geom_smooth(method=lm) +
+  ggtitle(" ")+
+  facet_grid(.~sex.cat)+
+  xlab("Age") + 
+  ylab("Markedness")+
+  scale_color_hue(name="Stress")
+
+
+```
+
+###### Position and Proficiency (Hokkien)
+
+Proficiency in Hokkien also seems to condition the markedness-cued position contrast system, as expected. Those who have more Hokkien knowledge were observed to have a wider contrast compared to those who have less. 
+
+One possible account for this, as mentioned earlier, is dissimilation-mapping. Speakers may have perceived Hokkien tone sandhi as a directional dissimilation process where the non-final syllable(s) become less like the final syllable in the event they are too similar. They could have mapped the 'dissimilation' feature onto Lánnang-uè. Lánnang-uè already has this contrast system, but Hokkien knowledge seems to amplify this contrast. One might even argue, based on the correlations between Hokkien proficiency and degree of contrast, that this position contrast system (the one marked by pitch markedness, not duration) could have originated from Hokkien.
+
+Surprisingly, proficiency in Mandarin did not have an effect on the contrast system - even if Mandarin is similar to Hokkien in that both languages have dissimilation processes in the same direction (i.e. non-final syllables dissimilate to final ones). I expected speakers with more Mandarin knowledge to behave similarly with those with Hokkien proficiency. But the results show otherwise. I currently do not have an explanation for this effect and leave accounting for the unexpected effect of Mandarin proficiency to future research. 
+
+
+
+``` {r mark pos proficiency,fig.height = 5, fig.width = 4}
+
+d.sylevel.mark$prof.h.cat <- ifelse(d.sylevel.mark$prof.h.z > mean(d.sylevel.mark$prof.h.z), "high proficiency", "low proficiency")
+hoks <- Rmisc::summarySE(d.sylevel.mark, measurevar="markedness", groupvars=c("position", "prof.h.cat"))
+
+hoks  <- dendroTools::round_df(as.data.frame(hoks ) , 3)
+
+DT::datatable(hoks, options = list(
+  pageLength=5, scrollX='400px'), filter = 'top') 
+
+##HOKKIEN
+ggplot(d.sylevel.mark, aes(x=prof.h.z, y=markedness, color = position)) + 
+  geom_point(alpha = 1/10)+
+  geom_smooth(method=lm) +
+  ggtitle(" ")+
+  #facet_grid(.~position)+
+  xlab("Proficiency (Hokkien, z-score)") + 
+  ylab("Markedness")+
+  scale_color_hue(name="Position")
+
+
+
+```
+
+##### Stress and social variables
+###### Stress and Proficiency (Tagalog)
+
+Stress, as hypothesized, does not predict pitch markedness. However, surprisingly, in the right conditions, it can. High Tagalog proficiency can condition markedness. That is, the more proficient one is in Tagalog - a stress language - the more likely that speaker is to make a stress contrast using pitch markedness. 
+
+Lánnang-uè already has a stress system. As pointed out earlier, this system relies on duration, rather than pitch markedness. However, knowledge of Tagalog - a language that relies on both duration and other acoustic properties (e.g. pitch markedness) for stress - can interfere with a speaker's knowledge of Lánnang-uè. It can make a speaker use Tagalog-like stress - stress that relies on  multiple acoustic cues to mark stress instead of simply Lánnang-uè-like stress that primarily uses duration for stress-marking.
+
+This result suggests that a new type of contrast - a stress contrast that relies on pitch markedness - is a new innovation in Lánnang-uè led by speakers who are proficient in Tagalog. 
+
+``` {r mark stress proficiency, fig.height = 5, fig.width = 4}
+
+##TAGALOG PROFICIENCY
+ggplot(d.sylevel.mark, aes(x=prof.t.z, y=markedness, color =stress.cat)) + 
+  geom_point(alpha = 1/10)+
+  geom_smooth(method=lm) +
+  ggtitle(" ")+
+  #facet_grid(.~position)+
+  xlab("Proficiency (Tagalog, z-score)") + 
+  ylab("Markedness")+
+  scale_color_hue(name="Stress")
+
+```
+
+
+## Final Pitch Contour
+### Overview and specific hypotheses
+In the previous section, I found that final syllables in Tagalog- and English-sourced Lánnang-uè words tend to be marked for pitch, that is, final syllables tend to be either higher in pitch and have a pitch contour. However, in both my anecdotal observations and pilot data analysis, I observed that final syllables are not always uniformly marked using pitch. Some final syllables have a falling pitch (i.e. high pitch contour, mid-level pitch mean) while others have a high level pitch (i.e. no pitch contour, high pitch mean). Just like prosodic maintenance, syllable duration, and syllable pitch markedness, whether a speaker uses high pitch or falling pitch seems to be conditioned by several factors, including social ones.
+
+#### Structural/Linguistic
+I hypothesize that syllable structure would be the primary predictor of pitch. Speakers should assign final syllables a high pitch if the syllable follows a CVO (consonant-vowel-obstruent) structure (e.g. [bat55]) and a falling pitch if the syllable has an open syllable structure (i.e. CV, e.g. [go51] in legò 'lego bricks' [le33go51]). I also hypothesize that syllable structure interacts with source language for CVR syllables, or syllables with a consonant-vowel-sonorant structure (e.g. [taj55] in atây 'liver' [ʔa33 taj55]). If the final syllable belongs to a word that originated from Tagalog, speakers assign a high pitch. However, if it found in a word that has English roots, then speakers assign a falling pitch. Because of this, I also expect the CVR structure to condition pitch in final syllables, as it behaves differently from the CVO and CV syllables.
+
+If such were the case, Lánnang-uè would have a prosodic system that is sensitive to the source language. The following rules could be formulated: use a high pitch if the syllable has a CVO structure or if the syllable follows a CVR structure and is from a word that is sourced from Tagalog. Impose a falling pitch on final syllables that either have a CV structure or CVR structure, with the latter only applying if the syllable comes from a word that originated from English. I refer to this hypothesized system as the `final syllable pitch assignment system`.
+
+Other structural/linguistic covariates or factors that I am not interested in but have the potential to affect this pitch assignment system are duration, presence of certain sounds (i.e. fricatives, velar, voiced coda, voiced onset), and pitch intercept or starting point. 
+
+#### Social
+One thing I observed in my pilot analysis was that  speakers tend to exhibit variation in assigning systematic pitch to the final syllable. In comparison to older speakers, younger ones tend to use a uniform high pitch for all final syllables in words that are sourced from Tagalog and English, regardless of the syllable structure. Given this, I hypothesize an effect of age. I have not observed a gender difference in pitch assignment, so I expect sex and the interaction between this variable and age to be insignificant predictors for high or falling pitch assignment. Self-reported proficiency in the source languages should not influence a speakers' decision to assign a high or falling pitch.
+
+#### Social and Structural/Linguistic
+While I do not expect linguistic proficiency itself to predict the assignment of high or low pitch in general, I do expect linguistic proficiency to interact with the hypothesized pitch assignment system that relies on source language and/or syllable structure information for its rules. I also expect age and sex to interact with this system. 
+
+##### The CVO-CV contrast and social factors
+For the CVO-CV distinction that relies on the high-falling pitch contrast, I hypothesize that proficiency in the source languages of Lánnang-uè would generally influence this system. Tagalog, English, Mandarin, and Hokkien all do not have the high-falling CVO-CV contrast in their systems. It is possible that knowledge of these languages that do not have this CVO-CV contrast would make a speaker less likely to make that contrast in Lánnang-uè. 
+
+In addition to linguistic proficiency, I also hypothesize that female speakers and younger speakers will use this innovative distinction more robustly. As discussed earlier, female speakers and younger speakers are known to lead innovations in non-stigmatized features (Labov 1990; Gonzales & Starr 2020), so an interaction effect between sex and structure (CVO vs CV) as well as interaction effect between age and structure would not be surprising. 
+
+##### The CVR-else contrast and social factors
+As mentioned earlier, some speakers follow source-language-conditioning rules for CVR syllables whereas some speakers do not. Those that do distinguish between CVR syllables and other syllables (i.e. CV and CVO). I refer to this distinction as the CVR-else distinction. I hypothesize that the same set of factors condition the CVR-else contrast, for the same reasons posed earlier. Younger speakers, female speakers, and speakers not proficient in languages that do not make this contrast (i.e. all four source languages of Lánnang-uè) would be more likely to use the CVR-else contrast robustly. 
+
+#### Summary
+Overall, I hypothesize that syllable structure (i.e. CVO vs CV, and CVR vs else), age, and sex would be significant predictors in modeling the high-falling pitch contrast. Interaction effects I hypothesize would be significant in the same model include interactions between syllable structure and the following: source language, age, sex, and proficiency in the source languages of Lánnang-uè.
+
+### Descriptive Summary
+Based on an initial inspection of the pitch slope means, the following were observed: CVO syllables are uniformly level (and high) whereas CV syllables are contoured or falling. CVR syllables in Tagalog-sourced words get a higher, level pitch compared to those sourced from English. CVR syllables in English-sourced words are typically characterized with a falling pitch. While these met my expectations, I want to test whether the syllable structure and/or source language variables are statistically significant in predicting pitch slope (high vs. falling), especially after accounting for all the other variables mentioned earlier. To this end, I run several analyses using different statistical techniques.
+
+``` {r fp descrip}
+
+d.fin <- subset( d.sylevel.mark, d.sylevel.mark$position == "ultimate")
+d.fin.train <- subset(d.sylevel.train.mark, d.sylevel.train.mark$position == "ultimate")
+d.fin.test <- subset(d.sylevel.test.mark, d.sylevel.test.mark$position == "ultimate")
+
+
+sum.fp <- Rmisc::summarySE(d.fin, measurevar= "slope.impute", groupvars=c("lg.word","structure"))
+
+sum.fp   <- dendroTools::round_df(as.data.frame(sum.fp ) , 3)
+DT::datatable(sum.fp , options = list(
+  pageLength=6, scrollX='400px'), filter = 'top')
+
+```
+
+### Explorations
+I do a preliminary exploration or visualization of the relationship between markedness and the variables of interest. 
+``` {r preliminary plot fp}
+
+psych::pairs.panels(d.fin[,c("slope.impute","duration","fricative","velar","onsetvoice","stress",
+                                            "codavoice")])
+
+psych::pairs.panels(d.fin[,c("slope.impute","lg.word", "sonorant.coda", "obstruent.coda","open")])
+
+psych::pairs.panels(d.fin[,c("slope.impute","age", "sex.bin", "era.forfil", "prof.nl.z")])
+
+```
+
+
+### Boruta Algorithm using Random Forest
+I wanted to make sure that these hypothesized factors are relevant for analysis prior to putting them in the linear model. I use the Boruta Algorithm again to select features based on their value and importance. The results show that all variables except the presence of velars `velar` and stress are confirmed to be relevant.
+
+#### Importance Table
+```{r formula fp}
+
+d.fin$CVRvsE <- ifelse(d.fin$sonorant.coda == 1, 1, -1)
+d.fin$CVOvsCV <- ifelse(d.fin$obstruent.coda == 1, 1, ifelse(d.fin$open == 1, -1, 0))
+d.fin$era.forfil <- as.numeric(as.character(d.fin$era.forfil))
+d.fin$sex.bin <- as.numeric(as.character(d.fin$sex.bin))
+d.fin$sexage <- as.numeric(as.character(d.fin$sex.bin))*as.numeric(as.character(d.fin$era.forfil))
+d.fin$lg.word.bin <- ifelse(d.fin$lg.word == "Tagalog", 1, -1)
+
+d.fin$lg_CVRvsE<- d.fin$lg.word.bin*d.fin$CVRvsE
+d.fin$lg_CVOvsCV  <- d.fin$lg.word.bin*d.fin$CVOvsCV 
+
+d.fin$lg_CVRvsE_sex <- d.fin$lg.word.bin*d.fin$CVRvsE*d.fin$sex.bin
+d.fin$lg_CVRvsE_era.forfil <- d.fin$lg.word.bin*d.fin$CVRvsE*d.fin$era.forfil
+d.fin$lg_CVRvsE_profe <- d.fin$lg.word.bin*d.fin$CVRvsE*d.fin$prof.e.z
+d.fin$lg_CVRvsE_proft <- d.fin$lg.word.bin*d.fin$CVRvsE*d.fin$prof.t.z
+d.fin$lg_CVRvsE_profm <- d.fin$lg.word.bin*d.fin$CVRvsE*d.fin$prof.m.z
+d.fin$lg_CVRvsE_profh <- d.fin$lg.word.bin*d.fin$CVRvsE*d.fin$prof.h.z
+d.fin$lg_CVRvsE_profl <- d.fin$lg.word.bin*d.fin$CVRvsE*d.fin$prof.l.z
+d.fin$lg_CVRvsE_profnl <- d.fin$lg.word.bin*d.fin$CVRvsE*d.fin$prof.nl.z
+
+d.fin$CVOvsCV_sex <- d.fin$CVOvsCV*d.fin$sex.bin
+d.fin$CVOvsCV_era.forfil <- d.fin$CVOvsCV*d.fin$era.forfil
+d.fin$CVOvsCV_profe <- d.fin$CVOvsCV*d.fin$prof.e.z
+d.fin$CVOvsCV_proft <- d.fin$CVOvsCV*d.fin$prof.t.z
+d.fin$CVOvsCV_profm <- d.fin$CVOvsCV*d.fin$prof.m.z
+d.fin$CVOvsCV_profh <- d.fin$CVOvsCV*d.fin$prof.h.z
+d.fin$CVOvsCV_profl <- d.fin$CVOvsCV*d.fin$prof.l.z
+d.fin$CVOvsCV_profnl <-d.fin$CVOvsCV*d.fin$prof.nl.z
+
+formul <- slope.impute ~ CVRvsE + CVOvsCV + lg.word.bin+
+                         lg_CVRvsE + lg_CVOvsCV +
+                         stress + duration + fricative + velar + onsetvoice + codavoice + point.1 + 
+                         sex.bin + era.forfil + prof.nl.z + sexage +
+                          lg_CVRvsE_sex + lg_CVRvsE_era.forfil  +  lg_CVRvsE_profnl +
+                         CVOvsCV_sex + CVOvsCV_era.forfil + CVOvsCV_profnl 
+                       
+## TRAIN
+d.fin.train$CVRvsE <- ifelse(d.fin.train$sonorant.coda == 1, 1, -1)
+d.fin.train$CVOvsCV <- ifelse(d.fin.train$obstruent.coda == 1, 1, ifelse(d.fin.train$open == 1, -1, 0))
+d.fin.train$era.forfil <- as.numeric(as.character(d.fin.train$era.forfil))
+d.fin.train$sex.bin <- as.numeric(as.character(d.fin.train$sex.bin))
+d.fin.train$lg.word.bin <- ifelse(d.fin.train$lg.word == "Tagalog", 1, -1)
+d.fin.train$lg_CVRvsE<- d.fin.train$lg.word.bin*d.fin.train$CVRvsE
+## TEST
+d.fin.test$CVRvsE <- ifelse(d.fin.test$sonorant.coda == 1, 1, -1)
+d.fin.test$CVOvsCV <- ifelse(d.fin.test$obstruent.coda == 1, 1, ifelse(d.fin.test$open == 1, -1, 0))
+d.fin.test$era.forfil <- as.numeric(as.character(d.fin.test$era.forfil))
+d.fin.test$sex.bin <- as.numeric(as.character(d.fin.test$sex.bin))
+d.fin.test$lg.word.bin <- ifelse(d.fin.test$lg.word == "Tagalog", 1, -1)
+d.fin.test$lg_CVRvsE<- d.fin.test$lg.word.bin*d.fin.test$CVRvsE
+```
+
+``` {r boruta fp }
+set.seed(10)
+boruta.object <- Boruta::Boruta(as.formula(formul),data=d.fin , ntree = 50, maxRuns = 100) #doTrace=0
+
+#boruta.object<-Boruta::TentativeRoughFix(boruta.object)
+
+history<-as.data.frame((boruta.object$ImpHistory))
+
+#Store the Boruta decisions on variables
+decision <-factor(boruta.object$finalDecision,levels = c("Confirmed", "Rejected", "Tentative"))
+
+att <- Boruta::attStats(boruta.object)
+att <- cbind(Variable = rownames(att), att)
+rownames(att) <- 1:nrow(att)
+
+att <- att %>% 
+ mutate_if(is.numeric, round, digits = 4)
+
+DT::datatable(att, options = list(
+  pageLength=100, scrollX='400px'), filter = 'top')
+
+``` 
+
+#### Importance Plot (Horizontal, with 50 iterations)
+``` {r boruta horiz fp , fig.show="hold", out.width="50%"}
+
+plot <-   history%>%
+          #select(-shadowMean,-shadowMax,-shadowMin)%>%
+          gather(predictor,measurement)%>%
+          filter(measurement!=-Inf)%>%
+          ggplot()+
+            geom_boxplot(aes(x=reorder(predictor, measurement, mean),y=measurement,fill=decision[predictor]),outlier.shape = NA)+
+            #coord_flip()+
+            theme_light()+
+            theme(legend.position="None",axis.title.x= element_blank(),axis.title.y=element_text(face='bold'),axis.text.x=element_text(face='bold.italic',angle = 45, hjust = 1),axis.text.y=element_text(face='bold.italic'))+
+            xlab('Predictors')+
+            #labs(fill='Feature Selection Decision')+
+            ylab('Importance')+ 
+            scale_fill_manual(values=c("#33cc33", "#ff5050", "#ffcc66"))
+
+par(mar = c(4, 4, .1, .1))
+plot;Boruta:: plotImpHistory(boruta.object)
+
+```
+
+#### Mean Decrease Accuracy estimates
+
+``` {r boruta orig fp, fig.height = 8, fig.width = 8}
+plot_vert <-    history%>%
+          select(-shadowMean, -shadowMax,-shadowMin)%>%
+          gather(predictor,measurement)%>%
+          filter(measurement!=-Inf)%>%
+          ggplot()+
+            geom_boxplot(aes(x=reorder(predictor, measurement, mean),y=measurement,fill=decision[predictor]),outlier.shape = NA)+
+            coord_flip()+
+            theme_light()+
+            theme(legend.position="bottom",axis.title.x=element_text(face='bold'),axis.title.y=element_text(face='bold'),axis.text.x=element_text(face='bold.italic'),axis.text.y=element_text(face='bold.italic'))+
+            xlab('Predictors')+
+            labs(fill='Feature Selection Decision')+
+            ylab('Mean Decrease Accuracy estimates (Z-score)')+ 
+            scale_fill_manual(values=c("#33cc33", "#ff5050", "#ffcc66"))
+
+plot_vert
+
+
+```
+
+### Linear Regression using `lmer`
+#### Fitting
+
+A linear mixed-effect regression was conducted on the final syllable subset of the data. Here, the dependent variable is pitch slope (high pitch vs. falling pitch). Non-interaction predictors in the model include stress, duration, presence of certain sounds (fricatives, velar, voiced onset, voiced coda), starting pitch point `point.1`, syllable structure (CVO vs CV, CVR vs else), source language, sex, age, and general proficiency in the source languages of Lánnang-uè. My model also included interaction factors between syllable structure and the social factors as well between sex and age. Random intercepts of item and participant were included in the model. A complete list of factors in the model can be found in the results below.
+
+The results show the main effect of duration, starting pitch point, syllable structure, and sex. They also indicate significant interaction effects between syllable structure and variables like source language, age, and sex. I show the complete results below but elaborate on them later.
+
+``` {r model fin pitch}
+#Model
+cols <- c("stress", "fricative", "velar", "onsetvoice", "CVRvsE", "lg.word.bin","sex.bin",
+          "era.forfil", "idno.fac", "stimno.fac", "item.fac")
+d.fin[cols] <- lapply(d.fin[cols], as.factor)
+
+mod.fp <- lmer(slope.impute ~  stress + duration + fricative + velar + onsetvoice + codavoice + point.1 +
+                              CVRvsE*lg.word.bin + era.forfil*sex.bin  +
+                              CVRvsE*lg.word.bin*era.forfil + CVOvsCV*era.forfil +
+                              CVRvsE*lg.word.bin*sex.bin + CVOvsCV*sex.bin +
+                              CVRvsE*lg.word.bin*prof.nl.z + CVOvsCV*prof.nl.z+
+                              prof.t.z + prof.e.z + prof.m.z + prof.h.z +
+                             (1|idno.fac)   + (1|item.fac), data=d.fin)     
+plot(mod.fp)
+qqnorm(resid(mod.fp))
+
+sjPlot::tab_model(mod.fp, digits = 2, show.se = TRUE, wrap.labels =FALSE)
+
+```
+#### Coefficient plot
+``` {r coeff fp, fig.height = 6, fig.width = 5}
+p <- sjPlot::plot_model(mod.fp , 
+                   vline = "black",
+                   sort.est = FALSE,
+                   transform = NULL,
+                   show.values = TRUE,
+                   value.offset = 0.5,
+                   dot.size = 2.5,
+                   value.size = 2.5)
+p
+
+
+p <- sjPlot::plot_model(mod.fp , 
+                   vline = "black",
+                   sort.est = TRUE,
+                   transform = NULL,
+                   show.values = TRUE,
+                   value.offset = 0.5,
+                   dot.size = 2.5,
+                   value.size = 2.5)
+p
+
+
+
+```
+
+
+### Prediction Accuracy
+I want to assess whether the significant factors are useful for predicting pitch slope (high vs. falling), I ran the four different algorithms on test data (10% of the whole data) using a model trained on 90% of the complete data. The models trained using decision tree and random forest performed the best, with accuracies higher than 60%. The other two models have an accuracy of 20 to 50%.
+
+#### Neural Network Model
+``` {r neural net fp, cache = TRUE}
+
+cols <- c("CVRvsE", "CVOvsCV", "lg.word.bin", "era.forfil", "sex.bin","lg_CVRvsE")
+
+d.fin.train[cols] <- lapply(d.fin.train[cols], as.factor)
+d.fin.test[cols] <- lapply(d.fin.test[cols], as.factor)
+
+d.fin.train.selected <- d.fin.train %>%
+  select(slope.impute, point.1, duration, CVRvsE, CVOvsCV, lg.word.bin, era.forfil, sex.bin, prof.nl.z, lg_CVRvsE)
+
+d.fin.train.selected$CVOvsCV <- as.numeric(as.character(d.fin.train.selected$CVOvsCV))
+d.fin.test.selected <- d.fin.test %>%
+  select(slope.impute, point.1, duration, CVRvsE, CVOvsCV, lg.word.bin, era.forfil, sex.bin, prof.nl.z, lg_CVRvsE)
+
+d.fin.test.selected$CVOvsCV <- as.numeric(as.character(d.fin.test.selected$CVOvsCV))
+
+# Fit a neural network
+mygrid <- expand.grid(.decay=c(0.5, 0.1), .size=c(4,5,6))
+nnetfit <- caret::train(slope.impute ~ . , data=d.fin.train.selected, method="nnet", maxit=500, tuneGrid=mygrid, trace=F)
+
+```
+
+``` {r nn duo fp}
+
+fp.nn.predict <- predict(nnetfit, newdata = d.fin.test.selected, re.form = NULL, type = "raw" )
+
+cor.test(d.fin.test$slope.impute,fp.nn.predict)
+plot(d.fin.test$slope.impute,fp.nn.predict)
+
+```
+
+#### Decision Tree using `C5.0`
+``` {r dt c5 fp, warning = FALSE}
+## 
+d.fin.train.selected.c5 <- d.fin.train.selected %>%
+  select(point.1, duration, CVRvsE, CVOvsCV, lg.word.bin, era.forfil, sex.bin, prof.nl.z, lg_CVRvsE)
+
+d.fin.test.selected.c5 <- d.fin.test.selected %>%
+  select(point.1, duration, CVRvsE, CVOvsCV, lg.word.bin, era.forfil, sex.bin, prof.nl.z, lg_CVRvsE)
+
+# Fit a decision tree 
+
+dtfit <- C50::C5.0(d.fin.train.selected.c5 , as.factor(d.fin.train$slope.impute), trials=100)  
+fp.dt.predict <- predict(dtfit, newdata = d.fin.test.selected.c5,re.form = NULL, na.action = na.pass )
+
+fp.dt.predict <-  as.numeric(fp.dt.predict)
+
+cor.test(fp.dt.predict, d.fin.test$slope.impute)
+plot(fp.dt.predict, d.fin.test$slope.impute)
+```
+
+#### Regression Tree using `rpart`
+``` {r dt rpartmar fp, warning = FALSE}
+## 90%
+rpartfit <- rpart::rpart(slope.impute~.,  d.fin.train.selected, cp=0.01)
+rattle::fancyRpartPlot(rpartfit, cex = 0.7, caption = "rpart")
+
+fp.rpart.predict <- predict(rpartfit , newdata = d.fin.test.selected, re.form = NULL, type = "vector")
+
+cor.test(fp.rpart.predict,d.fin.test.selected$slope.impute)
+fp.rpart.predict <- as.numeric(fp.rpart.predict)
+plot(fp.rpart.predict,d.fin.test.selected$slope.impute)
+```
+
+#### Random Forest Model
+``` {r randomforest fp, warning = FALSE}
+# Fit a random forest model
+
+rffit <-  caret::train( slope.impute ~ . , data=  d.fin.train.selected, method="rf", trControl = trainControl(method = "cv", number = 5))
+ 
+```
+
+```` {r rrrrr fp}
+
+fp.predict <- predict(rffit, newdata = data.frame(d.fin.test.selected), re.form = NULL)
+
+cor.test(d.fin.test.selected$slope.impute,fp.predict )
+plot(d.fin.test.selected$slope.impute,fp.predict)
+ 
+```
+
+
+
+
+### Findings (What conditions pitch contour?)
+#### Structural conditions
+##### Syllable Structure (CV0 vs. CV, CVR vs else)
+
+As predicted, syllable structure is a robust predictor of pitch slope. A high, level pitch is significantly correlated to syllables with CVO structure whereas a falling pitch is associated with CV syllables. There are also significant pitch slope differences between CVR syllables in comparison to both CV and CVO syllables, indicating that speakers collectively behave differently when producing CVR syllables. Upon closer examination, it seems that speakers are sometimes using high, level pitch for some syllables with CVR structure and falling pitch for other CVR syllables.
+
+Speakers generally use a high level pitch on the final syllable of Tagalog- and English-source Lánnang-uè words if the syllable has an obstruent coda. They use a falling contour pitch if the syllable is open, that is, if the syllable does not have a coda at all. The results show that speakers treat CVR syllables differently. While CVO and CV syllable structure can predict pitch slope, CVR structure cannot be reliably used to predict high pitch or falling pitch. I observe that speakers use both high and falling pitch for CVR syllables. 
+
+```{r fp dur sylstruc}
+
+
+d.fin$dur.cat <- ifelse(d.fin$duration > mean(d.fin$duration), "long", "short")
+d.fin$p1.cat <- ifelse(d.fin$point.1 > mean(d.fin$point.1), "ultra high", "high")
+
+d.fin.select <- d.fin %>%
+  select(idno, item, stimno,slope.impute, duration, CVOvsCV, CVRvsE, era.forfil, 
+         age, sex.cat, sex.bin, prof.t.z, prof.h.z, prof.m.z, prof.e.z, p1.cat,
+         point.1, point.2:point.10, dur.cat, lg.word, lg.word.bin,structure, age.cat, prof.l.z, prof.nl.z)
+
+d.fin.select_long <- gather(d.fin.select, time, timeHz, point.1:point.10, factor_key=TRUE)
+
+d.fin.select_long$point <- as.numeric(sub(".*\\.", "", d.fin.select_long$time))
+
+
+
+ggplot(data=d.fin.select_long, aes(x=point, y=timeHz, group= structure, colour=structure)) +
+    #geom_line() +
+    geom_point(alpha = 1/50) +
+    geom_smooth(method=lm) +
+  facet_grid(.~structure) + 
+  ylim(c(100,300))
+
+```
+
+
+##### Syllable Structure*Language (CVR vs else)
+
+CVR syllable structure, by itself, cannot reliably predict pitch slope. However, in conjunction with the source language of the word, it can, as indicated by a significant interaction effect between structure (CVR vs else) and source language. The figure below shows exactly what I described earlier: CVO and CV syllables being associated with high and falling pitch regardless of the language. It also shows that pitch assignment in CVR syllables is conditioned by language: high pitch is given to CVR syllables found in Tagalog-sourced words and falling pitch is assigned to CVR syllables in English-sourced words. 
+
+In conjunction with the findings in the previous section, the results confirm my hypothesis that speakers systematically assign pitch to final syllables of Tagalog- and English- words in Lánnang-uè.
+
+```{r fp dur sylstruc lg, fig.height = 6, fig.width = 5, warning = FALSE}
+
+ggplot(data=d.fin.select_long, aes(x=point, y=timeHz, group= structure, colour=structure)) +
+    #geom_line() +
+    geom_point(alpha = 1/100) +
+    geom_smooth(method=lm) +
+  facet_grid(structure~lg.word) + 
+  ylim(c(100,300))
+
+```
+
+##### Duration and starting pitch
+Out of the many structural covariates I hypothesized and included in the model, only duration and starting pitch came out as significant predictors of pitch slope. How long the final syllable is correlated with a speaker's choice to use falling pitch or a level, high pitch. The longer the syllable, the more likely the speaker uses a falling pitch. 
+
+```{r fp dur, fig.height = 5, fig.width = 4}
+
+
+
+ggplot(data=d.fin.select_long, aes(x=point, y=timeHz, group=dur.cat, colour=dur.cat)) +
+    #geom_line() +
+    geom_point(alpha = 1/20) +
+    geom_smooth(method=lm)  
+  #facet_grid(.~dur.cat)
+
+```
+
+Likewise, the starting pitch of the syllable also seems to be a reliable predictor of pitch slope: if the speaker begins with a pitch that is high, then the syllable is more likely to be level. If they start with a pitch that is higher than usual, then the syllable is more likely to have a contour pitch. 
+
+```{r fp start pitch, fig.height = 5, fig.width = 4}
+
+ggplot(data=d.fin.select_long, aes(x=point, y=timeHz, group=p1.cat, colour=p1.cat)) +
+    #geom_line() +
+    geom_point(alpha = 1/20) +
+    geom_smooth(method=lm) + 
+    facet_wrap(.~p1.cat)
+  #facet_grid(.~dur.cat)
+
+```
+
+#### Social conditions
+Surprisingly, age, by itself, is not a robust predictor of pitch contour. Younger speakers did not, in general, use a high pitch uniformly for all syllables regardless of structure or the source language of the word, as I hypothesized. The results indicate that they behaved in a manner similar to older speakers, in general. While the main effect of age was absent, there was a main effect of sex. Females speakers of Lánnang-uè tend to use high pitch for the final syllable regardless of the syllable structure or the source language of the word in which the syllable is located. With regard to interaction between age and sex, the results indicate that such an interaction is not significant. In other words, being in any of the four categories (i.e. young female, young male, old female, old male) did not make the speaker more (or less) likely to use pitch contour. 
+
+The above finding seems to be at odds with the effects Starr and I observed in an earlier study of Lánnang-uè phonology (Gonzales & Starr 2020). To recapitulate, in that study, young speakers or young *and* female speakers more likely to innovate the monophthong system of the variety. Gender was also found not to be correlated to the innovation. In this study, however, there was no effect of age or sex and age on pitch contour, and a gender effect exists. Whereas female speakers did not innovate the vowel system of Lánnang-uè, they did for final pitch assignment. Females tend to innovate by using high pitch more consistently regardless of the syllable structure or source language of the word.
+
+#### Socio-structural conditions
+##### Structure and Age (CVO vs CV)
+While age is not a robust predictor of pitch contour by itself, age does condition whether one is more likely to follow the CVO-CV contrast. The results show that younger speakers tend to innovate: younger speakers make less of a pitch contour distinction between CV and CVO syllables compared to older speakers. In other words, younger speakers are more likely to use high pitch for both CVO and CV syllables whereas older speakers tend to follow the high-falling CVO-CV convention. Viewing the narrowing of the CVO-CV distinction as an innovation, the results then partially support the findings of Gonzales and Starr (2020) where a similar age effect was found for a phonological feature.
+
+The results indicates a gradual change from a system that uses high and falling pitch to distinguish between CVO and CV syllables to a system that does not distinguish based on syllable structure. In the future, I predict that this contrast will be lost. Assuming that there are no events that would interfere with the direction of change, what Lánnang-uè may end up with is a system where CVO and CV syllables are produced similarly with regard to pitch contour.
+
+```{r structureage cvo vs cv }
+
+d.fin.cvocv <- subset(d.fin.select_long, d.fin.select_long$CVOvsCV != 0)
+ggplot(data=d.fin.cvocv, aes(x=point, y=timeHz, group= structure, colour=structure)) +
+    #geom_line() +
+    geom_point(alpha = 1/50) +
+    geom_smooth(method=lm) +#+  ylim(c(50,400))
+    facet_grid(.~age.cat)
+
+
+```
+
+##### Structure and Sex (CVO vs CV)
+According to the model, the self-reported sex of the speaker conditions the degree of contrast between CVO and CV syllables based on pitch contour. The figure below shows that females distinguish CV syllables from CVO syllables more than male speakers. While females are, in general, more likely to use high pitch for all syllable types (as indicated by the main effect of sex on pitch contour), it is the male speakers who are likely to use the high pitch on CV syllables specifically so as to make the contrast between CVO and CV narrower. This is shown in the figure below.
+
+The narrowing or gradual erasure of the CV-CVO distinction can be regarded as an innovation in Lánnang-uè - an innovation that is led by male speakers. Again, this contradicts what Labov (1990) theorized about language change where he posted that young females are typically the ones who lead changes of non-stigmatized features (like this one). As of this point, I cannot definitively pinpoint why male speakers would be more inclined to do so, but I suspect this might have something to do with expressing solidarity within the male youth group. 
+
+```{r structuresex cvo vs cv }
+
+d.fin.cvocv <- subset(d.fin.select_long, d.fin.select_long$CVOvsCV != 0)
+ggplot(data=d.fin.cvocv, aes(x=point, y=timeHz, group= structure, colour=structure)) +
+    #geom_line() +
+    geom_point(alpha = 1/50) +
+    geom_smooth(method=lm) +#+  ylim(c(50,400))
+    facet_grid(.~sex.cat)
+
+
+```
+
+##### Structure and Proficiency (CVO vs CV)
+Proficiency in the source languages of Lánnang-uè also collectively seems to influence how much a speaker uses this CVO-CV contrast. 
+
+Earlier, recall that we found a main effect of syllable structure (CVO vs CV) on pitch contour. What this means, conceptually, is that a CVO-CV contrast exists even after accounting for all the other variables included in the model. In other words, speakers generally make a pitch distinction between CVO syllables and CV syllables by assigning a high level pitch for the prior and a falling contour pitch for the latter. Given that all the trials were conducted in Lánnang-uè, this finding can be interpreted as a convention of 'base' Lánnang-uè. 
+
+As it turns out, proficiency in the source languages of Lánnang-uè (i.e. Mandarin, Hokkien, English, and Tagalog)  can influence this convention of 'base' Lánnang-uè, in line with my expectations. Those who report knowing more about the source languages tend to adhere less to this high-falling CVO-CV contrast compared to those who report being less proficient in the source languages. This can be accounted for, as the source languages do not have this high-falling CVO-CV contrast. One can expect proficiency in languages that do not have this contrast to interfere with the system of Lánnang-uè.  I show the effect of source-language proficiency in the figure below. Highly proficient speakers make a more salient contrast compared to other less proficient speakers, who are sometimes observed to use high pitch even in CV syllables.
+
+
+```{r structureprofnl cvo vs cv }
+d.fin.cvocv$prof.nl.cat <- ifelse(d.fin.cvocv$prof.nl.z > mean(d.fin.cvocv$prof.nl.z),"high proficiency", "low proficiency")
+
+ggplot(data=d.fin.cvocv, aes(x=point, y=timeHz, group= structure, colour=structure)) +
+    #geom_line() +
+    geom_point(alpha = 1/50) +
+    geom_smooth(method=lm) +#+  ylim(c(50,400))
+    facet_grid(.~prof.nl.cat)
+
+
+```
+
+This phenomenon of source-language-induced instability is documented for mixed languages like Media Lengua (Lipski 2020). Lipski found that evidence that a mixed language like Media Lengua spoken together with its source languages (Quechua and Spanish) can maintain its integrity for a few generations, but that the perceptual boundaries circumscribing the language eventually break down with the speakers' changing proficiency in Spanish and Quechua (Lipski 2020: 432). This pattern is similar to what I found in Lánnang-uè, where proficiency of the source language 'de-stabilizes' the conventionalized CVO-CV system of the variety.
+
+##### Structure, Language, and Age (CVR vs else)
+Age also does seem to condition the language-sensitive CVR-else system in Lánnang-uè.  Older speakers seem to follow the CVR-else system more than younger speakers. That is, older speakers assign a high pitch to Tagalog CVR syllables and a falling pitch to English CVR syllables more consistently than younger speakers. As can be seen in the figure below, younger speakers can be observed gradually removing the source-language distinction for CVR syllables: they are more likely to use a high pitch for all CVR syllables regardless of the source language. 
+
+Synchronically, the results indicate that linguistic change in the prosodic system could be happening now. Younger speakers could be leading this change from a language-sensitive system to a system that does not assign different pitch to CVR syllables depending on the source language of the word, effectively 'standardizing' or 'simplifying' the system. The observation that younger speakers are innovating in the prosodic level is consistent with previous observations of Lánnang-uè (e.g. wh-question system, derivational affixes), where younger speakers also introduce other innovations to the variety. 
+
+```{r fp dur sylstruc lg age, warning = FALSE,fig.height = 5, fig.width = 7}
+
+ggplot(data=d.fin.select_long, aes(x=point, y=timeHz, group= lg.word, colour=lg.word)) +
+    #geom_line() +
+    geom_point(alpha = 1/100) +
+    geom_smooth(method=lm) +
+  facet_grid(age.cat~structure)
+
+```
+
+##### Structure, Language, and Proficiency (CVR vs else)
+Interestingly, general proficiency in the source languages - or languages that do not have this CVR-else contrast - does not condition adherence to the conventions of Lánnang-uè for final syllables. I expected speakers who are collectively more proficient in English, Tagalog, Mandarin, and Hokkien to be less likely to make the CVR-else contrast, as these are languages that do not have the contrast. Speakers proficient in the source languages have the potential to 'destablize' the existing system or contrast, like what I observed for the CVO-CV contrast. However, it seems that collective proficiency in the source languages did not condition the degree of adherence to the CVR-else contrast feature. This suggests that the development of the CVR-else contrast feature is independent from the source languages. Unlike the CVO-CV feature, the CVR-else feature can also be considered stable because proficiency in the source languages does not have a significant effect on the convention.
+
+
+
+
+
+# Conclusion
+At the beginning of this paper, I set out to investigate the lexical prosody of the Lánnang-uè. I wanted to confirm what I observed from the audio files in my corpus data: that speakers did not just randomly take words from Hokkien, Tagalog, English, and Mandarin and put them all together in Lánnang-uè. Rather, they systematically incorporate words from these languages into Lánnang-uè. The results of the study confirmed my corpus observations. Speakers of Lánnang-uè indeed follow a system for importing words from its source languages. Some of the key findings on the conventions of lexical prosody of the variety are outlined below:
+
+1. *Prosodic modification.* Lánnang-uè words sourced from Hokkien and Mandarin generally do not undergo any phonological adaptation processes. Most these words sound almost identical to how they would in the source languages. Words sourced from Tagalog and English, however, were found to be modified. These words have syllables that systematically differ in duration, pitch markedness, and, for final syllables, pitch contour. 
+
+2. *Stress.* Lánnang-uè has a duration-cued stress system for words sourced from Tagalog and English. Syllables that were originally stressed in these languages are longer than syllables that were not.
+
+3. *Prominence.* On top of a stress system, Lánnang-uè also has prominence-marking system. Final syllables are longer than non-final syllables in general. These syllables also tend to be more 'marked' pitch-wise. They feature higher average pitch and more pitch contouring.
+
+4. *Final syllable pitch assignment.* Final syllables generally get one of two pitch patterns: high level pitch or falling contour pitch. Speakers assign high pitch for final syllables with a CVR structure if the syllable comes from a word that originates in Tagalog. They assign high pitch to all final syllables with CVO structure. Falling tone is assigned for all CV syllables and for final CVR syllables of words with English roots. 
+
+To reiterate, the conventions are not followed by all speakers of Lánnang-uè. Some speakers tend to innovate or deviate from these established norms.  Speakers' adherence to the system is generally conditioned by age, sex, and/or linguistic proficiency, in line with my hypotheses. These social factors affect parts of the system differently. In the case of syllable duration, for example, I did not observe the effect of age. I only observed the effect of proficiency in Tagalog or English. Age, however, had a main effect on the speakers' choice of using a lengthy final syllable: younger speakers were more likely to lengthen their final syllables more than older speakers. 
+
+Another example would be the effect of sex. For both pitch prominence assignment and final-syllable pitch assignment, sex emerged as a significant predictor. However, the direction of the effect differs in both cases. While females were found innovate in the first case by making a greater pitch markedness contrast between the final syllable and penultimate syllable, males led the innovation in the second case.  Males are more likely to disregard the pitch contrast between CVO and CV syllables by assigning a high pitch on CV syllables more frequently. 
+
+These two examples (among many others outlined above) show that not all variation in the lexical prosodic system of Lánnang-uè can be explained with a uniform account. Some factors may not affect certain conventions of Lánnang-uè, but do in others. Likewise, some factors can influence many parts of the system, but do so in different directions. 
+
+Overall, using evidence from the prosodic domain, I have shown that the mixing in Lánnang-uè is indeed, not random. As demonstrated, Lánnang-uè incorporates elements from its source languages systematically. What native speakers call 'random variation' in the lexical prosodic system of Lánnang-uè can, in fact, be accounted for social factors such as age, sex, and linguistic background. In other words, speakers with certain social backgrounds were observed to deviate from conventionalized practices in Lánnang-uè - a pattern that I have also observed speakers doing in other systems of the variety (Gonzales 2018; Gonzales & Starr 2020). Treating these deviant practices from the mainstream system as linguistic innovations, the findings on linguistic- and socially-conditioned variation not only indicate that Lánnang-uè is an independent linguistic system with rules and conventions, they also show that the variety evolves with its speakers. 
+
+# Acknowledgments
+I would like to offer my heartfelt thanks to Professor Ivo Dinov for giving advice on the methodologies used in the paper. It would not have been possible without financial support from the University of Michigan Department of Linguistics, the Lieberthal-Rogel Center for Chinese Studies, and the International Institute. 
+
+# Selected references
+Chuaunsu, Rebecca Shangkuan. 1989. A speech communication profile of three generations of Filipino-Chinese in Metro Manila: Their use of English, Pilipino, and Chinese languages in different domains, role-relationships, speech situations and functions.Unpublished MA Thesis. University of the Philippines.
+
+Gonzales, Wilkinson Daniel Wong. 2018. Philippine Hybrid Hokkien as a postcolonial mixed language: Evidence from nominal derivational affixation mixing. Unpublished Master’s Thesis. National University of Singapore.
+
+Gonzales, Wilkinson Daniel Wong and Mie Hiramoto. 2020. Two Englishes diverged in the Philippines? A substratist account of Manila Chinese English. Journal of Pidgin and Creole Languages 35(1): 125-159.
+
+Gonzales, Wilkinson Daniel Wong & Rebecca Lurie Starr. 2020. Vowel system or vowel systems? Variation in the monophthongs of Philippine Hybrid Hokkien in Manila. Journal of Pidgin and Creole Languages 35(2): 253–295.
+
+Kuznetsova, Alexandra, Per Bruun Brockhoff, Rune Haubo Bojesen Christhensen. 2019. Tests in linear mixed effects models: Package ‘lmerTest’.
+
+R Core Team. 2015. R: A language and environment for statistical computing, R Foundation for Statistical Computing, Vienna, Austria. http://www.R-project.org.

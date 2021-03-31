@@ -1,0 +1,1260 @@
+﻿ID	TAGSEQ
+cymbalta.Post185.Sentence1	O O O O O O O O O O O B-SSI O B-AE O B-AE O O B-AE O
+cymbalta.Post185.Sentence2	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post185.Sentence3	O O O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post185.Sentence4	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post185.Sentence5	O O O O
+cymbalta.Post186.Sentence1	B-AE O B-AE I-AE O O O O O O O O O B-SSI O O O
+cymbalta.Post186.Sentence2	O O O O O
+cymbalta.Post186.Sentence3	O O O O O O B-SSI O O O O O O B-AE I-AE I-AE I-AE I-AE O O B-AE I-AE O O B-AE I-AE O B-AE O O O B-AE I-AE I-AE O
+cymbalta.Post186.Sentence4	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post186.Sentence5	O O O O O O O O O O O O
+cymbalta.Post186.Sentence6	O O O O O O O O O O O O O O O O O
+cymbalta.Post186.Sentence7	O O O O O O
+cymbalta.Post187.Sentence1	O
+cymbalta.Post187.Sentence2	O
+cymbalta.Post188.Sentence1	O B-AE O B-AE O O O O O O O O O
+cymbalta.Post188.Sentence2	O O O O O O O O
+cymbalta.Post188.Sentence3	O O B-SSI O B-SSI O O O O O O O O O O O O B-AE O O O O O O B-SSI O
+cymbalta.Post188.Sentence4	O O O O O O O O O O O
+cymbalta.Post188.Sentence5	O B-AE I-AE O O O O O O O O O O O
+cymbalta.Post188.Sentence6	O O O O O O O O O O O O O O O
+cymbalta.Post188.Sentence7	O O O O O O O
+cymbalta.Post189.Sentence1	B-AE I-AE O
+cymbalta.Post189.Sentence2	O O O O O O O O O O O O O O O O
+cymbalta.Post189.Sentence3	O O O O O O O O
+cymbalta.Post190.Sentence1	B-AE I-AE I-AE I-AE I-AE I-AE I-AE O
+cymbalta.Post190.Sentence2	O O O O O O O O O O O O O O O
+cymbalta.Post190.Sentence3	O O O O O O O B-AE I-AE O O O
+cymbalta.Post190.Sentence4	O O O O O
+cymbalta.Post190.Sentence5	O O O O O O O O
+cymbalta.Post190.Sentence6	O O O O O O O O O O O O O O O O O
+cymbalta.Post190.Sentence7	O O O B-SSI I-SSI O
+cymbalta.Post190.Sentence8	O O O B-SSI O O O O O O O O
+cymbalta.Post190.Sentence9	O O O O O O O O O O O O O O O O
+cymbalta.Post190.Sentence10	O O O O O O O O O O
+cymbalta.Post190.Sentence11	O O O O O O
+cymbalta.Post190.Sentence12	O O O O O O O O O O O O O O O
+cymbalta.Post190.Sentence13	O O O O O O O O O O O O O
+cymbalta.Post190.Sentence14	O O O O O O
+cymbalta.Post191.Sentence1	O O O O O O O O O O O O
+cymbalta.Post191.Sentence2	B-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE O O O O
+cymbalta.Post191.Sentence3	O O O O O O O O O O O B-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE
+cymbalta.Post191.Sentence4	O O O O O O O O O O O O O
+cymbalta.Post191.Sentence5	O O O O O O O O O O O O O
+cymbalta.Post191.Sentence6	O O O O B-AE I-AE I-AE O
+cymbalta.Post191.Sentence7	O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post191.Sentence8	O O O O O O O
+cymbalta.Post191.Sentence9	O O O O O O O O O O O O O
+cymbalta.Post191.Sentence10	O O O
+cymbalta.Post192.Sentence1	O O
+cymbalta.Post192.Sentence2	O O O O O O O O O
+cymbalta.Post192.Sentence3	O O O O O O O O O O O O O
+cymbalta.Post192.Sentence4	O O O O O O O
+cymbalta.Post192.Sentence5	O O O O O O O O B-SSI O B-SSI O O O O O O O O
+cymbalta.Post192.Sentence6	O O O O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post193.Sentence1	B-AE I-AE I-AE O O O O O
+cymbalta.Post193.Sentence2	B-AE I-AE I-AE O O O O O O O O
+cymbalta.Post193.Sentence3	O O O O O O O B-SSI O O O O O O O O O O O O O O O O
+cymbalta.Post193.Sentence4	O O B-AE I-AE I-AE O O O O O O
+cymbalta.Post193.Sentence5	O O O O O O O O O O
+cymbalta.Post193.Sentence6	O O O O O O O O O O O
+cymbalta.Post193.Sentence7	B-AE I-AE O O O O O O O O O O O O O O
+cymbalta.Post193.Sentence8	O O O O O O O O O O O O O O
+cymbalta.Post193.Sentence9	O O O O O O O O O O O
+cymbalta.Post193.Sentence10	O O O O O O O O O O O O O O O O O O
+cymbalta.Post194.Sentence1	O O O O O O B-AE I-AE O
+cymbalta.Post194.Sentence2	O O O O O O O O O O O O
+cymbalta.Post194.Sentence3	O O O O
+cymbalta.Post194.Sentence4	B-AE I-AE I-AE I-AE O
+cymbalta.Post194.Sentence5	O O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post194.Sentence6	O O O O O O O O O O O O O O O O O O O O O O B-SSI O B-SSI O O O O O
+cymbalta.Post195.Sentence1	B-AE I-AE O O
+cymbalta.Post195.Sentence2	O O O O O O O O O O O
+cymbalta.Post195.Sentence3	O O O O O O O O O
+cymbalta.Post195.Sentence4	O O O O O O O O
+cymbalta.Post195.Sentence5	O O
+cymbalta.Post196.Sentence1	B-AE I-AE I-AE I-AE I-AE O O B-AE I-AE O O O O O O B-AE I-AE O
+cymbalta.Post196.Sentence2	O O O O O O O O O O O O O O O O O O O O O O O O O O B-SSI O O
+cymbalta.Post197.Sentence1	B-AE I-AE I-AE O B-AE I-AE I-AE O B-AE I-AE O
+cymbalta.Post197.Sentence2	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post197.Sentence3	O O O O O O O O O O O O
+cymbalta.Post197.Sentence4	O O O O O O O O O O O O
+cymbalta.Post197.Sentence5	O O O O O O O O O O O
+cymbalta.Post197.Sentence6	O O O O O O O O O O O O O O
+cymbalta.Post198.Sentence1	O B-AE I-AE O
+cymbalta.Post199.Sentence1	B-AE I-AE O O B-AE O B-AE I-AE O B-AE I-AE I-AE I-AE O
+cymbalta.Post199.Sentence2	O O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post200.Sentence1	O O O B-AE I-AE O O O B-SSI O O O O O O O
+cymbalta.Post200.Sentence2	O O O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post200.Sentence3	O O O O O O B-SSI I-SSI O O B-SSI O
+cymbalta.Post200.Sentence4	O O O O O O O O O O O
+cymbalta.Post200.Sentence5	O O O O O O O O O O O O O O O O O
+cymbalta.Post200.Sentence6	O O O O O O O O O O O O O O O O
+cymbalta.Post200.Sentence7	O
+cymbalta.Post201.Sentence1	B-AE O B-AE I-AE O O O O O O O O O O
+cymbalta.Post201.Sentence2	O O
+cymbalta.Post201.Sentence3	O O O O O O O
+cymbalta.Post201.Sentence4	O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post201.Sentence5	O O O O O O O O O O O O O O O O O
+cymbalta.Post201.Sentence6	O O O O O O O O O O O O O O O O O O
+cymbalta.Post201.Sentence7	O
+cymbalta.Post202.Sentence1	O O O O
+cymbalta.Post202.Sentence2	B-AE O B-AE I-AE O B-AE O B-AE I-AE I-AE O O
+cymbalta.Post202.Sentence3	O O O O O O O O O O
+cymbalta.Post202.Sentence4	O O O O O O O
+cymbalta.Post202.Sentence5	O O O O B-SSI O B-SSI O
+cymbalta.Post202.Sentence6	O O O O O O O O O O O O O O O
+cymbalta.Post203.Sentence1	O
+cymbalta.Post204.Sentence1	B-AE I-AE O B-AE I-AE O
+cymbalta.Post204.Sentence2	O O O O O B-SSI O O O O O O O B-AE O
+cymbalta.Post204.Sentence3	O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post204.Sentence4	O O O O O O O O O
+cymbalta.Post204.Sentence5	O O O O O O O O O O O O O
+cymbalta.Post204.Sentence6	O O O O O O O O O O
+cymbalta.Post204.Sentence7	O O O O O B-AE I-AE O O O O O O O O O O O
+cymbalta.Post204.Sentence8	O O O B-AE O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post205.Sentence1	O O O O O O O O O O O O O O O
+cymbalta.Post205.Sentence2	O O O O O O B-SSI O
+cymbalta.Post205.Sentence3	O O O O O O O O O O O O O O O O O O O
+cymbalta.Post205.Sentence4	O O O O O O O O O O O O O O O O O O
+cymbalta.Post206.Sentence1	O O O B-SSI O
+cymbalta.Post206.Sentence2	O O O O O O O O O O O O
+cymbalta.Post206.Sentence3	O O O O O O O O O O O O
+cymbalta.Post206.Sentence4	B-AE I-AE I-AE I-AE I-AE I-AE O
+cymbalta.Post206.Sentence5	O O O O O O O O O O O O B-SSI O
+cymbalta.Post206.Sentence6	O O O B-SSI O O O O O O
+cymbalta.Post206.Sentence7	O O O O O O O O
+cymbalta.Post206.Sentence8	O O O O O
+cymbalta.Post206.Sentence9	O O O O
+cymbalta.Post207.Sentence1	B-AE I-AE I-AE O B-AE O
+cymbalta.Post207.Sentence2	O O O O B-SSI O O O O O O O O O O O O O O O B-AE I-AE O B-AE O
+cymbalta.Post207.Sentence3	O O
+cymbalta.Post208.Sentence1	O O O O O O O B-AE I-AE I-AE O
+cymbalta.Post208.Sentence2	O O O O O O O O O O O O O O O O O O O O O B-SSI I-SSI O
+cymbalta.Post208.Sentence3	O O O O O O O O O O O
+cymbalta.Post208.Sentence4	O O O O O O O O O O O O O O O O O
+cymbalta.Post208.Sentence5	O O O O O O
+cymbalta.Post208.Sentence6	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post209.Sentence1	B-AE I-AE O B-AE O B-AE I-AE O
+cymbalta.Post209.Sentence2	O O O B-SSI O O O O
+cymbalta.Post209.Sentence3	O O O O O
+cymbalta.Post209.Sentence4	O O O O O O
+cymbalta.Post210.Sentence1	O O O B-AE O B-AE I-AE I-AE O B-AE I-AE O
+cymbalta.Post210.Sentence2	O O O O O O O O O
+cymbalta.Post210.Sentence3	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post210.Sentence4	O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post210.Sentence5	O O O O
+cymbalta.Post210.Sentence6	O O O O O O O O O
+cymbalta.Post210.Sentence7	O O O O O O O O O O O O O O O O O O O O O O O O O B-SSI O
+cymbalta.Post210.Sentence8	O O O O O O O O O O O O
+cymbalta.Post210.Sentence9	O O O O O B-SSI O O
+cymbalta.Post210.Sentence10	O O O O O O B-AE I-AE I-AE I-AE I-AE O O
+cymbalta.Post210.Sentence11	O O O O O O O O O O O O O O O
+cymbalta.Post210.Sentence12	O O O O O
+cymbalta.Post210.Sentence13	O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post210.Sentence14	O O O O O
+cymbalta.Post211.Sentence1	B-AE I-AE O
+cymbalta.Post211.Sentence2	O O O O O O O O B-SSI O
+cymbalta.Post211.Sentence3	O O O O O O O O O O O O O O O O O O O
+cymbalta.Post211.Sentence4	O O O O O O O O O O O O O O O O
+cymbalta.Post211.Sentence5	O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post212.Sentence1	O O O O O O B-AE I-AE O
+cymbalta.Post212.Sentence2	O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post212.Sentence3	O O O O O O O O O O O O O O O O B-AE I-AE I-AE O
+cymbalta.Post212.Sentence4	O O O O O O O O O
+cymbalta.Post212.Sentence5	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-AE I-AE I-AE O O
+cymbalta.Post212.Sentence6	O O O O O O O O O O B-AE I-AE O O B-AE I-AE I-AE I-AE I-AE O
+cymbalta.Post212.Sentence7	O O O O O O O O O O
+cymbalta.Post212.Sentence8	O O O O O O O O O O O O O O O O O O O
+cymbalta.Post212.Sentence9	O O O O O O O O O O O O O O O O
+cymbalta.Post213.Sentence1	B-AE O O O O O O O O O O O O B-AE I-AE I-AE I-AE O B-AE I-AE O
+cymbalta.Post213.Sentence2	O O O O O O O O O O O O O O O
+cymbalta.Post213.Sentence3	O O O O O O O O O O O O
+cymbalta.Post213.Sentence4	O O O O O O O O O O O O O O
+cymbalta.Post213.Sentence5	O O O O O O O O O O O O O O
+cymbalta.Post213.Sentence6	O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post213.Sentence7	O O O
+cymbalta.Post214.Sentence1	B-AE I-AE I-AE O B-AE I-AE I-AE O O O
+cymbalta.Post214.Sentence2	O O O O O O O O O O O O O O O O O B-AE I-AE I-AE I-AE I-AE O O O O O O O O O O O O O O
+cymbalta.Post214.Sentence3	O O O O O O O O O O O
+cymbalta.Post214.Sentence4	B-AE I-AE I-AE I-AE I-AE I-AE O
+cymbalta.Post214.Sentence5	O O O O O O B-AE I-AE O O O O O O O O
+cymbalta.Post214.Sentence6	O O O O
+cymbalta.Post214.Sentence7	O O O O B-AE I-AE I-AE O O O O O O O
+cymbalta.Post214.Sentence8	O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post214.Sentence9	O O O O O O O O
+cymbalta.Post215.Sentence1	O O O O O O O O O O O O O O O O O
+cymbalta.Post215.Sentence2	O O O O O O O O O O O O O O
+cymbalta.Post215.Sentence3	O O O O O O O O O O O O O O O O O O
+cymbalta.Post215.Sentence4	O O O O O O O O O O O O O O O O O O
+cymbalta.Post215.Sentence5	O O O O O O O O O O
+cymbalta.Post216.Sentence1	O O O O O O O O O
+cymbalta.Post216.Sentence2	O O O O O O O O O O O B-AE I-AE O B-AE I-AE I-AE I-AE O
+cymbalta.Post216.Sentence3	O O O O O O O O O O O O
+cymbalta.Post216.Sentence4	O O O O O
+cymbalta.Post216.Sentence5	O O O O O O O O
+cymbalta.Post216.Sentence6	O O O O O O O O O O O O O
+cymbalta.Post216.Sentence7	O O O O O O O O
+cymbalta.Post216.Sentence8	O O O O O
+cymbalta.Post216.Sentence9	O O O O O O O
+cymbalta.Post216.Sentence10	O O O O O O O O O O O
+cymbalta.Post216.Sentence11	O O O O O O O O O O O O O O O O
+cymbalta.Post216.Sentence12	O O O O O O O O O O
+cymbalta.Post216.Sentence13	O O O O O O O
+cymbalta.Post216.Sentence14	O O O O O O
+cymbalta.Post216.Sentence15	O O O O O O O O O O
+cymbalta.Post216.Sentence16	O O O O B-SSI O O O O O O O O O O O O O
+cymbalta.Post216.Sentence17	O O O O O O O O O O O O O
+cymbalta.Post216.Sentence18	O O O
+cymbalta.Post216.Sentence19	O O O
+cymbalta.Post216.Sentence20	O O O O O O O O O O O O O O O O O O O
+cymbalta.Post216.Sentence21	O O O O O O O O O O
+cymbalta.Post216.Sentence22	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post216.Sentence23	O O O O O O O O O O
+cymbalta.Post216.Sentence24	O O O O O O O O O O O
+cymbalta.Post216.Sentence25	O O O O O O O O O O O O O
+cymbalta.Post217.Sentence1	B-AE I-AE I-AE O O O O O O O
+cymbalta.Post217.Sentence2	O O O O O O O O
+cymbalta.Post217.Sentence3	O O O O O B-SSI O
+cymbalta.Post217.Sentence4	O O O O O O O O O O O O O O O O
+cymbalta.Post217.Sentence5	O O O O O O O O
+cymbalta.Post217.Sentence6	O O O O O O O O O
+cymbalta.Post218.Sentence1	O O O O O
+cymbalta.Post219.Sentence1	B-AE I-AE I-AE I-AE I-AE I-AE O
+cymbalta.Post219.Sentence2	O O O O O O O O O O O O O
+cymbalta.Post219.Sentence3	O O O O O O
+cymbalta.Post219.Sentence4	O O O B-AE I-AE O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post219.Sentence5	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post219.Sentence6	O O O O O O O O O O O O O O O O O O
+cymbalta.Post219.Sentence7	O O O O O O O O O O
+cymbalta.Post219.Sentence8	O O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post219.Sentence9	O O O O O O O O O O O O O O O O
+cymbalta.Post220.Sentence1	B-AE I-AE I-AE O
+cymbalta.Post220.Sentence2	O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post220.Sentence3	O O B-AE I-AE I-AE O O O O O O O O O O O O O
+cymbalta.Post220.Sentence4	O O O O O O O O O O O O O O O O O
+cymbalta.Post220.Sentence5	O O O B-AE I-AE I-AE O B-AE I-AE I-AE O O B-AE I-AE I-AE O
+cymbalta.Post220.Sentence6	O O O O O O O O
+cymbalta.Post220.Sentence7	O O O O O O O O O O O O O O O O O O
+cymbalta.Post220.Sentence8	O O O O O O O O O O O O O O B-SSI I-SSI O O O O O O O O
+cymbalta.Post221.Sentence1	O O B-AE O O O O O O O O O
+cymbalta.Post221.Sentence2	O O O O O O O O O O
+cymbalta.Post221.Sentence3	O O O O O O O O O O O O O
+cymbalta.Post221.Sentence4	O O O O
+cymbalta.Post221.Sentence5	O O O O O O O O O O O O O O O O
+cymbalta.Post221.Sentence6	O O O O O O O O O O
+cymbalta.Post221.Sentence7	O O O O O O O O O O O O O
+cymbalta.Post221.Sentence8	O O O O O O O O O O O O O O O O O
+cymbalta.Post221.Sentence9	O O B-AE I-AE I-AE O O O O O O O O O O
+cymbalta.Post221.Sentence10	O O O O O O O O O O O O O O O O O
+cymbalta.Post221.Sentence11	O O O O O O O B-AE I-AE O O B-AE I-AE I-AE I-AE O
+cymbalta.Post221.Sentence12	O O O O
+cymbalta.Post221.Sentence13	O O O O O O
+cymbalta.Post221.Sentence14	O O O O O O O O O
+cymbalta.Post221.Sentence15	O O O O O O O O B-SSI I-SSI O
+cymbalta.Post221.Sentence16	O O O O O O O O O O B-AE I-AE I-AE I-AE O
+cymbalta.Post221.Sentence17	O O O O O
+cymbalta.Post221.Sentence18	O O O O O
+cymbalta.Post221.Sentence19	O O O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post221.Sentence20	O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post221.Sentence21	O O O O B-SSI O O O O O O O O O B-SSI O B-AE I-AE O O O B-SSI I-SSI O O O O O
+cymbalta.Post221.Sentence22	O O O O O O O O O O O O
+cymbalta.Post221.Sentence23	O O O O O O O O O O O O O O O O O O O
+cymbalta.Post221.Sentence24	O O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post222.Sentence1	O O O B-AE O B-AE O O
+cymbalta.Post222.Sentence2	B-AE I-AE O B-AE O
+cymbalta.Post222.Sentence3	O O O B-AE I-AE O
+cymbalta.Post222.Sentence4	O O O O O O O O O
+cymbalta.Post222.Sentence5	O O O O O
+cymbalta.Post222.Sentence6	O O O O O O O O O O O
+cymbalta.Post222.Sentence7	O O O O O O O O O O
+cymbalta.Post222.Sentence8	O O O O O O O O O O O O O O
+cymbalta.Post222.Sentence9	O O O O O O O O O O O O
+cymbalta.Post222.Sentence10	O O O O O O O O O O O O O B-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE O O B-AE I-AE O
+cymbalta.Post222.Sentence11	O O O O O O O O O O O O O O O O O O O
+cymbalta.Post223.Sentence1	O O O O O O O O O
+cymbalta.Post223.Sentence2	O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post223.Sentence3	O O O O O O O O O B-AE I-AE I-AE I-AE I-AE I-AE I-AE
+cymbalta.Post223.Sentence4	O O O O O O O O O O O O O
+cymbalta.Post223.Sentence5	O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post223.Sentence6	O O O O O O O O O O O O O O O O O B-SSI O
+cymbalta.Post223.Sentence7	O O O O O O O O O O O O O O
+cymbalta.Post223.Sentence8	O O O O O O O O O O O
+cymbalta.Post224.Sentence1	B-AE I-AE O B-AE I-AE O
+cymbalta.Post224.Sentence2	O O O O O O O O O
+cymbalta.Post224.Sentence3	O O O O O O O B-SSI O B-SSI O
+cymbalta.Post224.Sentence4	O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post224.Sentence5	O O O O O O O O O B-AE I-AE I-AE O
+cymbalta.Post224.Sentence6	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post224.Sentence7	O O O
+cymbalta.Post224.Sentence8	O O O O O O O O O O O O
+cymbalta.Post225.Sentence1	B-AE I-AE O B-AE I-AE O O O O O
+cymbalta.Post225.Sentence2	B-AE I-AE O O O O O O B-AE I-AE O
+cymbalta.Post225.Sentence3	O O O O O O O O O O O O O O O O O O
+cymbalta.Post226.Sentence1	O O O O O O O O O
+cymbalta.Post226.Sentence2	O O O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post226.Sentence3	O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post227.Sentence1	O O B-AE I-AE I-AE O B-AE I-AE O B-AE I-AE O B-AE I-AE O
+cymbalta.Post227.Sentence2	O O O O O O O O O O O O B-AE I-AE I-AE I-AE O O O O O O O O O
+cymbalta.Post227.Sentence3	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post227.Sentence4	O O O O O O O O O B-SSI O O O O O B-SSI O O B-AE O O
+cymbalta.Post227.Sentence5	O O O O O B-SSI O B-SSI O O O O
+cymbalta.Post227.Sentence6	O O O O O O O
+cymbalta.Post227.Sentence7	O O O O O O O O O O O O O
+cymbalta.Post227.Sentence8	O O O O O O O O O O
+cymbalta.Post227.Sentence9	O O O O O O O O O O O
+cymbalta.Post227.Sentence10	O O O O
+cymbalta.Post227.Sentence11	O O O O O O O O O O O O O O O O O
+cymbalta.Post227.Sentence12	O O O O O O
+cymbalta.Post227.Sentence13	O O O O O O O O O O O
+cymbalta.Post227.Sentence14	O O O O
+cymbalta.Post227.Sentence15	O O O O O O O O O O O O O O O O O
+cymbalta.Post227.Sentence16	O O O O O O O O O
+cymbalta.Post228.Sentence1	B-AE O B-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE O
+cymbalta.Post228.Sentence2	O O O B-SSI O
+cymbalta.Post228.Sentence3	O O O O O O O O B-SSI O
+cymbalta.Post229.Sentence1	B-AE I-AE I-AE O
+cymbalta.Post229.Sentence2	O O O
+cymbalta.Post229.Sentence3	O B-SSI I-SSI O O O O O O O O O O
+cymbalta.Post229.Sentence4	O O O O O O
+cymbalta.Post229.Sentence5	B-SSI O O
+cymbalta.Post229.Sentence6	O O O O O O O O
+cymbalta.Post229.Sentence7	O O
+cymbalta.Post229.Sentence8	O O O O O O O O O
+cymbalta.Post230.Sentence1	B-AE I-AE O B-AE I-AE O B-AE I-AE O
+cymbalta.Post230.Sentence2	O O O O O O O O O O O O O O O O O O O O O O O
+cymbalta.Post230.Sentence3	O O O O O O
+cymbalta.Post230.Sentence4	O O O O O O O O O O
+cymbalta.Post230.Sentence5	O O O O O B-SSI O O B-SSI O O
+cymbalta.Post230.Sentence6	O O O O O
+cymbalta.Post230.Sentence7	O O O O
+cymbalta.Post231.Sentence1	O O O O O O O O O O O O B-AE I-AE O O O O
+cymbalta.Post231.Sentence2	O O O O O O O B-SSI I-SSI O O
+effexorXR.Post183.Sentence1	B-AE I-AE O
+effexorXR.Post184.Sentence1	B-AE I-AE I-AE O B-AE O
+effexorXR.Post184.Sentence2	O O O O O O O O O O O O O O O O O O
+effexorXR.Post184.Sentence3	O O O O B-SSI O O O O O O
+effexorXR.Post184.Sentence4	O O O O O O O O O
+effexorXR.Post184.Sentence5	O O O
+effexorXR.Post185.Sentence1	O O B-AE I-AE O B-AE I-AE I-AE O O O O O O O O O O O B-AE I-AE O B-AE I-AE O O O O O O O O O O O O O O O
+effexorXR.Post185.Sentence2	O O O O O O O O O O O O O O O O O B-AE I-AE O O O O O O O O O
+effexorXR.Post185.Sentence3	O O O O O O O O O O O O O O O O O O
+effexorXR.Post186.Sentence1	O O O O O O
+effexorXR.Post186.Sentence2	O O B-AE I-AE O B-AE I-AE I-AE I-AE O
+effexorXR.Post186.Sentence3	O O O O O
+effexorXR.Post186.Sentence4	O O O O O O O O O O O O O O
+effexorXR.Post186.Sentence5	O O O O O O O O
+effexorXR.Post187.Sentence1	B-AE I-AE I-AE O B-AE I-AE O
+effexorXR.Post188.Sentence1	B-AE I-AE I-AE I-AE I-AE O O O O O O O
+effexorXR.Post188.Sentence2	B-AE I-AE O O O O O O O
+effexorXR.Post188.Sentence3	O O O O O O O O O O O O
+effexorXR.Post188.Sentence4	O O O O O O B-SSI I-SSI O
+effexorXR.Post188.Sentence5	O O O O O O O O O
+effexorXR.Post189.Sentence1	O O O O O
+effexorXR.Post189.Sentence2	O O O O O O O O O
+effexorXR.Post189.Sentence3	O O O O O O O O O O O O
+effexorXR.Post189.Sentence4	O O O O O O O O O O B-AE I-AE I-AE I-AE I-AE O B-AE I-AE I-AE I-AE I-AE I-AE O B-SSI I-SSI
+effexorXR.Post189.Sentence5	O O O O
+effexorXR.Post189.Sentence6	O O O O O
+effexorXR.Post189.Sentence7	O O O O O O O O O
+effexorXR.Post189.Sentence8	O O O O O O O O O O O O
+effexorXR.Post189.Sentence9	O O O O O O O O O O O O O O
+effexorXR.Post189.Sentence10	O O O O O O O O O
+effexorXR.Post189.Sentence11	O O O O O O O O
+effexorXR.Post190.Sentence1	B-AE I-AE O B-AE I-AE O B-AE I-AE I-AE I-AE I-AE I-AE O B-AE O
+effexorXR.Post190.Sentence2	O O O O O O B-SSI O B-SSI O
+effexorXR.Post190.Sentence3	O O O O O O O O O O O O O O O O O
+effexorXR.Post191.Sentence1	B-AE I-AE I-AE O
+effexorXR.Post191.Sentence2	O O O O O O
+effexorXR.Post191.Sentence3	O O O O O O O O O O O
+effexorXR.Post191.Sentence4	O O O O O O O
+effexorXR.Post191.Sentence5	O O O O
+effexorXR.Post191.Sentence6	O O O B-SSI I-SSI O O O O O O O O O O
+effexorXR.Post192.Sentence1	O O O O O O O B-SSI I-SSI O
+effexorXR.Post192.Sentence2	O O O O O O O O O O
+effexorXR.Post192.Sentence3	O O O O O O O O O O O O O B-AE I-AE I-AE I-AE I-AE O
+effexorXR.Post193.Sentence1	B-AE O O O O O O
+effexorXR.Post193.Sentence2	B-AE I-AE I-AE O B-AE I-AE I-AE I-AE O
+effexorXR.Post193.Sentence3	O O O O O O O O
+effexorXR.Post193.Sentence4	O O O O O O O
+effexorXR.Post194.Sentence1	O O O O O O O B-AE I-AE I-AE I-AE I-AE I-AE O
+effexorXR.Post194.Sentence2	O O O O O O O O
+effexorXR.Post194.Sentence3	O O O O O O
+effexorXR.Post194.Sentence4	O O O O O O O O O O O O O
+effexorXR.Post194.Sentence5	O O O O O O O B-AE O B-AE I-AE I-AE I-AE I-AE I-AE O
+effexorXR.Post194.Sentence6	O O O O O O O O O O O
+effexorXR.Post194.Sentence7	O B-AE I-AE I-AE O O O
+effexorXR.Post194.Sentence8	O B-AE I-AE O O O B-AE I-AE O
+effexorXR.Post195.Sentence1	B-AE I-AE O B-AE O B-AE I-AE O B-AE O
+effexorXR.Post195.Sentence2	O O O O O O O O O O O O O O O O O O
+effexorXR.Post195.Sentence3	O O O O O
+effexorXR.Post195.Sentence4	O B-AE I-AE O O O O O B-AE O O O O O O O O O O
+effexorXR.Post196.Sentence1	O O O O
+effexorXR.Post196.Sentence2	O O O O O O O O O O B-SSI O
+effexorXR.Post196.Sentence3	O O O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post196.Sentence4	O O O O O O O O O O O
+effexorXR.Post196.Sentence5	O O O O O O O O O
+effexorXR.Post197.Sentence1	B-AE I-AE I-AE I-AE O B-AE I-AE I-AE O
+effexorXR.Post197.Sentence2	O O O O O O O
+effexorXR.Post197.Sentence3	O O O O O O O O O
+effexorXR.Post197.Sentence4	O O O O O O O O O O O O O O O O O
+effexorXR.Post197.Sentence5	O O O O O O O O O
+effexorXR.Post198.Sentence1	B-AE I-AE O B-AE I-AE I-AE O B-AE I-AE I-AE I-AE O B-AE I-AE I-AE I-AE I-AE O O B-AE I-AE O
+effexorXR.Post198.Sentence2	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post198.Sentence3	O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post198.Sentence4	O O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post198.Sentence5	O O O O O O O O O O O O O O O O O O O
+effexorXR.Post198.Sentence6	O O O O O O O O O
+effexorXR.Post198.Sentence7	O O O O O O O O O O O
+effexorXR.Post198.Sentence8	O O O O O O O
+effexorXR.Post199.Sentence1	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post199.Sentence2	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-SSI O
+effexorXR.Post199.Sentence3	O O O O B-SSI O
+effexorXR.Post199.Sentence4	O O O O O B-SSI O O O O O O O O
+effexorXR.Post200.Sentence1	B-AE O B-AE O B-AE I-AE I-AE O B-AE O B-AE I-AE O B-AE I-AE O B-AE O B-AE I-AE O B-AE I-AE O B-AE I-AE I-AE O B-AE O B-AE I-AE O B-AE O B-AE I-AE I-AE I-AE O O B-AE I-AE I-AE O B-AE O B-AE O O B-AE O B-AE O B-AE I-AE O B-AE I-AE O O O O O B-AE I-AE I-AE O O B-AE I-AE I-AE I-AE O O O O O O O O O O
+effexorXR.Post200.Sentence2	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post200.Sentence3	O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post200.Sentence4	O O O O O O O O O O O
+effexorXR.Post200.Sentence5	O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post200.Sentence6	O O O O O O O O O O O O
+effexorXR.Post200.Sentence7	O O O O O O O O O O
+effexorXR.Post200.Sentence8	O O O O O O O O O O O O O
+effexorXR.Post200.Sentence9	O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post200.Sentence10	O O O B-AE I-AE I-AE I-AE I-AE I-AE O O B-AE I-AE I-AE I-AE I-AE I-AE
+effexorXR.Post200.Sentence11	O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post200.Sentence12	O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post200.Sentence13	O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post200.Sentence14	O O O O O O O O O
+effexorXR.Post200.Sentence15	O O O O O O
+effexorXR.Post200.Sentence16	O O O O O O O O O O O O O O O
+effexorXR.Post200.Sentence17	O O O O O O O O O O
+effexorXR.Post200.Sentence18	O O O O O O O O O O
+effexorXR.Post200.Sentence19	O O O O O O O O O O O O O O O O O O
+effexorXR.Post201.Sentence1	B-AE O B-AE I-AE O B-AE O B-AE I-AE O
+effexorXR.Post201.Sentence2	O O O O O O O O O O O O O
+effexorXR.Post201.Sentence3	O O O O O O O O O O O O
+effexorXR.Post201.Sentence4	O O O O O O O O O O B-AE I-AE O B-AE I-AE I-AE I-AE O
+effexorXR.Post201.Sentence5	O O O O O O O O O O O O O O O O
+effexorXR.Post201.Sentence6	O O O O O O O O O
+effexorXR.Post201.Sentence7	O O O O O O O O O B-SSI O O O O B-AE I-AE I-AE I-AE I-AE I-AE I-AE O O O B-AE I-AE O B-AE I-AE I-AE O O O O O O O
+effexorXR.Post201.Sentence8	O O O O O O O O O O O O O O O
+effexorXR.Post201.Sentence9	O O O O O O
+effexorXR.Post201.Sentence10	O O O O O O O O O O O O O O O O O O B-SSI O
+effexorXR.Post201.Sentence11	O O O O O O
+effexorXR.Post201.Sentence12	O O O O O O O O O O O
+effexorXR.Post201.Sentence13	O O O O O O O O O O O O O
+effexorXR.Post201.Sentence14	O O O B-SSI I-SSI O O O
+effexorXR.Post201.Sentence15	B-AE I-AE O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post201.Sentence16	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post201.Sentence17	O O O O O O O O B-SSI O O O O O O
+effexorXR.Post201.Sentence18	O O O O O O O O O
+effexorXR.Post201.Sentence19	O O O O O O O O O O O O O O O O
+effexorXR.Post201.Sentence20	O O O O O O O O O O
+effexorXR.Post202.Sentence1	O O B-AE I-AE O O O B-AE I-AE O B-AE O B-AE I-AE I-AE I-AE O B-AE I-AE O
+effexorXR.Post202.Sentence2	O O O O O O O O O O O O O O O O O O O
+effexorXR.Post202.Sentence3	O O O O
+effexorXR.Post202.Sentence4	O O O O O O O O O O O
+effexorXR.Post202.Sentence5	O O O O O O O O O O O O O O
+effexorXR.Post202.Sentence6	O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post202.Sentence7	O O O O O O O O O O B-SSI O
+effexorXR.Post202.Sentence8	O O O O O O O O O O O O O O O O O O
+effexorXR.Post203.Sentence1	O O O B-AE I-AE O
+effexorXR.Post204.Sentence1	B-AE I-AE I-AE O B-AE I-AE O O O O B-AE O B-AE O B-AE O O O
+effexorXR.Post204.Sentence2	O O O B-SSI O O O O O O
+effexorXR.Post204.Sentence3	O O O O O O O O O O O O O O O O O O
+effexorXR.Post204.Sentence4	O O O O O O O O O O O O O O
+effexorXR.Post204.Sentence5	O O O O O O O O O O O O
+effexorXR.Post204.Sentence6	O O O O O O
+effexorXR.Post204.Sentence7	O O O O O O O
+effexorXR.Post204.Sentence8	O O O O
+effexorXR.Post204.Sentence9	O O O O O O O O O O O O O O O O O B-AE I-AE I-AE I-AE O O O B-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE O
+effexorXR.Post204.Sentence10	O O O O O
+effexorXR.Post204.Sentence11	O O O O O O O O O O B-SSI O B-AE O B-AE I-AE I-AE I-AE I-AE O O O B-AE I-AE I-AE O O
+effexorXR.Post204.Sentence12	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post204.Sentence13	O O O O O O O O O O O O O O O O
+effexorXR.Post205.Sentence1	O O O O O O
+effexorXR.Post205.Sentence2	O O O O O O O O O O O O O O
+effexorXR.Post205.Sentence3	O O O O O O O B-AE I-AE O
+effexorXR.Post205.Sentence4	O O O O O O
+effexorXR.Post205.Sentence5	O O O O O
+effexorXR.Post205.Sentence6	O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post205.Sentence7	O O O O O
+effexorXR.Post205.Sentence8	O O O O O O
+effexorXR.Post205.Sentence9	O O O O O O O B-SSI O O O O
+effexorXR.Post205.Sentence10	O O O O O O O
+effexorXR.Post205.Sentence11	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post206.Sentence1	O
+effexorXR.Post206.Sentence2	O O O O O B-SSI I-SSI O B-SSI O
+effexorXR.Post206.Sentence3	O O O O O O O O O O O O O O O O O
+effexorXR.Post206.Sentence4	O O O O O O O O O O
+effexorXR.Post207.Sentence1	O O O O O O O O O O O O O O O
+effexorXR.Post207.Sentence2	O O O O O O O
+effexorXR.Post207.Sentence3	O O O O O O
+effexorXR.Post207.Sentence4	O B-AE I-AE I-AE I-AE I-AE I-AE O O O O O O O O O O O O O O O B-SSI O B-SSI O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post207.Sentence5	O O O O O O
+effexorXR.Post207.Sentence6	O O O O O O O O O O O O O O O O O
+effexorXR.Post207.Sentence7	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post207.Sentence8	O O O O O O O O O O O O O O O
+effexorXR.Post207.Sentence9	O O O O O O O O O O O
+effexorXR.Post207.Sentence10	O O O O O O O O O
+effexorXR.Post208.Sentence1	O O O O O O O O O O O O O O O O
+effexorXR.Post208.Sentence2	O O O O O O
+effexorXR.Post208.Sentence3	O O O O O O O O O
+effexorXR.Post209.Sentence1	B-AE I-AE O B-AE I-AE I-AE I-AE O B-AE I-AE I-AE I-AE I-AE I-AE O O B-AE I-AE I-AE I-AE O B-AE I-AE I-AE O B-AE I-AE I-AE I-AE I-AE I-AE O B-AE I-AE O
+effexorXR.Post209.Sentence2	O O O O O
+effexorXR.Post209.Sentence3	O O O O O
+effexorXR.Post209.Sentence4	O O O O O O O O
+effexorXR.Post209.Sentence5	O O O B-SSI I-SSI O O O O
+effexorXR.Post209.Sentence6	O O O O O O O
+effexorXR.Post209.Sentence7	O O O O O
+effexorXR.Post210.Sentence1	B-AE I-AE O B-AE I-AE I-AE I-AE O B-AE I-AE O
+effexorXR.Post210.Sentence2	O O O O O O O O O O O B-SSI I-SSI O
+effexorXR.Post210.Sentence3	O O O O O O O O O O O O O O O
+effexorXR.Post210.Sentence4	O O O O O O O O O O O O O O O O O
+effexorXR.Post210.Sentence5	O O O O O O O O O O O O O O O O O O O O O O B-SSI O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post211.Sentence1	O
+effexorXR.Post211.Sentence2	O O O O O O
+effexorXR.Post211.Sentence3	O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post211.Sentence4	O O O O O O O O O O O O O O
+effexorXR.Post211.Sentence5	O O O O O O O O
+effexorXR.Post212.Sentence1	B-AE I-AE O B-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE O
+effexorXR.Post212.Sentence2	I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE O O
+effexorXR.Post212.Sentence3	O O O O O O O
+effexorXR.Post212.Sentence4	O O O B-AE I-AE I-AE I-AE O
+effexorXR.Post212.Sentence5	O O O O O
+effexorXR.Post212.Sentence6	O O O O O O
+effexorXR.Post212.Sentence7	O O O O O O O O O O O O O
+effexorXR.Post212.Sentence8	O
+effexorXR.Post212.Sentence9	O O O O O
+effexorXR.Post212.Sentence10	O O O O O O
+effexorXR.Post213.Sentence1	O O O O O O O O
+effexorXR.Post213.Sentence2	O O O B-AE I-AE I-AE O B-AE I-AE O
+effexorXR.Post213.Sentence3	O O O O O O O O O O
+effexorXR.Post213.Sentence4	O O O O O O O O O O O O O O O O O O O O O B-SSI O
+effexorXR.Post213.Sentence5	O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post213.Sentence6	O O O O O O O O O O O O O O O
+effexorXR.Post213.Sentence7	O O O O
+effexorXR.Post213.Sentence8	O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post213.Sentence9	O O O O O O O O O O O O O O O B-AE I-AE I-AE I-AE I-AE I-AE I-AE O O
+effexorXR.Post213.Sentence10	O O O O O O O O
+effexorXR.Post213.Sentence11	O O O O B-SSI O O O O
+effexorXR.Post213.Sentence12	O O O O O O O O O O O O O O
+effexorXR.Post213.Sentence13	O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post213.Sentence14	O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post213.Sentence15	O O O B-SSI O O O O O O O O O O O O
+effexorXR.Post213.Sentence16	O O O O O O O O O O O O
+effexorXR.Post214.Sentence1	O O O O O O O O O O O O O O O O
+effexorXR.Post214.Sentence2	O O O O O O B-AE O B-AE O O O O O O O O O O
+effexorXR.Post214.Sentence3	O O O O O O O O O O O O O O B-AE O B-AE O O O O O O B-AE I-AE I-AE I-AE O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post214.Sentence4	O O O O O O O O O O O
+effexorXR.Post214.Sentence5	O O O O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post214.Sentence6	O O O O O O O O O O O O
+effexorXR.Post214.Sentence7	O O O O O O O O O O O O O
+effexorXR.Post214.Sentence8	O O O O O O O O O O O O O O O
+effexorXR.Post214.Sentence9	O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post214.Sentence10	O O O O O O O O O O O
+effexorXR.Post215.Sentence1	O B-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE O B-AE O
+effexorXR.Post215.Sentence2	O O O O O O O
+effexorXR.Post215.Sentence3	O O O O O O O
+effexorXR.Post215.Sentence4	O O O O O O O O O O
+effexorXR.Post215.Sentence5	O O O B-AE I-AE O O O O O O O O O O O O
+effexorXR.Post215.Sentence6	O O O O O
+effexorXR.Post216.Sentence1	O O O O B-SSI O B-SSI O O O O O O O O O
+effexorXR.Post216.Sentence2	O O O O O O O O O O O
+effexorXR.Post217.Sentence1	B-AE O O O O O
+effexorXR.Post217.Sentence2	B-AE O B-AE I-AE I-AE O O O O O B-AE I-AE I-AE O
+effexorXR.Post217.Sentence3	B-AE I-AE O O O O O O O O B-AE I-AE I-AE O
+effexorXR.Post217.Sentence4	O O O O O O O O O O O O O
+effexorXR.Post217.Sentence5	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post217.Sentence6	O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post217.Sentence7	O O O O O O O O O O O O
+effexorXR.Post217.Sentence8	O O O O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post218.Sentence1	O O O O O O O O B-AE I-AE I-AE O
+effexorXR.Post218.Sentence2	O O O O O O O O O O O O O O
+effexorXR.Post218.Sentence3	O O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post218.Sentence4	O O O B-AE I-AE I-AE O
+effexorXR.Post218.Sentence5	O O O O O O O O O O O O
+effexorXR.Post218.Sentence6	O O O O O O O O O O O O O O
+effexorXR.Post218.Sentence7	O O O O O O O O O O O O B-SSI O O O O O O O
+effexorXR.Post218.Sentence8	O O O O O O O O O O O O O
+effexorXR.Post218.Sentence9	O O O O O O
+effexorXR.Post218.Sentence10	O O O O O O O O O O O O O O
+effexorXR.Post218.Sentence11	O O O O O O
+effexorXR.Post218.Sentence12	O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post218.Sentence13	O O O O O O O
+effexorXR.Post218.Sentence14	O O O O O O O O O O O O O O O
+effexorXR.Post218.Sentence15	O O O O O O O O
+effexorXR.Post218.Sentence16	O O
+effexorXR.Post219.Sentence1	B-AE O B-AE I-AE O B-AE I-AE O B-AE I-AE I-AE I-AE I-AE I-AE I-AE O B-AE O
+effexorXR.Post219.Sentence2	O O O O O O O O O O O O O O
+effexorXR.Post219.Sentence3	B-SSI O O O O O O O O O O O O O
+effexorXR.Post219.Sentence4	O O O O O O O O O O O O B-SSI
+effexorXR.Post220.Sentence1	O O O O O O O O O O O O
+effexorXR.Post220.Sentence2	O O O O O O O O O O O O O
+effexorXR.Post220.Sentence3	O O O O B-AE I-AE O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post220.Sentence4	O O O O O O O O O
+effexorXR.Post220.Sentence5	O O O O O O O O O O O O O O O
+effexorXR.Post220.Sentence6	O O O O O B-SSI O O O O O O O O O O O O
+effexorXR.Post221.Sentence1	O O O O O O O O O O O
+effexorXR.Post221.Sentence2	O O O O O O O O O
+effexorXR.Post221.Sentence3	O O O O O O O O O O O O O O O
+effexorXR.Post221.Sentence4	O O O O O O O O O B-AE I-AE O
+effexorXR.Post221.Sentence5	O O B-AE O B-AE I-AE O O O O O O O
+effexorXR.Post221.Sentence6	O O O O O O O O O O
+effexorXR.Post221.Sentence7	O O O O O
+effexorXR.Post221.Sentence8	O O O O O O O O O O O O O O O O
+effexorXR.Post221.Sentence9	O O O O O O O
+effexorXR.Post221.Sentence10	O O O O O O O O O O O O O
+effexorXR.Post221.Sentence11	O O O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post221.Sentence12	O O O O O O O O O O O O O O O
+effexorXR.Post221.Sentence13	O O O O O O O O O O O O
+effexorXR.Post222.Sentence1	O O O O O O O O O
+effexorXR.Post222.Sentence2	O O O O O O O O O O O O O O O O O O
+effexorXR.Post222.Sentence3	O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post222.Sentence4	O O O O O
+effexorXR.Post222.Sentence5	O O O O O
+effexorXR.Post222.Sentence6	O O O O O O
+effexorXR.Post223.Sentence1	O O O O O O O O O O
+effexorXR.Post223.Sentence2	B-AE I-AE I-AE O O O B-AE I-AE I-AE O B-AE I-AE O
+effexorXR.Post223.Sentence3	O O O O O O O O O
+effexorXR.Post223.Sentence4	O O O O O O O O O O O O
+effexorXR.Post223.Sentence5	O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post223.Sentence6	O O O
+effexorXR.Post223.Sentence7	O O O
+effexorXR.Post223.Sentence8	O O O O O B-SSI I-SSI O O O O O O O O
+effexorXR.Post223.Sentence9	O O O O O O O O O O O O O O O O
+effexorXR.Post223.Sentence10	O O O O O
+effexorXR.Post224.Sentence1	B-AE I-AE O B-AE O B-AE O B-AE O B-AE I-AE I-AE O B-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE O B-AE O
+effexorXR.Post224.Sentence2	O O O O O O O O O O O O O O O O O O O O B-SSI O O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post224.Sentence3	O O O O O O O O O O O O O O O O O O O
+effexorXR.Post224.Sentence4	O O O O O O O O O O O O O O O
+effexorXR.Post224.Sentence5	O O O O O O O O O O O
+effexorXR.Post224.Sentence6	O O O O O O O
+effexorXR.Post225.Sentence1	B-AE I-AE I-AE O B-AE I-AE O
+effexorXR.Post225.Sentence2	O O O O O O O O
+effexorXR.Post226.Sentence1	O B-AE I-AE I-AE I-AE O B-AE I-AE O
+effexorXR.Post226.Sentence2	O O O O O O O O O O O O O O
+effexorXR.Post226.Sentence3	O O B-AE I-AE O
+effexorXR.Post226.Sentence4	O O B-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE O
+effexorXR.Post226.Sentence5	O O O O O O O O O O O O O O O O
+effexorXR.Post226.Sentence6	O O O B-AE I-AE O
+effexorXR.Post226.Sentence7	O O O O O O
+effexorXR.Post226.Sentence8	O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post227.Sentence1	O O O O B-AE O O O
+effexorXR.Post227.Sentence2	O O O O O O
+effexorXR.Post227.Sentence3	O O O O B-AE I-AE I-AE O
+effexorXR.Post227.Sentence4	O O O O O O O O O O O O O O O O B-SSI O
+effexorXR.Post227.Sentence5	O B-SSI I-SSI I-SSI O O O O O O O O O O
+effexorXR.Post227.Sentence6	O O O O O O O O
+effexorXR.Post227.Sentence7	O O O O O O O O O O O O O O O O O O O
+effexorXR.Post227.Sentence8	O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post227.Sentence9	O O O O O O
+effexorXR.Post228.Sentence1	O O O O O O O B-AE I-AE O B-AE I-AE I-AE I-AE I-AE I-AE I-AE O
+effexorXR.Post228.Sentence2	O O O O O O O O O O
+effexorXR.Post228.Sentence3	O O O O O O O O O
+effexorXR.Post228.Sentence4	O O O O O O O O O O O O O O O O
+effexorXR.Post228.Sentence5	O O O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post228.Sentence6	O O O O O O O O O O O O O O O
+effexorXR.Post228.Sentence7	O O O O O O O O O O O O O O O O O
+effexorXR.Post228.Sentence8	O O O O O
+effexorXR.Post228.Sentence9	O O O O
+effexorXR.Post228.Sentence10	O O O O O O O O O O O
+effexorXR.Post228.Sentence11	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post228.Sentence12	O O O O O O O O O O O O O O O
+effexorXR.Post228.Sentence13	O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post228.Sentence14	O O O O O O O O O O O
+effexorXR.Post228.Sentence15	O O O O O O O O O O O O O O O O
+effexorXR.Post228.Sentence16	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post228.Sentence17	O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+effexorXR.Post228.Sentence18	O O O O O O O O O O O O O O
+lexapro.Post176.Sentence1	B-AE O B-AE O B-AE I-AE I-AE I-AE O B-AE O
+lexapro.Post176.Sentence2	O O O O O O O O O O O O O O O O O O
+lexapro.Post176.Sentence3	O O O O O O O O O O O B-SSI O O O O
+lexapro.Post176.Sentence4	O O O O O O O O O O O O O
+lexapro.Post176.Sentence5	O O O O O O O O O O O O O O O O O
+lexapro.Post176.Sentence6	O O O O O O O O O O O O O
+lexapro.Post176.Sentence7	O O O O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post177.Sentence1	B-AE I-AE O B-AE I-AE I-AE O B-AE I-AE I-AE O
+lexapro.Post177.Sentence2	O O O O O O O O
+lexapro.Post177.Sentence3	O O O O O O O O O
+lexapro.Post177.Sentence4	O O O O O O O O
+lexapro.Post177.Sentence5	O O O O O O O O O O O O O O O O O O O
+lexapro.Post177.Sentence6	O O O O O O O O O O O O O O O O O O O O
+lexapro.Post177.Sentence7	O O O O O O O
+lexapro.Post177.Sentence8	O O O O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post177.Sentence9	O O O O O O O O
+lexapro.Post177.Sentence10	O O O O O O O O O O O O O O O
+lexapro.Post178.Sentence1	O O O O O O
+lexapro.Post178.Sentence2	O O O O O O O O O O O O
+lexapro.Post178.Sentence3	O O O O O O O O O O O O O O O
+lexapro.Post178.Sentence4	O O O O O O O
+lexapro.Post178.Sentence5	B-AE I-AE I-AE I-AE I-AE O
+lexapro.Post178.Sentence6	O O O O B-AE I-AE O O O O
+lexapro.Post178.Sentence7	O O O O O O O O O O O O O O O O O O O
+lexapro.Post178.Sentence8	O O O O O O O O O O O O O O
+lexapro.Post178.Sentence9	O O O O O O O O O O O O O O O O O O
+lexapro.Post178.Sentence10	O O O O
+lexapro.Post178.Sentence11	O O O O O O O O O O O O O O O O
+lexapro.Post178.Sentence12	O O O O O O O O O O O
+lexapro.Post178.Sentence13	O O O O O O O O O O
+lexapro.Post178.Sentence14	O O O O O O O O O
+lexapro.Post178.Sentence15	O O O O O O O O O O O O O O O O O O
+lexapro.Post178.Sentence16	O O O O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post178.Sentence17	O O O O O O O O O
+lexapro.Post178.Sentence18	O O O O O O O O O O O O O O O O O O O O B-AE O
+lexapro.Post178.Sentence19	O B-AE I-AE I-AE I-AE I-AE I-AE O
+lexapro.Post178.Sentence20	O O O O O O O O O O O
+lexapro.Post178.Sentence21	O O O O O O O O O O O O O O O O O O O
+lexapro.Post178.Sentence22	O O O O O O O O O
+lexapro.Post178.Sentence23	O O O O O O O O O O O O O O O O O
+lexapro.Post178.Sentence24	O O O O O O O O O O B-AE I-AE I-AE O
+lexapro.Post178.Sentence25	O O O O O O O O O O O O
+lexapro.Post178.Sentence26	O O O O O O
+lexapro.Post178.Sentence27	O O O O O O O O O O O O O
+lexapro.Post178.Sentence28	O O O O O O O O O
+lexapro.Post178.Sentence29	O O O O O O O
+lexapro.Post178.Sentence30	O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post178.Sentence31	O O O O
+lexapro.Post178.Sentence32	O
+lexapro.Post178.Sentence33	O O O O O O O O O O O O O O O
+lexapro.Post178.Sentence34	O O O O O O
+lexapro.Post178.Sentence35	O O O O O O O O O O O O O O O O O O O O
+lexapro.Post179.Sentence1	B-AE O
+lexapro.Post179.Sentence2	O O O O O O B-AE I-AE I-AE I-AE I-AE O O O O O O O O O
+lexapro.Post179.Sentence3	B-AE I-AE I-AE I-AE O O O O B-AE O B-AE I-AE O B-AE I-AE I-AE O B-AE I-AE I-AE O B-AE I-AE O O B-AE I-AE O B-AE O B-AE I-AE O B-AE I-AE I-AE I-AE O
+lexapro.Post179.Sentence4	O B-AE I-AE I-AE O O O O O O O O O O O
+lexapro.Post179.Sentence5	O O O O O O O O
+lexapro.Post179.Sentence6	B-AE I-AE I-AE O
+lexapro.Post179.Sentence7	B-AE I-AE I-AE O B-AE I-AE I-AE O
+lexapro.Post179.Sentence8	O O O O O O O O O
+lexapro.Post179.Sentence9	O O O O O O O O O O O O O O O O O O O
+lexapro.Post179.Sentence10	O O O O O O O O O B-SSI I-SSI O B-AE I-AE I-AE O
+lexapro.Post179.Sentence11	B-AE I-AE O O O O O O O O O O O O O O O O O
+lexapro.Post179.Sentence12	O O B-AE I-AE O O O O O
+lexapro.Post179.Sentence13	O B-AE I-AE I-AE I-AE O O O O O
+lexapro.Post179.Sentence14	O B-SSI O B-AE O O O O O O O O O O O O O O B-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE O
+lexapro.Post180.Sentence1	I-AE I-AE I-AE I-AE I-AE O
+lexapro.Post180.Sentence2	O O O O O
+lexapro.Post180.Sentence3	O B-AE I-AE I-AE I-AE O
+lexapro.Post180.Sentence4	O O O O B-SSI I-SSI O O O
+lexapro.Post180.Sentence5	O O O O O O O O O O O O O O O O
+lexapro.Post180.Sentence6	O O O O O O O O O O O O O O O
+lexapro.Post180.Sentence7	O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post181.Sentence1	O O O
+lexapro.Post181.Sentence2	O O O O
+lexapro.Post181.Sentence3	O O O
+lexapro.Post181.Sentence4	O O O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post182.Sentence1	O O O O O
+lexapro.Post182.Sentence2	B-AE I-AE I-AE I-AE O
+lexapro.Post182.Sentence3	O O O O O O O O
+lexapro.Post182.Sentence4	B-AE I-AE I-AE O O O O O O
+lexapro.Post182.Sentence5	O O O
+lexapro.Post182.Sentence6	O O O O O O B-AE O B-AE O B-SSI O O O O O O O O O
+lexapro.Post182.Sentence7	O O O O O O O O O O O O O O O O O O O O
+lexapro.Post182.Sentence8	O O O O O O O O O O O O O B-SSI O O O O O O O O O O O B-SSI O O O O O B-SSI O O O O O O O
+lexapro.Post182.Sentence9	O B-AE I-AE I-AE O O O O O O O O O O O O O O O O O O
+lexapro.Post182.Sentence10	O O O O O O O O
+lexapro.Post182.Sentence11	O O O O O O O O O O O O
+lexapro.Post183.Sentence1	B-AE O B-AE O B-AE I-AE I-AE O
+lexapro.Post183.Sentence2	O O O O B-SSI O
+lexapro.Post184.Sentence1	B-AE I-AE O O
+lexapro.Post184.Sentence2	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post185.Sentence1	O O O O O O O O O O O O O O O O O O O
+lexapro.Post185.Sentence2	O O O O O B-AE I-AE O
+lexapro.Post185.Sentence3	O O O O O O O
+lexapro.Post185.Sentence4	O O O O O O
+lexapro.Post185.Sentence5	O O O O O
+lexapro.Post185.Sentence6	O O O O O O
+lexapro.Post185.Sentence7	O O O O O O O O O O O O O O O O O
+lexapro.Post185.Sentence8	O O O O O O O O O O O O O O
+lexapro.Post185.Sentence9	O O O O O O O O O O O O O O O O O
+lexapro.Post185.Sentence10	O O O O O
+lexapro.Post185.Sentence11	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post185.Sentence12	O O O O O O O
+lexapro.Post186.Sentence1	B-AE I-AE I-AE I-AE O B-AE I-AE I-AE O B-AE O
+lexapro.Post186.Sentence2	O O O O O O O O O O O
+lexapro.Post186.Sentence3	O O O O O O O O O B-SSI I-SSI O O O B-SSI O
+lexapro.Post186.Sentence4	O O O O
+lexapro.Post186.Sentence5	O O O O O O O O O B-AE I-AE I-AE I-AE I-AE I-AE O
+lexapro.Post186.Sentence6	O O O O O O O O O O O O O O O O O O O O
+lexapro.Post187.Sentence1	B-AE I-AE I-AE I-AE O O O B-AE O B-AE I-AE I-AE O B-AE I-AE O O O O O B-AE I-AE I-AE I-AE O
+lexapro.Post187.Sentence2	O O O O O O O O O O O O
+lexapro.Post187.Sentence3	O O O O O O O O O O O B-SSI O B-AE O O O B-SSI I-SSI O B-SSI I-SSI O O O O
+lexapro.Post187.Sentence4	O O B-SSI I-SSI O
+lexapro.Post187.Sentence5	O O O O O O O O O O O O O O
+lexapro.Post188.Sentence1	B-AE I-AE I-AE O
+lexapro.Post188.Sentence2	B-AE I-AE I-AE O O O O O O
+lexapro.Post188.Sentence3	O O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post188.Sentence4	O O O O O O O O O O O O O O O O
+lexapro.Post188.Sentence5	O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post189.Sentence1	O O O O O O B-SSI O B-SSI I-SSI O O O O O O O O
+lexapro.Post189.Sentence2	O O O O O O O O O O O
+lexapro.Post189.Sentence3	O O O O O O O O O O O O B-AE I-AE I-AE I-AE I-AE I-AE
+lexapro.Post189.Sentence4	O O O O O O O O O
+lexapro.Post189.Sentence5	O O O O O O O
+lexapro.Post189.Sentence6	O O O O O O O O O
+lexapro.Post189.Sentence7	O O B-AE I-AE I-AE O O O O O O O O O O O O O O
+lexapro.Post189.Sentence8	O O O O O O O O O O B-AE O B-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE O B-AE I-AE O B-AE I-AE O B-AE I-AE I-AE O
+lexapro.Post189.Sentence9	O O O O O O O O O
+lexapro.Post189.Sentence10	O O O O O O O O O O O O O O O B-SSI O O O O O O O O O O
+lexapro.Post189.Sentence11	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post190.Sentence1	O
+lexapro.Post191.Sentence1	B-AE I-AE O O O O B-AE I-AE O
+lexapro.Post191.Sentence2	O O O O O O O O O O I-AE O O O O
+lexapro.Post191.Sentence3	O O O
+lexapro.Post192.Sentence1	B-AE I-AE I-AE O
+lexapro.Post192.Sentence2	O O O O O
+lexapro.Post192.Sentence3	O O O O
+lexapro.Post193.Sentence1	O O O B-AE I-AE I-AE I-AE I-AE I-AE O O O B-AE I-AE O O O O O O O B-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE
+lexapro.Post193.Sentence2	O O O O O O O O O O
+lexapro.Post193.Sentence3	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post193.Sentence4	O O O O O
+lexapro.Post193.Sentence5	O O O O O O
+lexapro.Post193.Sentence6	O O O O O O O O O O O O O O O O O O O O B-SSI O
+lexapro.Post193.Sentence7	O O O O O O O O O B-AE I-AE I-AE O O O O O B-SSI O B-AE I-AE I-AE O B-SSI O
+lexapro.Post193.Sentence8	O O O O O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post193.Sentence9	O O O O O O
+lexapro.Post193.Sentence10	O O O O O O O O O O O O O O O O O O
+lexapro.Post193.Sentence11	O O O O O O O O O O O O O O O O B-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE O B-AE I-AE I-AE I-AE I-AE O O O O B-AE O O O
+lexapro.Post193.Sentence12	O O O
+lexapro.Post193.Sentence13	O O O O O O O O O O O O O O
+lexapro.Post194.Sentence1	O O O O O O O O O O O O O O O O O O
+lexapro.Post194.Sentence2	O O O B-AE I-AE I-AE O O O O O O O O O O
+lexapro.Post194.Sentence3	O O O O O O O O O O
+lexapro.Post194.Sentence4	O O O O
+lexapro.Post194.Sentence5	O O O O O O O O O O O
+lexapro.Post194.Sentence6	O O O O O B-AE I-AE O O O O O O O O O O O O O O O O
+lexapro.Post194.Sentence7	O O O O O O
+lexapro.Post194.Sentence8	O O O O O O O O O
+lexapro.Post194.Sentence9	O B-AE I-AE I-AE
+lexapro.Post194.Sentence10	O B-SSI O O O O O O O O O O
+lexapro.Post194.Sentence11	O O O O O O O O O O O O O O
+lexapro.Post194.Sentence12	O O O O
+lexapro.Post194.Sentence13	O O O O O O O O O
+lexapro.Post195.Sentence1	O O B-SSI O B-SSI O B-SSI O O O O O O O O O O O O
+lexapro.Post196.Sentence1	B-AE I-AE O B-AE I-AE O B-AE I-AE O O O O B-AE I-AE I-AE I-AE I-AE I-AE I-AE O B-AE I-AE O
+lexapro.Post196.Sentence2	O O O O O O O O O O O O O
+lexapro.Post196.Sentence3	O O O O O B-SSI O O
+lexapro.Post196.Sentence4	O O O O O O B-SSI O O O O O O O O O O O O
+lexapro.Post196.Sentence5	O O O O O O
+lexapro.Post196.Sentence6	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post196.Sentence7	O O O O O O O
+lexapro.Post197.Sentence1	B-AE I-AE O
+lexapro.Post197.Sentence2	O O O O
+lexapro.Post197.Sentence3	O O O O O O O O O O O O O O O O O O O O O O B-AE I-AE I-AE O O O O O O
+lexapro.Post197.Sentence4	O O O O O O O
+lexapro.Post197.Sentence5	O O O O O O
+lexapro.Post197.Sentence6	O O O O O O
+lexapro.Post197.Sentence7	O O B-SSI O O O O O O O O O O O O O O O
+lexapro.Post197.Sentence8	O O O
+lexapro.Post197.Sentence9	O O O O O O O O O O
+lexapro.Post197.Sentence10	O O O
+lexapro.Post198.Sentence1	B-AE I-AE O O O O O O O O O
+lexapro.Post198.Sentence2	O O O O O O O O O O O O O O O O O O O O
+lexapro.Post198.Sentence3	O O O O O O O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post198.Sentence4	O O O O O O O B-SSI O O O O O O O O O O O O
+lexapro.Post199.Sentence1	O O O O O O O O O O O O O O O O O O
+lexapro.Post199.Sentence2	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post199.Sentence3	O O O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post199.Sentence4	O O O O O O O O O O O O
+lexapro.Post200.Sentence1	O O O O O O
+lexapro.Post200.Sentence2	O O O O O O
+lexapro.Post200.Sentence3	O O O O O O O O O O O
+lexapro.Post200.Sentence4	O O B-SSI O B-SSI O O O O O O
+lexapro.Post201.Sentence1	O O O B-AE O B-AE I-AE O B-AE I-AE O B-AE I-AE O B-AE I-AE I-AE I-AE O B-AE I-AE O O O O O O
+lexapro.Post201.Sentence2	O B-AE I-AE O B-AE I-AE O B-AE I-AE I-AE O B-AE I-AE I-AE O B-AE I-AE O
+lexapro.Post201.Sentence3	B-AE I-AE O O O O O O O O O O
+lexapro.Post201.Sentence4	O O O O O O O O O O O O O O O O B-AE O
+lexapro.Post201.Sentence5	O O O O O O O
+lexapro.Post201.Sentence6	O O O O O O
+lexapro.Post201.Sentence7	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post201.Sentence8	O O O O O O O O O O O O B-AE I-AE O
+lexapro.Post201.Sentence9	O O O O O O O B-SSI O O O O O O O O O O O O O O O O O O
+lexapro.Post202.Sentence1	O O O O O O O O O
+lexapro.Post202.Sentence2	O O O B-SSI O B-SSI O
+lexapro.Post202.Sentence3	O O O O O O O
+lexapro.Post202.Sentence4	O O O O O O O
+lexapro.Post203.Sentence1	O O O O O O O O O O
+lexapro.Post203.Sentence2	O O O O O O O O O O O O O
+lexapro.Post203.Sentence3	O O O O O O O
+lexapro.Post204.Sentence1	B-AE I-AE I-AE I-AE O
+lexapro.Post204.Sentence2	O O O O O O O O O O O O O O O O B-SSI O B-SSI O O O O O
+lexapro.Post205.Sentence1	B-AE I-AE I-AE I-AE O B-AE I-AE O B-AE O
+lexapro.Post205.Sentence2	O O O O O O O O
+lexapro.Post205.Sentence3	O B-SSI O O O O O O B-SSI I-SSI O O O
+lexapro.Post205.Sentence4	O O O O O O O B-AE I-AE I-AE I-AE O O O O O O B-AE I-AE I-AE I-AE O
+lexapro.Post205.Sentence5	O O O O O O O O O O O
+lexapro.Post205.Sentence6	O O O O O O O O O O O O O
+lexapro.Post206.Sentence1	O O O O O O O O O O
+lexapro.Post206.Sentence2	O O O B-AE I-AE I-AE I-AE O O O O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post206.Sentence3	O O O O O O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post206.Sentence4	O O O O O O O
+lexapro.Post206.Sentence5	O O O O O O O O O O O O O O O O O O
+lexapro.Post206.Sentence6	O O O O O O O
+lexapro.Post206.Sentence7	O O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post206.Sentence8	O O O O O O
+lexapro.Post206.Sentence9	O O O O O O O O O O O O O
+lexapro.Post206.Sentence10	O O O O O O O O O O O O O O O O O O O O
+lexapro.Post207.Sentence1	O O B-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE O B-AE O O O O O O O B-AE I-AE O
+lexapro.Post207.Sentence2	O O O O O O O O O O B-SSI O B-SSI O
+lexapro.Post207.Sentence3	O O O O
+lexapro.Post207.Sentence4	O O O O O O O
+lexapro.Post207.Sentence5	O O O
+lexapro.Post207.Sentence6	O O O O O O O
+lexapro.Post207.Sentence7	O O O O O O
+lexapro.Post207.Sentence8	O O O O O O O O O O O O
+lexapro.Post207.Sentence9	O O O O O O O O O O O O O O B-AE I-AE O B-AE O
+lexapro.Post207.Sentence10	O O O O
+lexapro.Post207.Sentence11	O O O O O O O O O O O O O O O O O O
+lexapro.Post207.Sentence12	O O O O
+lexapro.Post207.Sentence13	O O O O
+lexapro.Post207.Sentence14	O O O O
+lexapro.Post207.Sentence15	O O O
+lexapro.Post207.Sentence16	O O O O O O O O O O O O O O O O O
+lexapro.Post207.Sentence17	O O O O O O O
+lexapro.Post207.Sentence18	O O O O O O O O
+lexapro.Post207.Sentence19	O O O O O O O O O O B-SSI O B-SSI O O
+lexapro.Post207.Sentence20	O O O O O O O O O
+lexapro.Post207.Sentence21	O O O O O O O O O O
+lexapro.Post207.Sentence22	O O O O O O
+lexapro.Post207.Sentence23	O O O O O O O
+lexapro.Post208.Sentence1	B-AE I-AE O B-AE O B-AE O
+lexapro.Post208.Sentence2	O O O O O O O O
+lexapro.Post208.Sentence3	O O O O O O O O O O O O O O O O
+lexapro.Post208.Sentence4	O O O O O O
+lexapro.Post208.Sentence5	O O O O O O O O
+lexapro.Post208.Sentence6	O O O O O O O O O O O
+lexapro.Post208.Sentence7	O O O O O O
+lexapro.Post208.Sentence8	O O O O O O O O O O O O
+lexapro.Post208.Sentence9	O O O O O O O O O O O
+lexapro.Post209.Sentence1	O O O O O B-SSI O O O O O
+lexapro.Post209.Sentence2	O O O O O O O O O O B-AE I-AE O B-AE I-AE O O
+lexapro.Post210.Sentence1	O O B-AE O B-AE I-AE I-AE O
+lexapro.Post210.Sentence2	O O B-AE I-AE O
+lexapro.Post211.Sentence1	I-AE O B-AE O
+lexapro.Post211.Sentence2	O O O
+lexapro.Post211.Sentence3	O O O O
+lexapro.Post211.Sentence4	O B-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE O O O B-AE I-AE I-AE I-AE I-AE I-AE I-AE O O B-AE I-AE I-AE O O O O
+lexapro.Post211.Sentence5	O O O O
+lexapro.Post211.Sentence6	O O O
+lexapro.Post211.Sentence7	O O
+lexapro.Post212.Sentence1	O
+lexapro.Post212.Sentence2	O O O O O O O O O B-SSI I-SSI O B-AE I-AE I-AE O B-AE I-AE I-AE O O O O O O O O O O O O
+lexapro.Post212.Sentence3	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post213.Sentence1	B-AE I-AE I-AE I-AE I-AE O
+lexapro.Post213.Sentence2	O O O O O O
+lexapro.Post213.Sentence3	O O O O O O O O O O O O
+lexapro.Post213.Sentence4	O O O O
+lexapro.Post213.Sentence5	O O O O O O O O O O O O B-SSI I-SSI O
+lexapro.Post213.Sentence6	O O O O O O O O O O O B-SSI O
+lexapro.Post213.Sentence7	O O O O O O O B-AE I-AE O O O
+lexapro.Post213.Sentence8	O O O O O O O O O O O O O O O
+lexapro.Post214.Sentence1	B-AE I-AE I-AE I-AE O B-AE I-AE I-AE O B-AE I-AE I-AE O B-AE I-AE I-AE O B-AE I-AE O B-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE O
+lexapro.Post214.Sentence2	O O O O O O O O O O O O O
+lexapro.Post214.Sentence3	O O O O O O O O O
+lexapro.Post214.Sentence4	O O O
+lexapro.Post214.Sentence5	O O O O O O O O O O O O O O B-AE I-AE O O O O O O O O
+lexapro.Post214.Sentence6	O O B-AE I-AE I-AE O B-AE I-AE O
+lexapro.Post215.Sentence1	O O O
+lexapro.Post215.Sentence2	O O O O
+lexapro.Post215.Sentence3	O O O O O O O O O
+lexapro.Post216.Sentence1	B-AE I-AE I-AE O O O O B-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE O O B-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE O O O O O
+lexapro.Post216.Sentence2	O O O O O O O O
+lexapro.Post216.Sentence3	O O O O O O O O O
+lexapro.Post216.Sentence4	O O O O O O O O O O O O O O O O O O O O O O O
+lexapro.Post216.Sentence5	O O O O O O O O O
+lexapro.Post217.Sentence1	B-AE I-AE I-AE I-AE I-AE I-AE I-AE O
+lexapro.Post217.Sentence2	O O O O O O O
+lexapro.Post217.Sentence3	O O O B-SSI O B-SSI O O O O O O O O O O O O O O O O O O O
+lexapro.Post217.Sentence4	O O O O O O O O O O O O O O O O O O O O
+lexapro.Post217.Sentence5	O O O O B-AE O O O O O O
+lexapro.Post217.Sentence6	O O O O O O O O O O
+lexapro.Post217.Sentence7	O O O O O O O O O O O O O O O O O O O O
+lexapro.Post217.Sentence8	O O O O O O O O O
+lexapro.Post217.Sentence9	O O O O O O O O O O O O O O O O O O
+lexapro.Post217.Sentence10	O O O O O O O O O O O O O O
+lexapro.Post217.Sentence11	O O O O O O O O
+lexapro.Post218.Sentence1	O
+lexapro.Post218.Sentence2	O O O B-SSI O B-SSI O O O O O
+lexapro.Post218.Sentence3	O O O O O O O O O O
+lexapro.Post218.Sentence4	O O O O
+lexapro.Post219.Sentence1	O O O O O O
+lexapro.Post219.Sentence2	O O O O
+lexapro.Post219.Sentence3	O O O O O O O O O
+lexapro.Post219.Sentence4	O O O O O O O
+lexapro.Post219.Sentence5	O O O O O O O O O O O O O O
+zoloft.Post171.Sentence1	O O O O O O O O O O O B-AE O O O O O O O O O O
+zoloft.Post171.Sentence2	O O O O O O O O O O O O O O O O
+zoloft.Post171.Sentence3	O O O O O
+zoloft.Post171.Sentence4	O O O
+zoloft.Post171.Sentence5	O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post171.Sentence6	O O O O O O O O O O O O O
+zoloft.Post172.Sentence1	B-AE I-AE I-AE O O O O O
+zoloft.Post172.Sentence2	O O O O O O O O O O O O O O
+zoloft.Post172.Sentence3	O O O O O O O O O O O B-SSI O O B-SSI I-SSI O B-AE I-AE O B-SSI O
+zoloft.Post172.Sentence4	O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post172.Sentence5	O O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post172.Sentence6	O O O O O O O O O O O O O O O O O O
+zoloft.Post172.Sentence7	O O O O O O O O O O O O
+zoloft.Post172.Sentence8	O O O O O O O O O O O O O O O O O O O O
+zoloft.Post172.Sentence9	O O O O O
+zoloft.Post172.Sentence10	O O O O O O O O O O O O O
+zoloft.Post173.Sentence1	B-AE I-AE I-AE O B-AE I-AE O
+zoloft.Post173.Sentence2	O O O O O
+zoloft.Post174.Sentence1	B-AE I-AE O O O O O O O O O
+zoloft.Post174.Sentence2	O O O O O
+zoloft.Post174.Sentence3	O O O O O O B-AE I-AE O O O O O O O O O
+zoloft.Post174.Sentence4	O O O O O O O O O O O
+zoloft.Post175.Sentence1	O O O O O O O B-AE I-AE I-AE O O O O O O O O B-SSI I-SSI O B-SSI O
+zoloft.Post175.Sentence2	O O O O O O O O O O O O O O O O O
+zoloft.Post175.Sentence3	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post175.Sentence4	O O O O O O O
+zoloft.Post175.Sentence5	O O O O O O O O B-AE I-AE O O O O O
+zoloft.Post175.Sentence6	O O O O O O O O O O O O O O O O O
+zoloft.Post175.Sentence7	O O O O O O O O O O O O O
+zoloft.Post175.Sentence8	O O O O O O O O O O O O O O O
+zoloft.Post175.Sentence9	O O O O O O
+zoloft.Post175.Sentence10	O O O O O O O O O O O O O
+zoloft.Post175.Sentence11	O O O O O O O O O O O O O
+zoloft.Post176.Sentence1	O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post176.Sentence2	O O O O O O O O O O O O B-AE O O B-AE I-AE I-AE O
+zoloft.Post176.Sentence3	O O O O O O O O O O B-AE I-AE I-AE O O B-AE O
+zoloft.Post176.Sentence4	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post177.Sentence1	O O O O O O O O O O O O O O O
+zoloft.Post177.Sentence2	O O O O O O O O O O O O O O O O
+zoloft.Post177.Sentence3	O O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post177.Sentence4	O O O O O
+zoloft.Post177.Sentence5	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post177.Sentence6	O O O O O O O O O O O O O O O B-SSI I-SSI I-SSI O O O O O O O O O O O O O O O O O O O O
+zoloft.Post177.Sentence7	O O O O O O O
+zoloft.Post177.Sentence8	O O O O O O O O O O O O O O O O O O O O
+zoloft.Post177.Sentence9	O O O O O O O O O
+zoloft.Post177.Sentence10	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post177.Sentence11	O O O O O O O O O O B-SSI O O O O
+zoloft.Post177.Sentence12	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post177.Sentence13	O O O O O O O O O O O
+zoloft.Post177.Sentence14	O O O O O O O O O
+zoloft.Post177.Sentence15	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post178.Sentence1	B-AE I-AE O O O O O O O
+zoloft.Post178.Sentence2	O O O O O B-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE O O O O O O O O O O O O O O
+zoloft.Post178.Sentence3	O O O O O O O O O O O O O
+zoloft.Post178.Sentence4	O O O O O B-SSI O
+zoloft.Post178.Sentence5	O O O O O O O O O O
+zoloft.Post178.Sentence6	O O O O O O B-SSI O O B-AE I-AE I-AE O
+zoloft.Post178.Sentence7	O O O O O O O B-SSI I-SSI O
+zoloft.Post178.Sentence8	O O O O O
+zoloft.Post179.Sentence1	O O O O O O O O O O O O B-AE I-AE I-AE I-AE O O O O O O O O
+zoloft.Post179.Sentence2	O O O O O
+zoloft.Post179.Sentence3	O O O O O O O O O O O O
+zoloft.Post179.Sentence4	B-AE I-AE I-AE O O O O O O
+zoloft.Post179.Sentence5	O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post179.Sentence6	O O O O O O O O O
+zoloft.Post179.Sentence7	O O O O O O O O O O O O O O O O O O O O
+zoloft.Post179.Sentence8	O O O O O O O O O O O
+zoloft.Post179.Sentence9	O O O O O O O O O O O O O O
+zoloft.Post180.Sentence1	B-AE I-AE I-AE O
+zoloft.Post180.Sentence2	O O O O O O O O O O O O O O O
+zoloft.Post180.Sentence3	O O O O O O O O O O O O O O O O
+zoloft.Post181.Sentence1	O O O O O O O O O O O O
+zoloft.Post182.Sentence1	O O O O O O O O O O O O O O O O O O
+zoloft.Post182.Sentence2	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post182.Sentence3	O O O O O O O O O O O
+zoloft.Post182.Sentence4	O O O O O O O O O O O O O O
+zoloft.Post182.Sentence5	O O O O O O O O O O O O O O
+zoloft.Post182.Sentence6	O O O O O O O O O O O O O O O O O O B-AE I-AE O O O
+zoloft.Post182.Sentence7	O O O O O O O O O O
+zoloft.Post182.Sentence8	O O O O
+zoloft.Post182.Sentence9	O O B-AE I-AE I-AE O O O O O O O B-AE I-AE I-AE O O O B-AE I-AE O
+zoloft.Post182.Sentence10	O O O O O O O O O O O O O O O O
+zoloft.Post182.Sentence11	O O O O O O O O O O O
+zoloft.Post182.Sentence12	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post182.Sentence13	O O O O O O O O O O O O O O O O O
+zoloft.Post182.Sentence14	O O O O O O O O O B-SSI O B-SSI O O O O O O O O O O O
+zoloft.Post182.Sentence15	O O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post182.Sentence16	O O O O O O O O O O O O O O O O O O
+zoloft.Post182.Sentence17	O O O
+zoloft.Post182.Sentence18	O O O O O B-SSI O B-SSI O O O O O O O O O O O O O O O O
+zoloft.Post182.Sentence19	O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post182.Sentence20	O O
+zoloft.Post183.Sentence1	O O O O O O O O
+zoloft.Post183.Sentence2	O O O O O O O O O O O O O O O O B-SSI O
+zoloft.Post183.Sentence3	O O O O O O O O O O O O O O O O
+zoloft.Post183.Sentence4	O O O O O O O O O B-AE I-AE I-AE O
+zoloft.Post183.Sentence5	O O O O O
+zoloft.Post183.Sentence6	O O O O O O O O O O O O
+zoloft.Post183.Sentence7	O O O O O O O
+zoloft.Post184.Sentence1	O O O O O O O O O B-AE I-AE O O O
+zoloft.Post184.Sentence2	O O O O O O B-SSI O
+zoloft.Post184.Sentence3	B-AE I-AE I-AE O O O O
+zoloft.Post184.Sentence4	O O O O O O O O O O O O O O O O O O
+zoloft.Post184.Sentence5	O O O O O O O O O O O O O O O O B-SSI O O O O O O
+zoloft.Post184.Sentence6	O O O O O O O O O O O
+zoloft.Post184.Sentence7	O O O O O
+zoloft.Post184.Sentence8	O O O
+zoloft.Post185.Sentence1	B-AE O
+zoloft.Post185.Sentence2	O O O O O O O O
+zoloft.Post185.Sentence3	B-AE I-AE O
+zoloft.Post185.Sentence4	O O O O O O O O O O O O O O O O O O O O
+zoloft.Post185.Sentence5	O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post185.Sentence6	O O O O O O O O O O O O O O O O B-AE I-AE I-AE O O O O O O O O O O O O O
+zoloft.Post185.Sentence7	O O O O O O O O O O O O O O O
+zoloft.Post185.Sentence8	O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post185.Sentence9	O O O O
+zoloft.Post185.Sentence10	O O O O O O O O O O O O O O O O O O O
+zoloft.Post185.Sentence11	O O
+zoloft.Post187.Sentence1	O O O O O O O O O O O O O O O
+zoloft.Post187.Sentence2	O O O O O O O B-AE I-AE I-AE I-AE I-AE I-AE I-AE O O O O O
+zoloft.Post187.Sentence3	O O
+zoloft.Post187.Sentence4	O O O O O O O B-AE I-AE I-AE O
+zoloft.Post187.Sentence5	O O O O B-SSI O O O O O
+zoloft.Post188.Sentence1	O B-AE O B-AE I-AE I-AE O B-AE O B-AE I-AE O
+zoloft.Post188.Sentence2	O O O O O O O O O O O O O O
+zoloft.Post188.Sentence3	O O B-AE I-AE O O O O O O O O
+zoloft.Post188.Sentence4	O O O O O
+zoloft.Post188.Sentence5	O O O O O B-AE I-AE O
+zoloft.Post189.Sentence1	O
+zoloft.Post189.Sentence2	O O O O
+zoloft.Post190.Sentence1	O O O O O O O O
+zoloft.Post190.Sentence2	O O O O O O B-AE I-AE I-AE I-AE I-AE O
+zoloft.Post190.Sentence3	O O O O O O O O O O B-AE I-AE O O B-AE I-AE I-AE O O O B-AE I-AE O
+zoloft.Post190.Sentence4	O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post190.Sentence5	O O O O O O O O B-AE I-AE O
+zoloft.Post190.Sentence6	O O O O O O O O O O
+zoloft.Post190.Sentence7	O O O O O O O O O O O O O O B-AE I-AE I-AE I-AE I-AE
+zoloft.Post190.Sentence8	O O O
+zoloft.Post190.Sentence9	O O O O O O O O O O O B-SSI O
+zoloft.Post190.Sentence10	O O O O O O O O O O O O O B-AE O B-AE I-AE I-AE O
+zoloft.Post190.Sentence11	O O O O O O
+zoloft.Post191.Sentence1	B-AE O B-AE I-AE I-AE O B-AE I-AE I-AE O B-AE I-AE I-AE I-AE I-AE I-AE O B-AE O
+zoloft.Post191.Sentence2	O O O O O O B-SSI O B-SSI I-SSI O
+zoloft.Post191.Sentence3	O O O O O O O O O O O O
+zoloft.Post191.Sentence4	O O O O O B-AE O O O O O O O O
+zoloft.Post191.Sentence5	O O O O O O O O O O O O O O O O O O O
+zoloft.Post191.Sentence6	O O O O O O O O O O
+zoloft.Post191.Sentence7	O O O O O O O O O O O O O O
+zoloft.Post192.Sentence1	B-AE I-AE O B-AE O
+zoloft.Post193.Sentence1	O O O O O O O O O O
+zoloft.Post193.Sentence2	O O O O O O
+zoloft.Post193.Sentence3	O O O O O O O O O O O
+zoloft.Post194.Sentence1	O O O O O O O O O
+zoloft.Post194.Sentence2	O O O O O O O
+zoloft.Post194.Sentence3	O O B-AE I-AE O
+zoloft.Post194.Sentence4	B-AE I-AE I-AE I-AE I-AE O B-AE I-AE I-AE I-AE I-AE O
+zoloft.Post194.Sentence5	O O O O B-AE I-AE I-AE I-AE I-AE I-AE O O O O O O O O O O O
+zoloft.Post194.Sentence6	O O O O B-SSI O
+zoloft.Post194.Sentence7	O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post194.Sentence8	O O O O O O O O O O
+zoloft.Post194.Sentence9	O O O O
+zoloft.Post194.Sentence10	O O O O O O O O O O O O O O O O O
+zoloft.Post195.Sentence1	O O O O O O O O O O O O O O O
+zoloft.Post195.Sentence2	O O O B-AE I-AE O O O O
+zoloft.Post195.Sentence3	O O B-AE I-AE I-AE I-AE I-AE I-AE I-AE O O
+zoloft.Post195.Sentence4	O O O O O O O O O O O O
+zoloft.Post195.Sentence5	O O O O O O O O O O O O
+zoloft.Post195.Sentence6	O O O O O O O O O
+zoloft.Post195.Sentence7	O O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post196.Sentence1	O O O O O O O
+zoloft.Post196.Sentence2	O O O O O
+zoloft.Post196.Sentence3	O O O O O O O O
+zoloft.Post196.Sentence4	O O O O O O O O B-AE I-AE O B-AE O
+zoloft.Post197.Sentence1	B-AE O B-AE I-AE O B-AE O B-AE I-AE O
+zoloft.Post197.Sentence2	O O O O O O
+zoloft.Post197.Sentence3	O O O O O B-SSI I-SSI O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post197.Sentence4	O O O O O O O O O O O O O O B-AE I-AE O O O O O O O O O O O O
+zoloft.Post197.Sentence5	O O O O O O O O O O O O
+zoloft.Post197.Sentence6	O O O O O B-SSI O B-SSI O O O B-SSI O O O O O O O
+zoloft.Post197.Sentence7	O O O O O B-AE O O O O O O O O O O
+zoloft.Post198.Sentence1	B-AE O
+zoloft.Post198.Sentence2	O O O O O O O O O O O O O O O O
+zoloft.Post198.Sentence3	O O O O O O O O O O O O O O
+zoloft.Post198.Sentence4	O O O O O O O O O O
+zoloft.Post198.Sentence5	O O O O O O O O O O O O O O O O O O O O
+zoloft.Post198.Sentence6	O O O O O O O
+zoloft.Post199.Sentence1	B-AE I-AE I-AE I-AE I-AE I-AE O B-AE I-AE I-AE I-AE I-AE O B-AE I-AE O B-AE I-AE I-AE O B-AE I-AE O
+zoloft.Post199.Sentence2	O O O O O O O O O O O O B-AE I-AE I-AE O B-AE O
+zoloft.Post199.Sentence3	O O O O O O O O O O O O O O O
+zoloft.Post200.Sentence1	O O O O O O O O O O O O O O O O O O O O O B-SSI O
+zoloft.Post200.Sentence2	O O O O
+zoloft.Post200.Sentence3	O O O O O O O O O O O B-SSI
+zoloft.Post202.Sentence1	B-AE O
+zoloft.Post202.Sentence2	B-AE I-AE O O B-AE I-AE I-AE O
+zoloft.Post202.Sentence3	O O O O O O O B-SSI O
+zoloft.Post202.Sentence4	O O O O O O O O O O O O O O O O O
+zoloft.Post202.Sentence5	O O O O O O O O O O O O O O
+zoloft.Post203.Sentence1	O O O O O O O
+zoloft.Post203.Sentence2	O O O O
+zoloft.Post203.Sentence3	O O O O O O O O O O O O O O O O O O O O O O B-AE I-AE I-AE I-AE I-AE O B-AE I-AE O O O O
+zoloft.Post203.Sentence4	O O O O O
+zoloft.Post203.Sentence5	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post203.Sentence6	O O O O O
+zoloft.Post203.Sentence7	O O O O O O O O O O O O O O O O B-SSI O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post203.Sentence8	O O O O O O O O
+zoloft.Post203.Sentence9	O O O O O O O O O O O O O O O O B-SSI I-SSI O O O O O
+zoloft.Post203.Sentence10	O O O O O O O O O O O O O O O
+zoloft.Post203.Sentence11	O O O O O O O O O O O O O O O
+zoloft.Post203.Sentence12	O O O O O O O O O O O O O O
+zoloft.Post203.Sentence13	O O O O O O O O O O O O O O O B-SSI O O O
+zoloft.Post203.Sentence14	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post204.Sentence1	O O O O O O O O O O O O O O O O O O O
+zoloft.Post204.Sentence2	O O O O O O O O
+zoloft.Post204.Sentence3	O O O O O
+zoloft.Post204.Sentence4	O O O B-SSI O O O O O O B-AE I-AE O
+zoloft.Post204.Sentence5	O B-AE I-AE I-AE I-AE I-AE I-AE O O O O O O O B-AE I-AE O
+zoloft.Post204.Sentence6	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post204.Sentence7	O O O O O O O O O O O O O O B-SSI O B-SSI I-SSI O
+zoloft.Post204.Sentence8	O O O O O O O O O
+zoloft.Post204.Sentence9	O O O O O O
+zoloft.Post204.Sentence10	O O O O O O O O O O O O O
+zoloft.Post205.Sentence1	O O O O O O O O O O O O
+zoloft.Post205.Sentence2	O O O O O O O O O O O O
+zoloft.Post205.Sentence3	O B-AE I-AE I-AE I-AE I-AE O O O O O O O O
+zoloft.Post205.Sentence4	O O O O O
+zoloft.Post205.Sentence5	O O O O O O O O O O O O O O O O O
+zoloft.Post205.Sentence6	O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post205.Sentence7	O O O O O O O O O O O
+zoloft.Post205.Sentence8	O O O O O O O
+zoloft.Post205.Sentence9	O O O O O O O O O O O O
+zoloft.Post206.Sentence1	O O O O O O O O O O O O O O O O O O
+zoloft.Post206.Sentence2	O O O O O O O O O O O O O O O O
+zoloft.Post206.Sentence3	O O O O O O O O O O B-AE I-AE O O O O O B-SSI I-SSI O O O O O O O O O O O O O
+zoloft.Post206.Sentence4	O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post206.Sentence5	O O O O O O O O O O O O O O O O O O
+zoloft.Post207.Sentence1	B-AE I-AE O O O O O O O O O O O O O O O O B-AE I-AE I-AE I-AE I-AE O B-AE I-AE I-AE I-AE O B-AE I-AE I-AE I-AE I-AE O
+zoloft.Post207.Sentence2	O O O O O O O O O O O O O
+zoloft.Post207.Sentence3	O
+zoloft.Post207.Sentence4	O O O O O O O O
+zoloft.Post207.Sentence5	O O O O O O O O O O O O O O O O O
+zoloft.Post207.Sentence6	O O O O O O B-SSI O O O O O O O
+zoloft.Post207.Sentence7	O O O O O O O O O O O
+zoloft.Post207.Sentence8	O O O O O O O O O O O O O O O O O O
+zoloft.Post207.Sentence9	O O O O O O O O O O O O O O
+zoloft.Post207.Sentence10	O O O O O
+zoloft.Post208.Sentence1	O O O O O O O O O O O O O O B-AE I-AE O O O O O O O O O O O O O O O O O
+zoloft.Post208.Sentence2	O O O O O O O
+zoloft.Post208.Sentence3	O O O O O O O O O O O
+zoloft.Post208.Sentence4	O O O O O O O O O O O O O O O O O O O O O O B-SSI O
+zoloft.Post208.Sentence5	O O O O O O O O O O O O O O B-AE I-AE O
+zoloft.Post208.Sentence6	O O O O O O O O O O
+zoloft.Post209.Sentence1	B-AE I-AE O B-AE O B-AE I-AE I-AE O
+zoloft.Post209.Sentence2	O O O
+zoloft.Post209.Sentence3	O O O O O O O O O
+zoloft.Post209.Sentence4	O O O O O O O
+zoloft.Post210.Sentence1	B-AE I-AE I-AE O
+zoloft.Post211.Sentence1	O O O O O O O O O
+zoloft.Post211.Sentence2	O O O O O O O O O O O O O O O O O O
+zoloft.Post211.Sentence3	O O O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post211.Sentence4	O O O O O O O O O O B-SSI O B-SSI O O O O O O O O O O
+zoloft.Post211.Sentence5	O B-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE I-AE O
+zoloft.Post211.Sentence6	O O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post211.Sentence7	O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post212.Sentence1	B-AE O B-AE I-AE O B-AE I-AE O B-AE I-AE I-AE I-AE O
+zoloft.Post212.Sentence2	B-AE I-AE I-AE O O O O O O O O O O B-SSI I-SSI O
+zoloft.Post212.Sentence3	O O O O O O O
+zoloft.Post212.Sentence4	O O O O O O O O O O O O
+zoloft.Post212.Sentence5	O O O O O O O O O O O O O
+zoloft.Post212.Sentence6	O O O O O O O O O O O O O
+zoloft.Post213.Sentence1	B-AE I-AE O O O O O O B-AE I-AE I-AE O B-AE I-AE O B-AE O
+zoloft.Post213.Sentence2	B-AE I-AE I-AE O O B-AE I-AE I-AE I-AE O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post213.Sentence3	O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+zoloft.Post213.Sentence4	O O O O O O O O O O O
